@@ -1,0 +1,57 @@
+%\addbibresource{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk.bib}
+\subsection(Reaction rates during initial transcription)
+Several single-molecule studies of initial transcription have been undertaken
+\cite{margeat_direct_2006,revyakin_abortive_2006}. These serve as the best
+source for determining the rates of initial transcription. Revyakin et. al
+measured the time spent in abortive cycling before promoter escape for 100
+individual transcription events \cite{revyakin_abortive_2006}. These
+experiments were performed on the N25 promoter with 100 $\my$M NTP in the
+precense of GreB. We used the results of Revyakin et. al to calculate the
+cumulative probability of achieving promoter escape and fitted the rate
+constants of NAC, promoter escape, and unscrunching (Figure
+\ref{fig:revyakin_fit}). For this, we used abortive probabilities for N25 with
+GreB as found by Hsu et al. \cite{hsu_initial_2006}. We found the best fit to
+the experimental data for a NAC at 10.5 nt/s, 8/s rate constant for promoter
+escape, and 2/s rate constant for unscrunching and abortive RNA release.
+
+\begin{figure}
+	\begin{center}
+        \includegraphics{../figures/cumul_scrunch_fit.pdf}
+	\end{center}
+    \caption{Fit of model to kinetic data.}
+    \label{fig:revyakin_fit}
+\end{figure}
+
+We compared with single-molecule experiments. What they did. What were the
+conditions. We used GreB+ APs from Hsu 2006. How we fitted the model. These
+were the results: nac, abort, escape (Fig1). This fits with their results.
+Strong indication that during abortive transcription, the nucleotide addtion
+cycle proceeds at the same speed as for transcription elongation.  promoter
+escape transcription is likely to proceed with the same speed.  Noticed that
+only 5 pct were less than 1 second with optimal fit. We ran 10000 simulations
+of single RNAP and look at the average (Fig2). Shows that with this fit, up to
+xx pct may fit within th 1 sec window.
+
+%[Recall that you are estimating reaction rate constants: 10/s, not the rate.
+%The Rate will be d[RNAP_5]/dt = k*RNAP_4 = 10/s * RNAP_4, for example.]
+
+Comparison with ensemble studies. Vo did simulation with 100 [NTP], as for
+Revyakin, but without GreB. So we tried without GreB. Worked great (see here).
+Showing that the rates obtained by single-molecule experiments works also for
+ensenble transcription studies. This shows that the AP profile, obtained
+without necessitating timeseries information, is sufficient to find the
+kinetics of initial transcription.
+
+The results indicate that the AP profile is sufficient. So far, the AP profile
+has been varied by GreB+/-. But AP profile will also change with mutation in
+the initial trascripbed sequence. To see the effect of ITS mutations on the
+kinetics of initial transctiption, we examined the kinetics 43 N25 promoter
+variants from Hsu et. al. This shows that mutations to the ITS leads to large
+variability in the time needed to reach promoter escape, indicated by $\tau$
+which is the time when 50 pct of FL product has been produced for N25,
+N25$_{\text{anti}}$, and N25A1$_{\text{anti}}$ (Fig3A). Overall, $\tau$ varied
+from 12s (DG001) to 3min xxx s (DG002) (Figure 3B). Using the APs to calculate
+the propensity of backtracking allows calculation of the frequency of
+backtracking during initial transcription. For transcription elongation, the
+rate of backtracking is at X/bp. For the N25 variants, it varied from x/bp to
+y/bp (Figure S1).
