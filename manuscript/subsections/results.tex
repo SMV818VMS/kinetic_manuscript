@@ -1,57 +1,146 @@
 %\addbibresource{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk.bib}
-\subsection(Reaction rates during initial transcription)
+\subsection{Reaction rates during initial transcription}
 Several single-molecule studies of initial transcription have been undertaken
-\cite{margeat_direct_2006,revyakin_abortive_2006}. These serve as the best
-source for determining the rates of initial transcription. Revyakin et. al
-measured the time spent in abortive cycling before promoter escape for 100
-individual transcription events \cite{revyakin_abortive_2006}. These
-experiments were performed on the N25 promoter with 100 $\my$M NTP in the
-precense of GreB. We used the results of Revyakin et. al to calculate the
-cumulative probability of achieving promoter escape and fitted the rate
-constants of NAC, promoter escape, and unscrunching (Figure
-\ref{fig:revyakin_fit}). For this, we used abortive probabilities for N25 with
-GreB as found by Hsu et al. \cite{hsu_initial_2006}. We found the best fit to
-the experimental data for a NAC at 10.5 nt/s, 8/s rate constant for promoter
-escape, and 2/s rate constant for unscrunching and abortive RNA release.
+\cite{margeat_direct_2006,revyakin_abortive_2006,kapanidis_retention_2005}.
+By following single transcription events with high accuracy, the results of
+these studies can be well suited for informing computational models of
+transcription. Revyakin et.\ al measured initial transcription on the N25
+promoter in the presence of GreB and with 100 $\mu$M NTP to find that
+individual RNAPs under these conditions spend on average around 5 seconds in
+repetitive abortive cycling prior to reaching promoter
+escape~\cite{revyakin_abortive_2006}. We used the abortive probabilities from
+ensemble experiments of initial transcription on N25 in the presence of GreB
+from Hsu et. al~\cite{hsu_initial_2006} to fit a computational model of
+initial transcription to the cumulative distribution of time spent during
+abortive cycling (Figure~\ref{fig:revyakin_fit}). This allowed us to estimate
+average rate constants for the NAC, promoter escape, and unscrunhcing (see
+Methods). This resulted in the following rate constants:~NAC $10.5/s \pm
+0.64$; escape $11.84/s \pm 1.81$; and unscrunching $1.58/s \pm 0.14$. The
+value for NAC is highly similar to the rate of NAC for elongation found by
+Revyakin et.\ al: 9.5 nt/s for positively supercoiled DNA and 13.8 nt/s for
+negatively supercoiled DNA~\cite{revyakin_abortive_2006}. This indicates that
+NAC proceeds at the same rate during scrunching as for transcription
+elongation. The comparatively lower rate of 1.58/s for unscrunching is
+consistent with previous reports that this process is rate limiting for
+abortive cycling~\cite{margeat_direct_2006, revyakin_abortive_2006}.
+Importantly, this result indicates that the abortive profile obtained from
+ensemble experiments is valid for the single molecule experiments of Revyakin
+et.\ al, even though the limited time-resolution of these experiments cannot
+resolve abortive events needed to obtain the abortive profile
+\cite{revyakin_abortive_2006}.
+
+To test the sensitivity of the paramter estimation process to the specific
+abortive profile, we repeated the fitting of the data from Revyakin et.\ al
+but this time to the abortive profile of N25 as obtained without GreB. The
+profile without GreB is marked by a much high probabilty to abort
+transcription after synthesis of a +6 transcript~\cite{hsu_initial_2006},
+which shows that additional rounds of abortive cycling are likely when GreB is
+absent. This fit resulted in the a value of $23.2/s \pm 0.4$ for the
+rate constant of NAC (Table~\ref{tab:param_fit_revyakin}), which would
+indicate that the NAC is faster during scrunching than during elongation, and
+proceeds at speeds normally found for NTP concentrations 10 times higher than
+actual experimental conditions \cite{bai_mechanochemical_2007}. This shows
+that the parameter estimation is sensitive to the ensemble abortive profile,
+and that only the profile which matches the single-molecule experiment in
+terms of presence of GreB can be used to estimate rate constants that are
+consistent with previous findings.
+ 
+\begin{table} \label{tab:param_fit_revyakin}
+    \begin{center}
+        \caption{Fitted rate constants of initial transcription}
+        \begin{tabular}{ccc}
+            \toprule
+            Greb & NAC & Escape & Abort \\
+            $+$ & $10.1 \pm 0.6$ & $11.8 \pm 1.8$ & $1.6 \pm 0.1$\\
+            $-$ & $23.2 \pm 0.4$ & $15.3 \pm 1.5$ & $16.3 \pm 1.4$\\
+        \end{tabular}
+    \end{center}
+\end{table}
 
 \begin{figure}
-	\begin{center}
+    \begin{center}
         \includegraphics{../figures/cumul_scrunch_fit.pdf}
-	\end{center}
-    \caption{Fit of model to kinetic data.}
-    \label{fig:revyakin_fit}
+    \end{center}
+    \caption{Fit of model to single-molecule kinetic data.}
+\label{fig:revyakin_fit}
 \end{figure}
 
-We compared with single-molecule experiments. What they did. What were the
-conditions. We used GreB+ APs from Hsu 2006. How we fitted the model. These
-were the results: nac, abort, escape (Fig1). This fits with their results.
-Strong indication that during abortive transcription, the nucleotide addtion
-cycle proceeds at the same speed as for transcription elongation.  promoter
-escape transcription is likely to proceed with the same speed.  Noticed that
-only 5 pct were less than 1 second with optimal fit. We ran 10000 simulations
-of single RNAP and look at the average (Fig2). Shows that with this fit, up to
-xx pct may fit within th 1 sec window.
+Having estimated rate constants for initial transcription, we wanted to
+compare these results with previously published kinetic data on the N25
+promoter. Ensemble kinetic experiments of initial transcription on N25 at 100
+$\mu$M NTP have been published by Vo et.\ al which show the accumulation of FL
+transcript for two different approaches toward single-round transcription
+\cite{vo_vitro_2003-1}, both performed in the absence of GreB (denoted -GreB).
+Using the rate constants obtained from single-molecule experiments, we found
+that the estimated half-life of FL synthesis was 15.5 seconds, closely
+matching the experimental result which we interpolated to be 13.7 seconds
+(Figure \ref{fig:vo_match}). This shows that the rate constants from
+Table~\ref{tab:param_fit_revyakin}, fitted to single-molecule +GreB
+experiments, are descriptive for the kinetics of FL synthesis for -GreB
+ensemble experiments when using a -GreB profile.
 
-%[Recall that you are estimating reaction rate constants: 10/s, not the rate.
-%The Rate will be d[RNAP_5]/dt = k*RNAP_4 = 10/s * RNAP_4, for example.]
+To again test the sensitivity of model performance for the specific abortive
+profile, we repeated the simulation using the +GreB abortive profile. This
+resulted in a half-life of FL synthesis of xx seconds, which again shows that
+the model performs well only for an abortive profile that matches experimental
+conditions.
 
-Comparison with ensemble studies. Vo did simulation with 100 [NTP], as for
-Revyakin, but without GreB. So we tried without GreB. Worked great (see here).
-Showing that the rates obtained by single-molecule experiments works also for
-ensenble transcription studies. This shows that the AP profile, obtained
-without necessitating timeseries information, is sufficient to find the
-kinetics of initial transcription.
+\begin{figure}
+    \begin{center}
+        \includegraphics{../figures/vo_greb_minus_comparison.pdf}
+    \end{center}
+    \caption{Comparison with ensemble kinetic data.}
+\label{fig:vo_comparison}
+\end{figure}
 
-The results indicate that the AP profile is sufficient. So far, the AP profile
-has been varied by GreB+/-. But AP profile will also change with mutation in
-the initial trascripbed sequence. To see the effect of ITS mutations on the
-kinetics of initial transctiption, we examined the kinetics 43 N25 promoter
-variants from Hsu et. al. This shows that mutations to the ITS leads to large
-variability in the time needed to reach promoter escape, indicated by $\tau$
-which is the time when 50 pct of FL product has been produced for N25,
-N25$_{\text{anti}}$, and N25A1$_{\text{anti}}$ (Fig3A). Overall, $\tau$ varied
-from 12s (DG001) to 3min xxx s (DG002) (Figure 3B). Using the APs to calculate
-the propensity of backtracking allows calculation of the frequency of
-backtracking during initial transcription. For transcription elongation, the
-rate of backtracking is at X/bp. For the N25 variants, it varied from x/bp to
-y/bp (Figure S1).
+The findings in Figure \ref{fig:revyakin_fit} and \ref{fig:vo_comparison} give
+a strong indication that using the abortive profile is a robust method for
+modelling model initial transcription. Thus far, the abortive profile has been
+changed by considering experiments performed in the presence and absence of
+GreB.  However, the abortive profile will also change with mutations in the
+initial transcribed sequence (ITS) \cite{hsu_initial_2006}. To see the effect
+of ITS mutations on the kinetics of initial transcription, we obtained from
+the model the time needed to synthesize 50\% of FL product for the 43 N25
+promoter variants from Hsu et.\ al. This showed that ITS mutations lead to
+variation $\tau$ ranging from 11.1 seconds (DG146a) to 3min 40s
+(DG137a)(Figure~\ref{fig:hsu_hl_synthesis}.
+
+% Are there more results?
+% You can calculate that the frequency of backtracking is 0.X/s, which is a
+% lot more than the 0.0001/s for transcription elongation. This shows that 
+%Using the APs to calculate the propensity of backtracking allows calculation
+%of the frequency of backtracking during initial transcription. For
+%transcription elongation, the rate of backtracking is at X/bp. For the N25
+%variants, it varied from x/bp to y/bp (Figure S1).
+
+% you could quantify the effect of AP by comparing tau for N25 -GreB by adding
+% (or subtract) 10%, 20%, 30% etc to the APs to see the effect on the
+% prediction of tau. Assuming that the distance from tau to the one estimated
+% is within accepted limites, you can see how much an increase in AP
+% (alternatively, backtracking frequency) affects the veracity of the results.
+
+% Can we say that because the NAC is similar to elongation NAC, and that the
+% ensemble experiment was so closely matched, that our two main assumptions
+% are justified:
+    % 1) that each backtracking event leads to an abortive release?
+    % 2) that -GreBassisted cleavage and RNA release is rapid enough to be
+    % negligeble for the oveall kinetics of the system?
+
+%Thought experiment. What would happen if in reality there was a lot of really
+%slow backtracking that did not produce abortive transcripts? Let's say, only
+%1/N were actually produced, where N is number of nts, the rest are stuck in
+%long-lived pauses. If this were the case, it would mean that the probability
+%to backtrack would have to be a lot higher, since right now only a fraction of
+%the complexes that backtrack actually contribute to the abortive probability.
+%But we have shown that by changing the abortive probability, there is a large
+%change in the dynamics of the system.
+
+%I would say that because the NAC and unscrunching steps match previous
+%findings, the assumption that GreB assisted cleavea and RNA release is rapid
+%is valid.
+
+%But how do we interpret the AP for the +GreB experiments? This is a bit of a
+%conundrum. We are interpreting them as if GreB results in a reduction of
+%the probability of backtracking at each position. That is OK, though, because
+%then we only count the unscrunching steps that have proceeded without
+%influence by GreB.
