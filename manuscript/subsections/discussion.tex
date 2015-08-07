@@ -1,4 +1,7 @@
-Points to discuss:
+%Points to discuss:
+
+% You have a lot of ``this indicates .. '' in the results part; perhaps move
+% some of them here?
 
 %* What errors are we incurring by using AP to find rate of backtracking? What
 %are the assumptions (For GreB +/-).
@@ -8,7 +11,6 @@ Points to discuss:
     %- Assumption2: rescue by GreB is fast
 
 %In spite of these simplifying assumption, the model has done well.
-
 
 %while at the same time being faster than 1/s which is the
 %time-resolution of ~\cite{margeat_direct_2006, revyakin_abortive_2006}
@@ -26,3 +28,53 @@ Points to discuss:
 
 % Mention that the Vo et. al experiments have some re-initiaion, which
 % explains why the experimental values reach maximum more slowly.
+
+% For comparing with FL of Vo, there is another caveat. Lilian's experiments
+% are steady state for 10 minutes, which means that APs might be a bit higher
+% than what they should be due to the unproductive complexes. FL kinetics is
+% reflecting only the productive complexes in the beginnign, who probably have
+% a lower probablity to abort at +2 and +3. Damn it it would be nice to find
+% out about this. Should you give it another shot? You might actually have had
+% it wrong last time: vo figure does not give AP for unproductive, but rather
+% abortive %. Can you calculate AP from this? Yes you can, assuming 0 FL
+% transcript (although, it may be produced, but just very very slowly). The
+% method would be: use APs from unproductive; estimate unproductives at 10%
+% +/- 5%, and estimate productive AP at +2, +3, and +4, where 85% of
+% unproductive AP is produced. But if you do that, would you have to go back
+% to re-estimate N25 stuff with lower APs in the beginning? It might actually
+% lead to a better fit, especially in the beginning! Well I'd say that this
+% has now become more plausible, but it's work for another time, for another
+% manuscript, which you'll probably never have time to work on :S!! It means
+% that the nature of unproductive and productive initial transcription may not
+% be uncovered for a very long time! :S
+% XXX In conclusion: do not mention anything about this here, but leave it
+% open for future work. It would make the story more complicated.
+
+%Importantly, this result indicates that the abortive
+%profile obtained from ensemble experiments is valid for the single molecule
+%experiments of Revyakin et.\ al, even though the limited time-resolution of
+%these experiments cannot resolve abortive events needed to obtain the abortive
+%profile \cite{revyakin_abortive_2006}.
+
+% Interesting, but not perhaps something to mention. RNAP seems to be
+% stochastic in its speed of trancsription, but with little variability for a
+% given RNAP, and with a lot of variability between RNAPs. This indicates that
+% the stochastic regime used here (sometimes fast, sometimes slow) is not so
+% descriptive of RNAP translocation. But the productive/unproductive kinetics
+% do not support this gradual difference. So there!
+
+%Thought experiment. What would happen if in reality there was a lot of really
+%slow backtracking that did not produce abortive transcripts? Let's say, only
+%1/N were actually produced, where N is number of nts, the rest are stuck in
+%long-lived pauses. If this were the case, it would mean that the probability
+%to backtrack would have to be a lot higher, since right now only a fraction of
+%the complexes that backtrack actually contribute to the abortive probability.
+%But we have shown that by just slightly changing the abortive probability,
+%the NAC does not ``fit well'' any more.
+
+%I would say that because the NAC and unscrunching steps match previous
+%findings, the assumption that GreB assisted cleavea and RNA release is rapid
+%is valid.
+
+%The model will not fit a -GreB abortive profile to a scruch-distribution
+%generated under +GreB conditions.

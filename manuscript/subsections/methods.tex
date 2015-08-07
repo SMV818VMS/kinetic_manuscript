@@ -1,7 +1,7 @@
 %\addbibresource{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk.bib}
 \subsection{Model of initial transcription}
-Our goal was to construct an accuarte kinetic model of initial transcription
-that is able to be compared with availabe literature. To this end, it is
+Our goal was to construct an accurate kinetic model of initial transcription
+that is able to be compared with available literature. To this end, it is
 necessary that the computational model is highly descriptive of the process.
 To do so, we decided to construct our model using experimentally measured
 abortive profiles (the abortive probability at different ITS positions), which
@@ -18,24 +18,24 @@ of backtracking at each ITS position:
     b = \frac{NAC\cdot AP}{1-AP},
 \end{equation*}
 
-We model intitial transcription using the kinetic scheme given in Figure
+We model initial transcription using the kinetic scheme given in Figure
 \ref{fig:model}. The abortive probabilities for all simulations are obtained
 from Hsu et. al \cite{hsu_initial_2006}.
 Figure~\ref{fig:parameter_estimation}A shows the initial transcription kinetic
-scheme together with placeholder values for the the estimated rates.
+scheme together with placeholder values for the estimated rate constants.
 Figure~\ref{fig:parameter_estimation}B shows example values obtained for the
 N25 promoter when using $NAC=10/s$. The rate of FL product synthesis upon
-promoter escape is given by $NAC/d$ where d is the number of nts from promoter
-escape until runoff.
+promoter escape is given by $NAC/d$ where $d$ is the number of nucleotides from
+promoter escape until runoff.
 
 \subsection{Implementation and parameter estimation for N25}
-To solve the kinetic scheme we use the direct method of the stochastic
-simmulation algorithm \cite{gillespie_exact_1977} as implemented in the StocPY
+To solve the kinetic scheme we use the direct method for the stochastic
+simulation algorithm \cite{gillespie_exact_1977} as implemented in the StocPY
 software \cite{maarleveld_stochpy:_2013}. By using stochastic simulations, we
-are able to simulate transcription to the level of single RNA polymerases,
-which includes the stochastisity the follows with low copy-number reactions.
-In this way, we are able to compare and fit the model to single-molecule
-experiments of initial transcription.
+are able to simulate transcription to the level of single RNA polymerases to
+resolve some of the stochasticity inherent with such low copy number
+reactions. This makes this method ideal for comparing and fitting the model to
+single-molecule experiments of initial transcription.
 
 We estimate the rate constants of NAC, promoter escape, and unscrunching using an
 iterative heuristic process. In the first iteration, we sample 1000 times
@@ -44,14 +44,14 @@ we use the NAC value to obtain rate constants for backtracking (as illustrated
 in Figure~\ref{fig:parameter_estimation}). We then simulate initial
 transcription on N25 with 100 RNAPs (the number of single-RNAP transcription
 events in Revyakin et.\ al \cite{revyakin_abortive_2006}), and find the
-cumulative distrivution of time spent in abortive cycling, which is compared
+cumulative distribution of time spent in abortive cycling, which is compared
 to the measured value using a root mean squared distance. After all 1000
 simulations are finished, we rank them by score and calculate the weighted
 mean and weighted standard deviation of the top 20 samples, using the scores
 as weights. For the next iteration, we again sample 1000 random values, but
 this time the boundaries for the three rate constants are given by the
 weighted mean $\pm$ the weighted standard deviation as computed for the
-previious iteration. We repeat this iterative process until the average score
+previous iteration. We repeat this iterative process until the average score
 of the top 20 results has reaches within 5\% of that of the previous iteration.
 
 \begin{figure}
@@ -59,7 +59,7 @@ of the top 20 results has reaches within 5\% of that of the previous iteration.
         \includegraphics{../illustrations/model.pdf}
 	\end{center}
     \caption{Kinetic model scheme. From the open complex (OC)
-    transcroption proceeds in cycles of nucleotide additions from one initial
+    transcription proceeds in cycles of nucleotide additions from one initial
     transcribing complex (IC) to the next, where each IC is identified by the
     length of the nascent RNA. For ICs with an 2nt RNA or more, there is a
     competition between the nucleotide addition cycle (NAC) and backtracking.
