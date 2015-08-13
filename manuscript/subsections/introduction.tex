@@ -1,19 +1,87 @@
-Points:
+%\addbibresource{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk.bib}
+The first step in gene expression is the binding of RNAP to a promoter. In
+bacteria, the RNAP-$\sigma$ holoenzyme recognizes the promoter region of DNA
+and transitions to the open complex formation from which it is capable of
+initiating RNA synthesis. Since RNAP is bound to the promoter and cannot move
+along the template, translocation during initial RNA synthesis occurs by the
+mechanism of scrunching, where the DNA bubble is enlarged as downstream DNA is
+pulled into RNAP to expose the active site for NTP binding. After having
+synthesized an RNA of length 7-15, the exact number varying for each promoter,
+RNAP may undergo promoter escape and proceed to productive transcription
+elongation.
 
-* Review of kinetic experiments of initial transcription (single molecule and
-ensemble; with the limitations of both; sensitivity and time-resolution), as
-well kinetic modeling (Xue; did they use michaelise menten rates corresponding
-to 1000 $\mu$M?). Mention a word about elongation experiments, of which there
-are several.
+However, before promoter escape occurs, RNAP may also release the
+nascent RNA and return to the open complex formation from which initial
+transcription may be initiated once more. This process is known as as abortive
+transcription initiation. Several rounds of abortive product synthesis and
+reinitiation may pass before RNAP escapes the promoter, where the degree of
+such abortive cycling varies with different promoters and with the base
+composition of the initial transcribed sequence (ITS). Abortive RNA release
+has not been observed directly, but it is strongly associated with
+backtracking of RNA polymerase
+\cite{hsu_escherichia_1995,feng_grea-induced_1994,hsu_initial_2006}. For
+initial transcription, backtracking involves unscrunching of the DNA bubble,
+pushing the 3\ppp end of the nascent RNA into the NTP entry channel.
+Unscrunching will typically lead to a shortened RNA-DNA hybrid, which is
+presumably unstable, leading to the abortive release of the RNA. Based on
+studies of abortive RNA synthesis, it was found that the N25 promoter produces
+more than 20 abortive transcripts for each full length transcript
+\cite{hsu_initial_2006}. If backtracking were the cause of each abortive RNA,
+this would correspond to a rate of backtracking during initial transcription
+on N25 of 0.24/bp, assuming for simplicity that backtracking is equally
+likely at each template position. This is in stark contrast to transcription
+elongation, where rates of backtracking lie around 10$^{-3}$/bp
+\cite{shaevitz_backtracking_2003}. If backtracking is behind abortive RNA
+release, its greatly increased rate during initial transcription presumably
+reflects the instability caused by an incomplete RNA-DNA hybrid and the strain
+from compacting an enlarged DNA bubble.
 
-* Review backtracking, contrasting elongation with initiation.
+By using bulk transcription studies to quantify the abundance of abortive RNAs
+produced from a given promoter, it is possible to calculate the probabilty of
+aborting transcription at each template position before promoter escape
+\cite{hsu_quantitative_1996}. This shows a complex pattern of abortive
+probabilities \cite{hsu_initial_2006}, some of which may be explained by the
+sequence-specific propensity of RNAP to reside in the pre-translocated state
+\cite{skancke_sequence-dependent_2015}. When GreB is added, the probability to
+abort RNA strongly decreases for RNAs longer than 5 nt
+\cite{hsu_initial_2006}. The reduction of AP in the presence of GreB likely
+reflects the stimulus of RNAP's intrinsic cleavage ability for backtracked
+complexes, and not GreB binding in the secondary channel to reduce
+backtracking alltogether \cite{opalka_structure_2003, hsu_initial_2006}.
 
-* Review AP in relation to backtracking, mention GreB. Review the strengths
-and weaknesses of AP: when using GreB the probability to backtrack is not
-changed, but cleavage happens before abortive product release.
+GreB's effect during initial transcription mirrors what is observed during
+elongation, where backtracked pause frequency and duration are strongly
+reduced in the presence of GreB \cite{shaevitz_backtracking_2003}.
 
-*Several single-molecule studies of initial transcription have been undertaken
-\cite{margeat_direct_2006,revyakin_abortive_2006,kapanidis_retention_2005}.
-By following single transcription events with high accuracy, the results of
-these studies can be well suited for informing computational models of
-transcription. 
+Several studies have investigated initial transcription a the level of single
+RNAPs \cite{kapanidis_retention_2005, margeat_direct_2006,
+revyakin_abortive_2006, tang_real-time_2009, kapanidis_initial_2006}. This has
+revealed that scrunching is the mechanism of translocation during initial
+transcription \cite{revyakin_abortive_2006, kapanidis_initial_2006}, and that
+the backtracking and abortive RNA release steps are slow relative to forward
+translocation \cite{margeat_direct_2006, revyakin_abortive_2006}. At the same
+time, the rapid kinetics and narrow spatial confinement of initial
+transcription has presented a challenge for determining exact rate constants
+of key reaction steps, such as the nucleotide addition cycle (NAC), and
+backtracking and abortive RNA release. In contrast, single-molecule techniques
+for transcription elongation readily reveal that the NAC proceeds at around 20
+bp/s under conditions of saturating substrate NTP
+\cite{bai_mechanochemical_2007, tolic-norrelykke_diversity_2004,
+mejia_trigger_2014}. Indeed, for the same experiment, Revaykin et.\ al could
+determine the rate of pause-free transcription to be around 10 nt/s after
+promoter escape, but could not resolve this number for initial transcription
+\cite{revyakin_abortive_2006}. For bacterial RNAP, it is therefore not known
+if the NAC during initial transcription proceeds at the same speed as for
+elongation, or how slow the backtracking and abortive RNA release steps are
+relative to the NAC. For T7 RNAP however, a kinetic model of initial
+transcription revelaed the rate of NAC to vary between 6nt/s and 60nt/s before
+promoter escape was reached. This is slower than NAC during elongation for T7
+RNAP, which has been determined at 220 nt/s \cite{anand_transient_2006}.
+
+To investigate the rate constants of initial transcription for bacterial RNAP,
+we have created a kinetic model of initial transcription by combining APs
+obtained from steady state bulk experiments with measurements of the
+distribution of lifetime of abortive cycling obtained from single-molecule
+experiments. By fitting the model, we have determined the average rate
+constants of initial transcription to show that the rate of pause-free
+transcription is the same for initiation as for elongation.
