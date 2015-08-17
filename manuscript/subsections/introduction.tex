@@ -6,7 +6,9 @@ initiating RNA synthesis. Since RNAP is bound to the promoter and cannot move
 along the template, translocation during initial RNA synthesis occurs by the
 mechanism of scrunching, where the DNA bubble is enlarged as downstream DNA is
 pulled into RNAP to expose the active site for NTP binding. After having
-synthesized an RNA of length 7-15, the exact number varying for each promoter,
+synthesized an RNA of length 8-15, where the exact number varies between
+promoters
+\cite{carpousis_cycling_1980,hsu_vitro_2003,tang_real-time_2009,hsu_initial_2006},
 RNAP may undergo promoter escape and proceed to productive transcription
 elongation.
 
@@ -34,26 +36,27 @@ release, its greatly increased rate during initial transcription presumably
 reflects the instability caused by an incomplete RNA-DNA hybrid and the strain
 from compacting an enlarged DNA bubble.
 
-The amount of RNA of a specific length aborted during initial transcription,
-the abortive profile, varies greatly between promoters, and between ITS
-variants of the same promoter \cite{hsu_promoter_2002}. By quantifying the
-abundance of each abortive RNA of different length produced from a promoter,
-one may calculate the probabilty of aborting transcription at each template
-position \cite{hsu_quantitative_1996}. This results in a complex
-promoter-specific pattern of abortive probabilities
-\cite{hsu_initial_2006,hsu_vitro_2003}, some of which may be explained by the
-sequence-specific propensity of RNAP to reside in the pre-translocated state
-at each translocation step during initial
-transcription~\cite{skancke_sequence-dependent_2015}. The abortive
-probabilities are insensitive NTP concentration \cite{hsu_vitro_2004}, but are
-for RNAs longer than 5nt reduced in the presence of GreB
-\cite{hsu_initial_2003}. The reduction of AP in the presence of GreB likely
-reflects the rescuing of backtracked complexes by RNA cleavage at the active
-site, and not GreB binding in the secondary channel to reduce backtracking
-alltogether \cite{opalka_structure_2003, hsu_initial_2006}. Thus, GreB's
-effect during initial transcription is similar to what is observed during
-elongation, where backtracked pause frequency and duration are strongly
-reduced in the presence of GreB \cite{shaevitz_backtracking_2003}.
+The amount of aborted RNA of a specific length varies greatly between
+promoters, and between ITS variants of the same promoter
+\cite{hsu_promoter_2002}. By quantifying the abundance of each abortive RNA of
+different length produced from a promoter, one may calculate the probabilty of
+aborting transcription at each template position \cite{hsu_quantitative_1996}.
+This results in a complex promoter-specific pattern of abortive probabilities
+(APs) \cite{hsu_initial_2006,hsu_vitro_2003}, which we refer to as a
+promoter's AP profile. The mechanism behind the variation in AP profile
+between promoter variants is not fully known, but some of this variation can
+be explained by the sequence-specific propensity of RNAP to reside in the
+pre-translocated state at each translocation step during initial
+transcription~\cite{skancke_sequence-dependent_2015}. The APs are insensitive
+to changes in NTP concentration \cite{hsu_vitro_2003}, but are reduced in the
+presence of GreB for RNAs longer than 5nt \cite{hsu_initial_2006}. The
+reduction of AP in the presence of GreB likely reflects the rescuing of
+backtracked complexes by RNA cleavage at the active site, and not GreB binding
+in the secondary channel to reduce backtracking \cite{opalka_structure_2003,
+hsu_initial_2006}. Thus, GreB's effect during initial transcription is similar
+to what is observed during elongation, where backtracked pause frequency and
+duration are strongly reduced in the presence of GreB
+\cite{shaevitz_backtracking_2003}.
 
 Several studies have investigated initial transcription a the level of single
 RNAPs \cite{kapanidis_retention_2005, margeat_direct_2006,
@@ -65,21 +68,21 @@ translocation \cite{margeat_direct_2006, revyakin_abortive_2006}. At the same
 time, the rapid kinetics and narrow spatial confinement of initial
 transcription has presented a challenge for determining exact rate constants
 of key reaction steps, such as the nucleotide addition cycle (NAC), and
-backtracking and abortive RNA release. In contrast, single-molecule techniques
-for transcription elongation readily reveal that the NAC proceeds at around 20
-bp/s under conditions of saturating substrate NTP
+backtracking and abortive RNA release; as an example, Revaykin et.\ al could
+determine the rate of transcription to be around 10 nt/s after promoter
+escape, but could not resolve this number for initial transcription for the
+same experiment \cite{revyakin_abortive_2006}. In contrast, single-molecule
+techniques for transcription elongation readily reveal that the NAC proceeds
+at around 20 bp/s under conditions of saturating substrate NTP
 \cite{bai_mechanochemical_2007, mejia_trigger_2014}, albeit with a large
-stochastic component \cite{tolic-norrelykke_diversity_2004}. As an example of
-this difference, Revaykin et.\ al could determine the rate of transcription
-to be around 10 nt/s after promoter escape, but could not resolve this number
-for initial transcription for the same experiment
-\cite{revyakin_abortive_2006}. For bacterial RNAP, it is therefore not known
-if the NAC during initial transcription proceeds at the same speed as for
-elongation, or how slow the backtracking and abortive RNA release steps are
-relative to the NAC. For T7 RNAP however, a kinetic model of initial
-transcription revelaed the rate of NAC to vary between 6nt/s and 60nt/s before
-promoter escape was reached. This is slower than NAC during elongation for T7
-RNAP, which has been determined at 220 nt/s \cite{anand_transient_2006}.
+stochastic component \cite{tolic-norrelykke_diversity_2004}. For bacterial
+RNAP, it is therefore not known if the NAC during initial transcription
+proceeds at the same speed as for elongation. It is neither known how slow the
+backtracking and abortive RNA release steps are relative to the NAC. For T7
+RNAP however, a kinetic model of initial transcription revelaed the rate of
+NAC to vary between 6 nt/s and 60 nt/s before promoter escape was reached. This
+is slower than NAC during elongation for T7 RNAP, which has been determined at
+220 nt/s \cite{anand_transient_2006}.
 
 To investigate the rate constants of initial transcription for bacterial RNAP,
 we have created a kinetic model of initial transcription by combining APs

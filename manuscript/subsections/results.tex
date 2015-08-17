@@ -9,18 +9,18 @@ APs of +GreB from bulk studies of initial transcription from
 Hsu et. al~\cite{hsu_initial_2006}, and thus obtained average rate constants
 for NAC, promoter escape, and unscrunhcing (Figure~\ref{fig:revyakin_fit},
 Figure~\ref{fig:sensitivity}). This resulted in the following values:~NAC
-$10.5/s \pm 0.64$; escape $11.84/s \pm 1.81$; and unscrunching $1.58/s \pm
-0.14$. The value for NAC before promoter escape is highly similar to the
-transcription velocity after promoter escape: 9.5 nt/s for positively
-supercoiled DNA and 13.8 nt/s for negatively supercoiled
-DNA~\cite{revyakin_abortive_2006}. This indicates that NAC proceeds at the
-same rate for both scrunching and transcription elongation. The comparatively
-lower rate of 1.58/s for unscrunching, including abortive RNA release, is
-consistent with previous reports that this process is rate limiting for
-initial transcription~\cite{margeat_direct_2006, revyakin_abortive_2006}.
-Revyakin et.\ al did not measure rounds of abortive cycling that lasted
-shorter than 1 second, but proposed based on extrapolation of their data that
-20\% of abortive cycles last shorter than one second
+$10.5 s^{-1} \pm 0.64$; escape $11.84 s^{-1} \pm 1.81$; and unscrunching $1.58 s^{-1} \pm
+0.14$ (Figure \ref{fig:parameter_estimation}). The value for NAC before
+promoter escape is highly similar to the transcription velocity after promoter
+escape: 9.5 nt/s for positively supercoiled DNA and 13.8 nt/s for negatively
+supercoiled DNA~\cite{revyakin_abortive_2006}. This indicates that NAC
+proceeds at the same rate for both scrunching and transcription elongation.
+The comparatively lower rate of 1.58/s for unscrunching, including abortive
+RNA release, is consistent with previous reports that this process is rate
+limiting for initial transcription~\cite{margeat_direct_2006,
+revyakin_abortive_2006}.  Revyakin et.\ al did not measure rounds of abortive
+cycling that lasted shorter than 1 second, but proposed based on extrapolation
+of their data that 20\% of abortive cycles last shorter than one second
 \cite{revyakin_abortive_2006}. The best fit to the data by our kinetic model
 suggests that less than 2\% of abortive cycling rounds last shorter than 1
 second (Figure \ref{fig:revyakin_fit}). This number can be understood by
@@ -28,7 +28,16 @@ considering that with a transcription rate of $10.5$~nt/s one second is the
 average time needed to reach promoter escape on N25 if backtracking is
 avoided.
 
-\subsection{Estimated rate constants describe kinetics in the absence of GreB}
+\begin{figure}
+	\begin{center}
+        \includegraphics{../illustrations/estimated_parameters.pdf}
+	\end{center}
+    \caption{Estimation rate constants for +GreB N25. (NOTE: values are just
+    placeholders for now)}
+    \label{fig:parameter_estimation}
+\end{figure}
+
+\subsection{Estimated rate constants are also valid for -GreB kinetics}
 We estimated the rate constants of NAC, escape, and scrunching for the
 APs associated with +GreB. However, once fitted, the rate constants should
 be generally valid. The fitted model should therefore be able to capture the
@@ -72,7 +81,7 @@ fitting to perturbed APs, this indicates that the probability to abort RNA
 along the ITS is similar between the unobservable APs in the single-molecule
 experiment from Revyakin et.\ al and observed APs from Hsu et.\ al. First, we
 repeated the parameter estimation process using the -GreB APs. This led to an
-estimate for the rate constant of NAC of $23.2/s \pm 0.4$
+estimate for the rate constant of NAC of $23.2 s^{-1} \pm 0.4$
 (Table~\ref{tab:param_fit_revyakin}), which we consider unphysiological since
 it would suggest that NAC proceeds twice as fast during scrunching compared to
 elongation, proceeding at speeds normally found for NTP concentrations of 1000
@@ -85,8 +94,8 @@ then gradually lower compared to the original +GreB values. This showed first
 of all that even after perturbing the abortive profile the model is still able
 to fit the data as well as for the uperturbed abortive profile (Fig X C).
 Further, as AP increases, a larger rate constant for NAC is required to reach optimal
-fit with experimental data; 12.7/s for an increase in AP of 3\% at each position
-and 15/s for an increase of 9\% (Figure \ref{fig:ap_adjustment.pdf}).
+fit with experimental data; 12.7 s$^{-1}$ for an increase in AP of 3\% at each position
+and 15 s$^{-1}$ for an increase of 9\% (Figure \ref{fig:ap_adjustment.pdf}).
 Similarly, the rate constant for unscrunching and abortive release increased
 as AP increased, to the point where this step is as rapid as the NAC. As AP
 decreases, the value for NAC decreases, while the value for unscrunching and
@@ -129,7 +138,7 @@ the value obtained by measurements from Vo et. al \cite{vo_vitro_2003-1}
 
 \begin{figure}
     \begin{center}
-        \includegraphics[scale=0.7]{../figures/ap_adjustment.pdf}
+        \includegraphics{../figures/ap_adjustment.pdf}
     \end{center}
     \caption{Perturbation of AP changes optimal fit. A: Change of best fit
       for rate constant of NAC. B: $\tau$ from initial transcription with
