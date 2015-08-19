@@ -75,39 +75,51 @@ backtracking and abortive RNA release \cite{margeat_direct_2006,
 revyakin_abortive_2006}. One way to assess the similarity of the two abortive
 profiles is to investigate the sensitivity of the estimated rate constants to
 changes in the APs. We consider the rate constants in Table
-\ref{tab:xxx} to be physiological and consistent with previous literature. If
-rate constants or model predictions therefore become unphysiological after
-fitting to perturbed APs, this indicates that the probability to abort RNA
-along the ITS is similar between the unobservable APs in the single-molecule
-experiment from Revyakin et.\ al and observed APs from Hsu et.\ al. First, we
-repeated the parameter estimation process using the -GreB APs. This led to an
-estimate for the rate constant of NAC of $23.2 s^{-1} \pm 0.4$
+\ref{tab:xxx} to be physiological and consistent with the available
+literature; therefore, if the rate rate constants become unphysiological or
+model predictions worsen when attempting fitting to perturbed APs, this
+is an indication that there is likely an agreement between the probability to
+abort RNA along the ITS single-molecule and bulk experiments. To investigate
+this, we first repeated the parameter estimation process using the -GreB APs
+instead of +GreB APs \cite{hsu_initial_2006}. This led to an estimate for the
+rate constant of NAC of $23.2 s^{-1} \pm 0.4$
 (Table~\ref{tab:param_fit_revyakin}), which we consider unphysiological since
 it would suggest that NAC proceeds twice as fast during scrunching compared to
 elongation, proceeding at speeds normally found for NTP concentrations of 1000
 $\mu$M~\cite{bai_mechanochemical_2007}, 10 times higher than actual
 experimental conditions. Next, we asked how model fitting would be affected by
-gradually modifying the +GreB APs by making them increasingly removed from the
+gradually modifying the +GreB APs to make them increasingly removed from the
 original values. We therefore re-estimated rate constants after changing the
 +GreB Aps so that the probability to abort became first gradually higher and
-then gradually lower compared to the original +GreB values. This showed first
-of all that even after perturbing the abortive profile the model is still able
-to fit the data as well as for the uperturbed abortive profile (Fig X C).
-Further, as AP increases, a larger rate constant for NAC is required to reach optimal
-fit with experimental data; 12.7 s$^{-1}$ for an increase in AP of 3\% at each position
-and 15 s$^{-1}$ for an increase of 9\% (Figure \ref{fig:ap_adjustment.pdf}).
-Similarly, the rate constant for unscrunching and abortive release increased
-as AP increased, to the point where this step is as rapid as the NAC. As AP
-decreases, the value for NAC decreases, while the value for unscrunching and
-abortive release remains the same or lower compared to the case with the
-original GreB values. Therefore, for increased AP, NAC increases to the point
-of being unphysiological. However, for reduced AP this was not the case.
-Therefore, we wished to assess model performance for the rate constants
-obtained from a fit to a reduced AP. We therefore used each set of rate
-constants obtained after modifying the APs to obtain $\tau$ for -GreB APs.
-This showed that when AP is lowered, $\tau$ becomes increasingly removed from
-the value obtained by measurements from Vo et. al \cite{vo_vitro_2003-1}
-(Figure \ref{fig:ap_adjustment.pdf}).
+then gradually lower compared to the original values. This showed first
+of all that the fit is best for zero or small perturbations, and gets
+progressively worse as peturbations increase (Figure
+\ref{fig:ap_adjustment}A), which shows that the original +GreB AP values lie
+in an optimal region in terms of fitting to the experimental data. The effect
+of perturbations on the rate constants were as follows: for higher AP, NAC is
+forced to increase to maintain optimal fit, while NAC decreases when AP is
+lowered, (Figure \ref{fig:ap_adjustment}B); for higher APs, the rate constant
+for unscrunching and abortive release similarly increased as AP increases, to
+the point where this step becomes nearly as rapid as the NAC, but for lower AP
+this value was not much removed from the baseline (Figure
+\ref{fig:ap_adjustment}C). The rate constant for promoter escape was
+insensitive to changes in AP, indicating that model performance is insensitive
+to this parameter (Figure \ref{fig:ap_adjustment}D).
+
+We therefore observed that for an increased AP, the rate constant for NAC
+increased to the point of being unphysiological at more than 20 $s^{-1}$, and
+the rate constant for the abortive step increased to the point of being
+similar in size to that of the NAC, where it is hardly rate limiting for the
+process. However, for a reduced AP there is no criteria by which to judge the
+rate constants as unphysiological. Therefore, we wished to assess how model
+performance was affected by rate constants that were optimal for low APs. To
+do so, we used each set of rate constants obtained after modifying the APs to
+obtain $\tau$ for -GreB APs, and calculated the size of this value relative to
+the one obtained from measurements from Vo et. al \cite{vo_vitro_2003-1},
+denoted $\tau_r$. This showed that when AP is changed from the original +GreB
+values, $\tau$ becomes increasingly removed from the value obtained by
+measurements (Figure \ref{fig:ap_adjustment}E), with the baseline value lying
+between minimal and maximal values, in the region of a ratio of 1.
 
 \begin{table}
   \label{tab:param_fit_revyakin}
@@ -130,19 +142,23 @@ the value obtained by measurements from Vo et. al \cite{vo_vitro_2003-1}
     \caption{Initial transcription model fitted to distribution of time spent
       in rounds of abortive cycling before promoter escape. Measurements are
       from Revyakin et. al \cite{revyakin_abortive_2006}. Fit to measurements
-      shows best fit by an exponential function. To the left in green is
-      indicated the area of the plot where time is less than one second.}
+      shows best fit by an exponential function. The green area indicates time
+      is less than one second.}
 \label{fig:revyakin_fit}
 \end{figure}
 
 
 \begin{figure}
     \begin{center}
-        \includegraphics{../figures/ap_adjustment.pdf}
+      \includegraphics[scale=0.8]{../figures/ap_adjustment.pdf}
     \end{center}
-    \caption{Perturbation of AP changes optimal fit. A: Change of best fit
-      for rate constant of NAC. B: $\tau$ from initial transcription with
-    -GreB with best fitted rate constants.}
+    \caption{Effect on model fit, estimated rate constants, and model
+      performance when AP values are modified from baseline. A) Effect on
+      model fit; B) effect on rate constant of NAC; C) effect on rate constant of
+      the abortive step; D) effect on rate constant of escape; E) effect on
+      $\tau_r$, which is the model-obtained $\tau$ relative to the value found from
+      measurements from Vo et. al \cite{vo_vitro_2003-1} (Figure
+      \ref{fig:vo_comparison}).}
 \label{fig:ap_adjustment}
 \end{figure}
 
