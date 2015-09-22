@@ -1,72 +1,90 @@
 %\addbibresource{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk.bib}
-In this paper we have built and fitted a model of initial transcription to a
-combination of bulk and single-molecule experimental data. This allowed us
-to pin down the essential rate constants of the process, showing that the
-speed of transcription highly similar for initial transcription and
-transcription elongation (Figure~\ref{fig:revyakin_fit},
-Table~\ref{tab:param_fit_revyakin}). We validated the rate constants by
-comparing with published kinetic data of initial transcription obtained under
-experimental conditions different than for how the rate constants were
-obtained (Figure~\ref{fig:vo_comparison}), and we showed that the underlying
-assumption of a common abortive profile between single-molecule and bulk
-experiments is likely correct, as departure from this profile led to
-unphysiological rate constants and worsening of model performance
-(Figure~\ref{fig:ap_adjustment}).
+In this paper we have built a model of initial transcription and fitted rate
+constants of key processes using a combination of bulk and single-molecule
+experimental data. This allowed us to pin down the essential rate constants of
+the process, showing that the speed of transcription highly similar for
+initial transcription and transcription elongation
+(Figure~\ref{fig:revyakin_fit}, Table~\ref{tab:param_fit_revyakin}). We
+validated the rate constants by comparing with published kinetic data of
+initial transcription obtained under experimental conditions different than
+for how the rate constants were obtained (Figure~\ref{fig:vo_comparison}), and
+we showed that the underlying assumption of a common abortive profile between
+single-molecule and bulk experiments is likely correct, as departure from this
+profile led to unphysiological rate constants and worsening of model
+performance (Figure~\ref{fig:ap_adjustment}).
 
 The model of initial transcription used in this work uses the same rate
 constant for NAC and unscrunching and abortive release at each template
 position (Figure~\ref{fig:model_and_rates}). Therefore, the rate constants
-presented here must be considered average values. Is this a reasonable
-assumption? For NAC, a kinetic study of initial transcription with the T7 RNAP
-showed large variation for this value at each translocation step
-\cite{tang_real-time_2009}. Here, we found that the average value was similar
-to the average rate of transcription elongation for the same concentration of
-NTP. Since there is no obvious mechanism that would increase transcription
-rate during initial transcription, we find it likely that the variability in
-speed of transcription is also similar between initiation and elongation. This
-then indicates that there is no bottleneck step during forward initial
-transcription, but that it proceeds as for transcription elongation except
-that there is a higher probability to backtrack. On the other hand, we expect
-a more position-based variability in the rate constant for unscrunching and
-abortive RNA release. Presumably, backtracking happens more readily and
-abortive release is more rapid for an incomplete RNA-DNA hybrid
-\cite{nudler_rnadna_1997,komissarova_shortening_2002}, making this step slower
-for complexes with a nascent RNA longer than 10 nt. However, it can also be
-speculated that the increased stability from a complete hybrid is matched by
-increased instability caused by the increasingly enlarged DNA bubble.
-Ultimately, to resolve this number, experimental techniques are needed that
-can resolve backtracking and abortive RNA release at the time scale where they
-occur. Alternatively, as increasingly complex molecular simulations of RNAP
-dynamics are obtained \cite{silva_millisecond_2014}, the details of this
-process may be obtained using numerical methods alone.
+presented here must be considered average values. Given the complex nature of
+initial transcription, one may ask if the use of average rate constants is a reasonable
+assumption. For T7 RNAP, a kinetic study showed a 10-fold variation for the
+NAC rate constant, from 6 nt$^{-s}$ to \cite{tang_real-time_2009}. We would
+argue that this is not the case for bacterial RNAP. The average rate constant
+we found for NAC matched closely the average speed of transcription during
+elongation. Since it is unlikely that the NAC is faster for some steps during
+initiation, the closely matching averages require that the NAC cannot be much
+slower either. Our results therefore support at model where there is no
+bottleneck step during for the NAC during initial transcription, but that
+transcription during initiation is the same as for elongation, except that
+there is a higher probability to backtrack. This implies that the strain of
+the growing DNA bubble and the steric clashes with $\sigma$ do not greatly
+affect the NAC during initiation. On the other hand, it is likely that these
+processes contribute to the increased rate of backtracking during initiation
+compared to those found for elongation.
+
+% XXX new section:
+% Add something about the value of NAC, talk about the distribution (it's
+% quite wide). Mention the issue of supercoiling, and the case of linear
+% fragments. Talk about distributions in general: Abortive and backtracking
+% has a very narrow distribution around 1-2, while NAC is more wide, but with
+% a clear peak for the highest values around 11.4 whatev. Limitation in
+% resolving this resolution is partially in the low number of single
+% nucleotide experiments, 100, for which there is plenty of variation in the
+% speed of NAC, at lest for elongation.
 
 Our model assumes that APs calculated from the abundance of aborted RNA are
 equal to the probability of the initial backstep
-(Figure~\ref{fig:model_and_rates}). Can we assess the quality of this
-assumption based on model performance? The alternative would be that some
-complexes remain in long backtracked pauses, and only slowly or never
-abortively release RNA. If this were the case, then the probability to
-backtrack would be higher than what is indicated by the AP, since the AP would
-only reflect those backtracked complexes that do abort. However, our results
-indicate that this is not the case. We showed that if APs are increased, the
-reaction rate constants required to fit experimental data become
-unphysiological (Figure~\ref{fig:ap_adjustment}). Therefore, we find that a
-model of initial transcription where the calculated APs represent the
-probability to backtrack is consistent with experimental data.
+(Figure~\ref{fig:model_and_rates}). The alternative would be that some
+complexes, especially in the absence of GreB, remain in long backtracked
+pauses, as has been observed for transcription elongation
+\cite{shaevitz_backtracking_2003}. If long backtracked pauses were common
+during initiation, the APs would only reflect those backtracked
+complexes that abort, so that that the actual probability to backtrack would
+be higher than what is indicated by the APs. However, we showed that rate
+constants obtained by fitting a model to +GreB APs are descriptive for the
+kinetics of initial transcription without GreB
+(Figure~\ref{fig:vo_comparison}), where such long backtracked pauses may take
+place. This result indicates that such long backtracked pauses, if they exist,
+do not make a large contribution to the kinetics of initial transcription.
+
+The rate constant for unscrunching and abortive RNA release was found to have
+a narrow optimum at 1.7 $\pm 0.4$. We speculate that this value may vary for
+different template positions. Presumably, backtracking happens more readily
+and abortive release is more rapid for an incomplete RNA-DNA hybrid
+\cite{nudler_rnadna_1997,komissarova_shortening_2002}. This would imply that
+this step is slower for complexes that have obtained with a full-length
+RNA-DNA hybrid. For N25, this may not be so relevant, since promoter escape
+happens at +11, shortly after a full hybrid has been obtained. To resolve
+this number more precisely, experimental techniques are needed that can
+resolve backtracking and abortive RNA release at the time scale in which they
+occur. Alternatively, as increasingly complex molecular simulations of RNAP
+dynamics are obtained \cite{silva_millisecond_2014}, the details of this
+process may be instead first be obtained using numerical methods alone.
 
 In conclusion, this work supports a model of initial transcription where the
-forward rate of transcription is the same as for transcription elongation, and
-where the backtracking and abortive release step is more than 5 times slower.
-Since model fitting resulted in physiologically reasonable rate constants
-(Table~\ref{tab:param_fit_revyakin}), and since these rate constants hold up
-to independent kinetic data (Figure~\ref{fig:vo_comparison}), we propose that
-assumptions underlying the model are sound. Therefore, we propose that the APs
-may be interpreted as probabilities to backtrack during initial transcription,
-and our findings suggest that these probabilities are the same for the
-single-molecule experiments of Revyakin et.\ al \cite{revyakin_abortive_2006}
-and the steady state transcription experiments by Hsu et.\ al
-\cite{hsu_initial_2006}.
-
+forward rate of transcription is highly similar to the rate for transcription
+elongation, and where the backtracking and abortive release step is more than
+5 times slower. Since model fitting resulted in physiologically reasonable
+rate constants (Table~\ref{tab:param_fit_revyakin}), and since these rate
+constants hold up to independent kinetic data
+(Figure~\ref{fig:vo_comparison}), this supports that the assumptions
+underlying the model are sound. Therefore, it is likely that the APs
+reflect probabilities to backtrack during initial transcription, and it is
+probable that the APs are the same for the single-molecule experiments of
+Revyakin et.\ al \cite{revyakin_abortive_2006} and the steady state
+transcription experiments by Hsu et.\ al \cite{hsu_initial_2006}.
+ 
 % Q:You mentioned something to Itziar, something that you decided not to
 % include! Yes, separating the productive from the unproductive transcripts.
 % You can do this by analyzing the kinetics from a single round of
