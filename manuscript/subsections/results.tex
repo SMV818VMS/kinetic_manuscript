@@ -9,11 +9,29 @@ constructed a kinetic model of initial transcription and fitted it to this
 distribution, leveraging the APs quantified from +GreB experiments of initial
 transcription by Hsu et al. ~\cite{hsu_initial_2006}
 (Figure~\ref{fig:revyakin_fit}). To identify the rate constants that best fit
-the experimental data, we first we randomly sampled 50000 combinations of the
-three rate constants and evaluated the fit to data for each combination
-(Figure~\ref{fig:parameter_estimation_1}). We then screened the data,
-isolating the top 5\% and top 1\% of all simulations. This showed that 
-of fits
+the experimental data, we first we performed a Monte Carlo simulation where we
+uniformly sampled 50000 combinations of the
+three rate constants and for each combination and evaluated the of the model
+to data. To see which of these parameter combinations were optimal for the
+fit, we selected the 1\% best simulations in terms of fitness
+(Figure~\ref{fig:parameter_estimation_1}). In the top 1\%, the distributions
+of both the rate constants for the NAC and unscrunching and abortive release
+showed parameter ranges that had been screened out. For the NAC, no
+values below 5 s$^{-1}$ were in the top 1\%, and for unscrunhcing and abortive
+release, no values above 4 s$^{-1}$ were part of the top 1\% of fits to data.
+It also showed a preference for values around 10 s$^{-1}$ for the NAC and
+values close to 1 s$^{-1}$ for unscrunching and abortive release. On the
+other had, the distribution for the rate constant of promoter escape did not
+show any clear preference for a particular range of values. To see if we could
+better resolve the optimal values for the rate constants, we screened for the
+top 0.1\% of results (Figure~\ref{fig:parameter_estimation_1}). This showed
+similar distributions for the NAC and unscrunching and abortive release, but
+with more pronounced peaks. For the rate constant of promoter escape, there
+was still no preference for any specific range of values. From the top 0.01\%
+of results, we calculated a weighted mean value for the distributions of the
+rate constants for the NAC and unscrunching and abortive release. This
+resulted in values of 10.5 s$^{-1} \pm 0.64$ for the NAC and 1.58
+s$^{-1} \pm 0.14$ for unscrunching and abortive release.
 
 % Inject something here about the distributions of NAC, Escape, and
 % Unscrunching and Abortive RNA Release (UAR).
@@ -45,8 +63,7 @@ of fits
 \end{figure}
 
 The rate constants that resulted in optimal fit with data were as follows:~NAC
-10.5 s$^{-1} \pm 0.64$; escape 11.84 s$^{-1} \pm 1.81$; and unscrunching 1.58
-s$^{-1} \pm 0.14$ (Figure \ref{fig:estimated_parameters},
+(Figure \ref{fig:estimated_parameters},
 Table~\ref{tab:param_fit_revyakin}). The value for NAC before promoter escape
 matches the velocity of transcription after promoter escape for N25 in the
 presence of GreB: 9.5 nt s$^{-1}$ for positively supercoiled DNA and 13.8 nt

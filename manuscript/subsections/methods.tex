@@ -3,18 +3,17 @@
 Our model is based on a minimal scheme for initial transcription, containing
 reactions for i) the nucleotide addition cycle (NAC), ii) backstepping (the
 first unscrunching step), iii) promoter escape, and iv) unscrunching and
-abortive RNA release (Figure \ref{fig:model_and_rates}A). We obtain the
-reaction rates for all reactions except backstepping by varying these values
-within certain bounds and then comparing model fit with experimental data (see
-below). To identify the reaction rate of backstepping, we make use of an
-additional information. We use the fact that the probability to backstep is
-proportional to the abortive probability (AP) \cite{hsu_quantitative_1996}.
-Therefore, given a rate constant for NAC, we may calculate the rate constant
-of backstepping, $b$, in the following way:
+abortive RNA release (Figure \ref{fig:model_and_rates}A). To identify values
+for the reaction rate constants we use Monte Carlo sampling followed by
+comparision with experimental data (Figure
+S\ref{fig:parameter_estimation_scheme}). The rate constant for backstepping is
+not obtained by random sampling but is calculated from the APs of the N25
+promoter using the randomly sampled value for NAC. Given a value for NAC, we
+calculate the rate constant of backstepping as follows:
 \begin{equation*}
-  b = \frac{\text{NAC}\cdot\text{AP}}{1-\text{AP}},
+  b = \frac{\text{NAC}\cdot\text{AP}}{1-\text{AP}}.
 \end{equation*}
-which reflects a kinetic competition between backstepping and the NAC at each
+This reflects a kinetic competition between backstepping and the NAC at each
 template position. Figure~\ref{fig:model_and_rates}B shows the initial
 transcription kinetic scheme together with placeholder values for the
 estimated rate constants. The rate of FL product synthesis upon promoter
