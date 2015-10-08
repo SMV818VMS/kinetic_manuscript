@@ -23,14 +23,14 @@ abortive transcript synthesis is sensitive to mutations both in the core
 promoter region and in the initial transcribed sequence (ITS)
 \cite{hsu_initial_2006, hsu_promoter_2002, vo_vitro_2003}.
 
-While the steps RNAP must go through to release abortive RNA have not yet been fully
-determined, it is known that some or all abortive RNA releases involve the
-step of backtracking. Backtracking constitutes a reverse motion where RNAP
-releases scrunched DNA, forcing the nascent RNA 3\ppp end to extrude into the
-NTP entry channel. The evidence for backtracking's involvement in abortive RNA
-release is that the amount of abortive product is reduced in the presence of
-GreB, a protein that rescues backtracked complexes by stimulating RNAP's
-intrinsic RNA cleavage activity
+While the different steps RNAP must go through to release abortive RNA have
+not yet been fully determined, it is known that some or all abortive RNA
+releases involve the step of backtracking. Backtracking constitutes a reverse
+motion where RNAP releases scrunched DNA, forcing the nascent RNA 3\ppp end to
+extrude into the NTP entry channel. The evidence for backtracking's
+involvement in abortive RNA release is that the amount of abortive product is
+reduced in the presence of GreB, a protein that rescues backtracked complexes
+by stimulating RNAP's intrinsic RNA cleavage activity
 \cite{hsu_escherichia_1995,feng_grea-induced_1994,hsu_initial_2006}.
 Therefore, although uncertainty remains about the details, the conceptual
 model of abortive cycling consists of the progressive steps of scrunching and
@@ -38,56 +38,55 @@ transcript synthesis, and the regressive steps of backtracking, unscrunching,
 and abortive RNA release. In this model, little is known about the kinetics of
 the individual steps.
 
-Recent information obtained about the kinetics of initial transcription has
-come largely from single-molecule experiments of initial transcription
-\cite{revyakin_abortive_2006, kapanidis_initial_2006,
+Kinetic information of initial transcription has so far largely been obtained
+for the process as a whole. Early work with bulk transcription experiments on
+the \textit{lac} UV5 promoter showed a half-life of full length RNA
+synthesis of 1 minute, and that promoter-binding was not the rate-limiting
+step in this process \cite{stefano_lac_1979}. Subsequent work showed that the
+time-delay for full length RNA synthesis coincided with a high rate of
+synthesis of short abortive transcripts \cite{munson_abortive_1981}. Recent
+kinetic information abount initial transcription has come largely from
+single-molecule experiments \cite{revyakin_abortive_2006, kapanidis_initial_2006,
 kapanidis_retention_2005, margeat_direct_2006, tang_real-time_2009}. For the
 T7 phage RNAP, a combination of single-molecule and bulk transcription
 experiments followed by model fitting showed that the rate constant for the
 nucleotide addition cycle (NAC) during initial transcription varied between 6
 and 60 nt$^{-s}$, and that promoter escape on the T7 promoter occurs at
 increasing rates from position +8 to position +13 \cite{tang_real-time_2009}.
-For bacterial RNAP, exact rate constants for initial transcription have not
-been identified. However, it has been found that the backtracking and
-abortive RNA release steps are slow relative to forward translocation and RNA
-synthesis \cite{margeat_direct_2006, revyakin_abortive_2006}. The most
-detailed view of the kinetics of initial transcription in bacteria identified thus far
-are the distributions of time RNAP spends in abortive cycling on the N25 promoter
-in the presence of GreB, as described by Revyakin et al
-\cite{revyakin_abortive_2006}. The distributions showed that RNAP spends on
+For bacterial RNAP, it has been found that the backtracking and abortive
+RNA release steps are slow relative to forward translocation and RNA synthesis
+\cite{margeat_direct_2006, revyakin_abortive_2006}. The most detailed view of
+the kinetics of initial transcription in bacteria are the
+distributions of time RNAP spends in abortive cycling on the N25 promoter in
+the presence of GreB, as described by Revyakin et al.
+\cite{revyakin_abortive_2006}. These distributions show that RNAP spends on
 average 5 and 3.5 seconds in abortive cycling before achieving promoter escape
 for positively and negatively supercoiled DNA, respectively
 \cite{revyakin_abortive_2006}.
-% Make the transition to bulk experiments better. Show that they complete each
-% other, and move on with yer work!
-For initial transcription in the absence of
-GreB, Vo et al. used experiments of single round of bulk transcription to show
-that most productive RNAPs achieve promoter escape within 60 seconds
-\cite{vo_vitro_2003-1}.
 
-While single-molecule experiments have therefore revealed some kinetic details
-of initial transcription, their time-resolution have not been sufficient for
-separating the steps of backtracking, unscrunching, and abortive RNA release
-\cite{revyakin_abortive_2006, margeat_direct_2006}, which prevents them from
-resolving the different species of abortive RNA that are produced. On the
-other hand, bulk experiments of initial transcription generate large molar
-amounts of abortive RNA. This permits the calculation of the abortive
-probability (AP), the likelihood of RNAP producing an abortive transcript of a
-given length \cite{hsu_quantitative_1996, hsu_promoter_2002}.
-
-% XXX expand this section, making it clear how these two types of infornmation
-% complement each other.
-Therefore, \ldots complementary \ldots etc continue. 
-%
+While single-molecule experiments have therefore revealed the general kinetic
+picture of initial transcription, their time-resolution have not been
+sufficient for separating the time spent in backtracking, unscrunching, and
+abortive RNA release \cite{revyakin_abortive_2006, margeat_direct_2006}. In
+particular, the experiments of Revyakin et al. on bacterial RNAP could not
+resolve the lengths of abortive transcripts produced, which would have
+indicated the position of backtracking and therefore the rate constants for
+the synthesis of the different abortive transcript species. On the other
+hand, bulk experiments of initial transcription, while less precise in
+resolving temporal events, generate large amounts of transcripts and therefore
+provid the molar distributions of lengths of abortive RNA. The molar
+distributions permit the calculation of the probability that RNAP produces an
+abortive transcript of a given length \cite{hsu_quantitative_1996,
+hsu_promoter_2002}, denoted as the abortive probability (AP).
 
 To investigate the rate constants of initial transcription for bacterial RNAP,
-we created a kinetic model of initial transcription which combines APs
-obtained from steady state bulk experiments with measurements of the
-distribution of lifetime of abortive cycling obtained from single-molecule
-experiments. By fitting the model, we determined the average rate constants of
-initial transcription to show that the rate of pause-free transcription is the
-same for initiation as for elongation, and that unscrunching and abortive RNA
-release is 4-5 times slower.
+we created a kinetic model of initial transcription that makes use of both the
+temporal distribution of abortive cycling from single-molecule experiments
+and the molar distribution of abortive transcript lengths from steady state
+bulk experiments. By obtaining the rate constants for the different steps
+during initial transcription, we show that the rate of transcription is the
+same for initiation as for elongation, and that forward transcription is 4-5
+times faster than the steps of unscrunching and abortive RNA release.
 
 % Now you want to say something about the abortive probability. What is the
 % link to kinetics? The link is the frequency of backtracking events.
