@@ -1,68 +1,54 @@
 %\addbibresource{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk.bib}
 \subsection{Model of initial transcription}
 Our model is based on a minimal scheme for initial transcription, containing
-reactions for i) the nucleotide addition cycle (NAC), ii) backstepping (the
+reactions for i) the NAC, ii) backtracking (the
 first unscrunching step), iii) promoter escape, and iv) unscrunching and
-abortive RNA release (Figure \ref{fig:model_and_rates}A). To identify values
-for the reaction rate constants we use Monte Carlo sampling followed by
-comparision with experimental data (Figure
-S\ref{fig:parameter_estimation_scheme}). The rate constant for backstepping is
-not obtained by random sampling but is calculated from the APs of the N25
-promoter using the randomly sampled value for NAC. Given a value for NAC, we
-calculate the rate constant of backstepping as follows:
-\begin{equation*}
+abortive RNA release (Figure \ref{fig:model_and_rates}A). The rate constant
+for backtracking is calculated assuming that the AP at a template position is
+equal to the probability of backtracking. Since backtracking is in kinetic
+competition only with the NAC, the NAC will proceed with probability 100\% -
+AP. Thus, for a given rate constant of the NAC, we calculate the rate
+constant of backstepping as follows:
+\begin{equation}
   b = \frac{\text{NAC}\cdot\text{AP}}{1-\text{AP}}.
-\end{equation*}
-This reflects a kinetic competition between backstepping and the NAC at each
-template position. Figure~\ref{fig:model_and_rates}B shows the initial
-transcription kinetic scheme together with placeholder values for the
-estimated rate constants. The rate of FL product synthesis upon promoter
-escape is given by NAC/n where n is the number of basepairs from promoter
-escape until runoff.
+  \label{fig:backtrackingcalc}
+\end{equation}
+Figure~\ref{fig:model_and_rates}B shows the initial transcription kinetic
+scheme together with placeholder values for the estimated rate constants.
 
-In this work we use APs calculated from initial transcription both in the
-presence of GreB (+GreB) and in the absence of GreB (-GreB). When GreB is
-present, backtracked complexes may be rescued by GreB stimulated cleavage of
-the unaligned 3\ppp end of the transcript. Therefore, APs obtained in the
-presence of GreB represent the probability to both backstep and to avoid
-rescue by GreB until abortive RNA release. Here, we assume that GreB-mediated
-cleavage and subsequent NACs are rapid steps compared to unscrunching, so that
-the APs obtained in the presence of GreB may be used as effective backstepping
-probabilities.
+In this work we use APs obtained both for the absence of GreB (-GreB) and in
+the presence of GreB (+GreB). When GreB is present, backtracked complexes may
+be rescued by GreB stimulated cleavage of the unaligned 3\ppp end of the
+transcript. Therefore, APs obtained in the presence of GreB represent the
+probability to both backstep and to avoid rescue by GreB until abortive RNA
+release. We assume that GreB-mediated cleavage and subsequent NACs are rapid
+steps compared to unscrunching, using the APs obtained in the presence of GreB
+as effective backstepping probabilities.
 
 \subsection{Implementation and parameter estimation}
-To solve the kinetic scheme we use the direct method for the stochastic
-simulation algorithm \cite{gillespie_exact_1977} as implemented in the StocPY
-software \cite{maarleveld_stochpy:_2013}. By using stochastic simulations, we
-are able to simulate transcription to the level of single RNA polymerases to
-resolve some of the stochasticity inherent with such low copy number
-reactions. The use of stochastic simulations is required as we are comparing
-model results to the distribution of time spent in abortive cycling prior to
-promoter escape as reported by Revyakin et.\ al \cite{revyakin_abortive_2006}.
-This experiment was performed using 100 single-RNAP transcription events
-(Figure 4D in Revyakin et.\ al).
+The data used for parameter estimation is the distribution of time spent in
+abortive cycling \cite{revyakin_abortive_2006}. This data was obtained from
+100 individual initial transcription events. For such low copy-number
+experiments, there is an inherent stochastic component in the experimental
+outcome that derives from the randomness of molecular motion. Indeed,
+single-molecule experiments of the rate of transcription elongation show large
+standard deviations \cite{adelman_single_2002,
+tolic-norrelykke_diversity_2004}. We therefore simulate initial transcription
+using stochastic simulations. To solve the kinetic scheme we use the direct
+method for the stochastic simulation algorithm \cite{gillespie_exact_1977} as
+implemented in the StocPY software \cite{maarleveld_stochpy:_2013}. 
 
-We estimate the rate constants of NAC, promoter escape, and unscrunching using
-a two-step proceedure. In the first step, we perform Monte Carlo sampling of
-50000 triplets of the three rate constants in the range 1 s$^{-1}$ to 25
-s$^{-1}$, which we considered to be reasonable boundaries for rate constants
-of all three reactions. For each triplet sample, we use the value for NAC to
-obtain rate constants for backstepping (as illustrated in
-Figure~\ref{fig:model_and_rates}B). We then use the sampled and calculated
-rate constants to simulate initial transcription on N25 with 100 RNAPs to
-find the cumulative distribution of time spent in abortive cycling, which is
-compared to the measured values from Revaykin et.\ al
+We estimate the rate constants in two-step proceedure. In the first step, we
+randomly sample 50000 triplets of the rate constants for promoter escape,
+unscrunching and abortive RNA release. We then use the value for the NAC to
+calculate rate constants for backtracking through formula
+\eqref{eq:fig:backtrackingcalc}. We simulate
+100 initial transcription events to find the predicted distribution of time
+spent in abortive cycling for each set of rate constants. This distribution is
+then compared to the measured values from Revaykin et.\ al
 \cite{revyakin_abortive_2006} using the root mean squared distance metric. The
-resulting fits are ranked by the metric distance, (lower is better), and we
-calculate the weighted mean and weighted standard deviation of the top 1\%, or
-500 samples, using the inverse of the metric distance as weights, normalized
-so the closest fit has weight 1 and a fit with half the metric score of the
-closest fit has weight 0.5. The standard deviation around each reaction rate
-constants is then used as search-boundaries for the second step. In the second
-step, we sample 50000 values in a gridded search within the weighted standard
-deviation of each rate constant to obtain the fit of the model. The final rate
-constants are calculated from the mean and standard deviation of the 1\% best
-fits from the gridded search.
+resulting fits are ranked by the metric distance, (lower is better). The
+full proceedure is illustrated in Figure S\ref{fig:parameter_estimation_scheme}.
 
 \begin{figure}
 	\begin{center}
