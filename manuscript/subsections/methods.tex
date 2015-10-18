@@ -11,7 +11,7 @@ AP. Thus, for a given rate constant of the NAC, we calculate the rate
 constant of backstepping as follows:
 \begin{equation}
   b = \frac{\text{NAC}\cdot\text{AP}}{1-\text{AP}}.
-  \label{fig:backtrackingcalc}
+  \label{eq:backtrackingcalc}
 \end{equation}
 Figure~\ref{fig:model_and_rates}B shows the initial transcription kinetic
 scheme together with placeholder values for the estimated rate constants.
@@ -34,21 +34,23 @@ outcome that derives from the randomness of molecular motion. Indeed,
 single-molecule experiments of the rate of transcription elongation show large
 standard deviations \cite{adelman_single_2002,
 tolic-norrelykke_diversity_2004}. We therefore simulate initial transcription
-using stochastic simulations. To solve the kinetic scheme we use the direct
-method for the stochastic simulation algorithm \cite{gillespie_exact_1977} as
-implemented in the StocPY software \cite{maarleveld_stochpy:_2013}. 
+using stochastic simulations. Specifically, we use the direct method for the
+stochastic simulation algorithm \cite{gillespie_exact_1977} as implemented in
+the StocPY software \cite{maarleveld_stochpy:_2013}. 
 
 We estimate the rate constants in two-step proceedure. In the first step, we
 randomly sample 50000 triplets of the rate constants for promoter escape,
 unscrunching and abortive RNA release. We then use the value for the NAC to
 calculate rate constants for backtracking through formula
-\eqref{eq:fig:backtrackingcalc}. We simulate
-100 initial transcription events to find the predicted distribution of time
-spent in abortive cycling for each set of rate constants. This distribution is
-then compared to the measured values from Revaykin et.\ al
-\cite{revyakin_abortive_2006} using the root mean squared distance metric. The
-resulting fits are ranked by the metric distance, (lower is better). The
-full proceedure is illustrated in Figure S\ref{fig:parameter_estimation_scheme}.
+\eqref{eq:backtrackingcalc}. We simulate 100 initial transcription events
+to find the predicted distribution of time spent in abortive cycling for each
+set of rate constants. This distribution is then compared to the measured
+values from Revaykin et.\ al \cite{revyakin_abortive_2006} using the root mean
+squared distance metric. The resulting fits are ranked by the metric distance,
+(lower is better). The full proceedure is illustrated in Figure
+S\ref{fig:parameter_estimation_scheme}. In the second step where only the rate
+constants for the NAC and scrunching and abortive RNA release are
+investigated, we perform 100000 simulations.
 
 \begin{figure}
 	\begin{center}
