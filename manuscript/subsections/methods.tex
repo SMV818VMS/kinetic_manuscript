@@ -23,7 +23,8 @@ transcript. Therefore, APs obtained in the presence of GreB represent the
 probability to both backstep and to avoid rescue by GreB until abortive RNA
 release. We assume that GreB-mediated cleavage and subsequent NACs are rapid
 steps compared to unscrunching, using the APs obtained in the presence of GreB
-as effective backstepping probabilities.
+as effective backstepping probabilities. All AP values are obtained from Hsu
+et al. \cite{hsu_initial_2006}.
 
 \subsection{Implementation and parameter estimation}
 The data used for parameter estimation is the distribution of time spent in
@@ -38,19 +39,17 @@ using stochastic simulations. Specifically, we use the direct method for the
 stochastic simulation algorithm \cite{gillespie_exact_1977} as implemented in
 the StocPY software \cite{maarleveld_stochpy:_2013}. 
 
-We estimate the rate constants in two-step proceedure. In the first step, we
-randomly sample 50000 triplets of the rate constants for promoter escape,
-unscrunching and abortive RNA release. We then use the value for the NAC to
-calculate rate constants for backtracking through formula
-\eqref{eq:backtrackingcalc}. We simulate 100 initial transcription events
-to find the predicted distribution of time spent in abortive cycling for each
-set of rate constants. This distribution is then compared to the measured
-values from Revaykin et.\ al \cite{revyakin_abortive_2006} using the root mean
-squared distance metric. The resulting fits are ranked by the metric distance,
-(lower is better). The full proceedure is illustrated in Figure
-S\ref{fig:parameter_estimation_scheme}. In the second step where only the rate
-constants for the NAC and scrunching and abortive RNA release are
-investigated, we perform 100000 simulations.
+We estimate rate constants by first randomly sample 100000 triplets of the rate
+constants for promoter escape, unscrunching and abortive RNA release. We then
+use the value for the NAC to calculate rate constants for backtracking through
+formula \eqref{eq:backtrackingcalc}. For each combination of rate constants,
+we simulate 100 initial transcription events to find the predicted
+distribution of time spent in abortive cycling specific to these rate
+constants. This distribution is then compared to the measured values from
+Revaykin et.\ al \cite{revyakin_abortive_2006} using the root mean squared
+distance metric.  The resulting fits are ranked by the metric distance, (lower
+is better). The full proceedure is illustrated in Figure
+S\ref{fig:parameter_estimation_scheme}.
 
 \begin{figure}
 	\begin{center}
@@ -68,7 +67,7 @@ investigated, we perform 100000 simulations.
     and abortive RNA release occurs, returning RNAP to the open complex. From
     the open complex forward transcription may resume once more. B) Kinetic
     scheme containing placeholder values for the estimated rate constants for
-    NAC, $x$, promoter escape, $y$, and unscrunching and abortive release ,$z$,
+    NAC, $x$, promoter escape, $y$, and unscrunching and abortive release, $z$,
     as well as the rate constants of bakcstepping, $b_i(x)$.}
     \label{fig:model_and_rates}
 \end{figure}
