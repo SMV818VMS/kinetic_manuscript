@@ -3,60 +3,61 @@
 for initial transcription and for transcription elongation}
 
 To identify the rate constants for initial transcription, we first did an
-initial wide screening to identify which values are inconsistent with experimental
-findings. In this screening, we considered the minimum and maximum values of
-all rate constants to lie between 1 s$^{-1}$ and 25 s$^{-1}$. By evaluating
-the model for these parameter ranges (see Materials and Methods), we found
-that the rate constant for NAC is at least 7 s$^{-1}$, and that the rate
-constant for unscrunching and abortive RNA release lies between 1 and 2.7
-s$^{-1}$ (Figure~\ref{fig:parameter_estimation_1}). The screening showed that
-the rate constant for promoter escape should be greater than 2.3 s$^{-1}$, but
-also showed that there was no strong preference for a particular range of
-rate constants, indicating that model performance was not sensitive to this
-value (Figure~\ref{fig:parameter_estimation_1}).
+initial wide screening to identify which values are inconsistent with
+experimental findings. In this screening, we considered the minimum and
+maximum values of all rate constants to lie between 1 s$^{-1}$ and 25
+s$^{-1}$. By evaluating the model for these parameter ranges (see Materials
+and Methods), we found that the rate constant for NAC is at least 7 s$^{-1}$,
+and that the rate constant for unscrunching and abortive RNA release lies
+between 1 and 3 s$^{-1}$ (Figure~\ref{fig:parameter_estimation_proper}A). The
+screening showed that the rate constant for promoter escape should be greater
+than 2.3 s$^{-1}$, but also showed that there was no strong preference for a
+particular range of rate constants. This indicates that the kinetics of the
+system is not sensitive to the rate constant for promoter escape
+(Figure~\ref{fig:parameter_estimation_proper}A).
 
-Having identified the subset of rate constants that best fit experimental
-data, we performed a more detailes screening of these values. In this round,
-we varied only the rate constants for the NAC and unscrunching and abortive
-RNA release, since model performance was insensitive to the rate constant of
-promoter escape (Figure~\ref{fig:parameter_estimation_1}). After filtering out
-the top 1\% of all simulations, the distributions of both rate constants
-showed clear peaks. The rate constant for the NAC showed a peak around 10
-s$^{-1}$ (Figure \ref{fig:high_res_search}), with the mode of the distribution
-at 9 s$^{-1}$ (Table \ref{tab:param_fit_revyakin}). This closely matches the measured
-speed of transcription after promoter escape of 9.5 nt/s (Revyakin et
-al. Figure S14 \cite{revyakin_abortive_2006}), indicating that the speed of
-the NAC is unaffected by both RNAP's attachment to the promoter and DNA
-scrunching. The rate constant for unscrunching and abortive release showed a
-peak around 1.2 s$^{-1}$, nearly 10 times slower than the NAC (Figure
-\ref{fig:high_res_search}B, Table \ref{tab:param_fit_revyakin}). This low
-value is consistent with experimental evidence indicating that unscrunching
-and abortive RNA release are the rate limiting steps for initial
-transcription~\cite{margeat_direct_2006, revyakin_abortive_2006}. A full
-kinetic scheme of the estimated rate constants is given in Figure
-\ref{fig:estimated_parameters}A.
+Having identified a reduced range for the rate constants that best fit
+experimental data, we performed a more detailed screening. Since model
+performance was insensitive to the rate constant of promoter escape
+(Figure~\ref{fig:parameter_estimation_proper}A), we varied only the rate
+constants for the NAC and unscrunching and abortive RNA release. After
+filtering out the top 1\% of all simulations, the distributions of both rate
+constants showed clear peaks. The rate constant for the NAC showed a peak
+around 10 s$^{-1}$ (Figure \ref{fig:parameter_estimation_proper}B), with the
+mode of the distribution at 9 s$^{-1}$ (Table \ref{tab:param_fit_revyakin}).
+This closely matches the measured speed of transcription after promoter escape
+of 9.5 nt/s (Revyakin et al. Figure S14 \cite{revyakin_abortive_2006}),
+indicating that the speed of the NAC is unaffected by both RNAP's attachment
+to the promoter and DNA scrunching. The rate constant for unscrunching and
+abortive release showed a peak around 1.2 s$^{-1}$, nearly 10 times slower
+than the NAC (Figure \ref{fig:parameter_estimation_proper}B, Table
+\ref{tab:param_fit_revyakin}). This low value is consistent with experimental
+evidence indicating that unscrunching and abortive RNA release are the rate
+limiting steps for initial transcription~\cite{margeat_direct_2006,
+revyakin_abortive_2006}. A full scheme of the estimated rate constants is
+given in Figure \ref{fig:estimated_parameters}A.
 
 \begin{figure}
 	\begin{center}
-      \includegraphics[scale=0.8]{../figures/parameter_estimation_distributions_monte_carlo.pdf}
+      \includegraphics[scale=0.8]{../figures/coarse_and_finegrain_search_GreB_no_extrap.pdf}
 	\end{center}
-    \caption{Distributions of estimated parameters and fits to experimental
-      data for Monte Carlo sampled parameter values. The first row shows the
-      distributions for all samples, and the second and third rows show the
-      distribution of the best 5\% and 1\% of simulations, respectively.}
-      \label{fig:parameter_estimation_1}
+    \caption{Distributions of rate constants after fitting 100000 randomly
+      sampled values and selecting the 1000 best fits. \textbf{A}: First round
+      of screening, where all three rate constants were varied between 1 and
+      25 s$^{-1}$. \textbf{B}: Second round of sceening, where NAC was varied
+      between 6 and 16 s$^{-1}$ and unscrunching and abortive RNA release
+      (UAR) was varied between 1 and 3 s$^{-1}$. The rate constant for
+      promoter escape was held constant at 20 s$^{-1}$ for the second round.}
+      \label{fig:parameter_estimation_proper}
 \end{figure}
 
 \begin{figure}
 	\begin{center}
-      \includegraphics[scale=0.8]{../figures/high_res_search_for_rate_constants.pdf}
+      \includegraphics[scale=0.8]{../figures/coarse_search-fits.pdf}
 	\end{center}
-    \caption{Distributions of estimated parameters. \textbf{A}: Distribution
-      of the rate constant for the NAC from the top 1\% of simulations in terms
-      of fit to experimental data. \textbf{B}: Distribution of the rate constant
-      for unscrunching and abortive RNA release from the top 1\% of
-      simulations in terms of fit to experimental data.}
-      \label{fig:high_res_search}
+    \caption{Parameter fitting to extrapolated data and to inconsistent
+      experimental data.}
+      \label{fig:extrap_and_GreB_minus_fit}
 \end{figure}
 
 Figure \ref{fig:revyakin_fit} shows a comparison between of the distribution
@@ -74,11 +75,13 @@ rounds last shorter than one second (Figure \ref{fig:revyakin_fit}). If the
 extrapolation of the data reflects the true scrunch-time distribution, the
 model should perform well also when fitted to the extrapolated data. To test
 this, we repeated the model fitting proceedure using extrapolated curve
-instead of the measurements. In contrast to when fitting to measurment data,
-there was no clear screening of the parameter space, but a general preference
-for large rate constants (Figure S\ref{fig:coarse_extrap_fit}). The
-distribution modes were 4.3 and 20.4 for the rate constant of the NAC and
-unscrunching and abortive RNA release, respectively.
+instead of the measurements. In contrast to when fitting to the actual
+measured data, there was no clear screening of the parameter space, but a
+general preference for large rate constants (Figure
+\ref{fig:extrap_and_GreB_minus_fit}). The distribution modes were 21.3 and 1.2
+for the rate constant of the NAC and unscrunching and abortive RNA release,
+respectively.
+% XXX have to rewrite this.
 
 \begin{figure}
 	\begin{center}
@@ -119,108 +122,38 @@ matching the experimental value. The kinetic scheme of the estimated rate
 constants for initial transcription on the N25 promoter in the absence of GreB
 is given in Figure \ref{fig:estimated_parameters}B.
 
-\subsection{The initial transcription model is highly sensitive to
-inconsistent experimental data}
-As a final test of the model, we wished to evaluate the effect of
-inconsistent input data. We had used experimental data obtained in the
-presence of GreB to show that the model fits experimental data and predicts
-rate constants for the NAC and unscrunching and abortive RNA release that are
-consistent with physiological constaints and previous literature (Figure
-\ref{revyakin_fit} and Table \ref{tab:param_fit_revyakin}). If this model is a
-good representation of the real kinetics of the system it should be sensitive
-to inconsistent input data. To test this, we re-fitted the model using the
-scrunch-time distribution from Revyakinn et al. combined with AP values
-obtained in the absence of GreB. This resulted in a selection for very large
-rate constants \ref{fig:inconsistent_estimationn}, with the mode of the
-distributions being 20.3 and 8.3 for the NAC and unscrunching and abortive RNA
-release, respectively.
-  
-% XXX It's all true and right, but we're leaving this one out for now
-%While the experimental and model half lives are close, there is no other
-%kinetic data for the N25 promoter in the literature which can tell us the
-%range of values of $\tau$ for initial transcription on N25. To therefore be
-%able to say something about the variability of $\tau$, calculated this value
-%from simulations of initial transcription on N25-anti and N25 A1-anti, two ITS
-%variants of N25 which have previously been shown to vary compared to N25 in
-%several quantitative parameters for initial transcription~
-%\cite{hsu_initial_2006,chan_anti-initial_2001,kammerer_functional_1986}. This
-%resulted in values of $\tau$ of 61.2 s for N25-anti and 179.6 s for N25
-%A1-anti, which agrees with these ITS variants having a lower productive yield
-%than N25 \cite{hsu_initial_2006}.
-
-% XXX leaving this one out for now
-%\subsection{Estimated rate constants are sensitive to changes to the +GreB 
-%APs}
-%In estimating the rate constants, we have used APs from bulk studies by Hsu
-%et al. \cite{hsu_initial_2006} together with the abortive cycling distribution
-%obtained from single-molecule studies by Revyakin et al.
-%\cite{revyakin_abortive_2006}. This relies on the assumption that the
-%position-specific probability to abort initial transcription is the same for
-%the single-molecule experiment as as for the bulk studies. That this holds
-%true is not known, since the rapid kinetics of initial transcription
-%has prevented direct observation of the exact position of backtracking and abortive
-%RNA release \cite{margeat_direct_2006, revyakin_abortive_2006}. If there is a
-%close correspondence between the APs of both experimental techniques, one
-%would expect that model fitting would be sensitive to changes in AP. For
-%instance, if by either increasing or decreasing the bulk APs releative to
-%their baseline values leads to unphysiological rate constants, or
-%otherwise worsended model performance, this indicates that the bulk
-%AP values are descriptive for the single-molecule experiment.
-%To test this, we first repeated the model fitting proceedure using AP values
-%obtained without the presence of GreB. This led to an estimate for the rate
-%constant of NAC of 20.9 s$^{-1} \pm 2.9$.
-%We consider this value unphysiological since it would suggest that NAC
-%proceeds nearly twice as fast during scrunching compared to elongation,
-%proceeding at speeds normally found for NTP concentrations of 1000
-%$\mu$M~\cite{bai_mechanochemical_2007}, 10 times higher than actual
-%experimental conditions. Next, we performed a more general
-%perturbation of the AP values, making them both higher and lower across the
-%ITS (Figure~\ref{fig:aps_after_adjustment}). This showed first of all that the
-%fit is best for zero or small perturbations, and gets progressively worse as
-%perturbations increase in either direction (Figure \ref{fig:ap_adjustment}A).
-%This shows that the original bulk +GreB AP values lie in an optimal region in
-%terms of fitting the single-molecule experimental data. For NAC, higher APs
-%led to higher rate constants for NAC, while lower APs led to lower values.
-%(Figure \ref{fig:ap_adjustment}B). The rate constant for unscrunching and
-%abortive release increased as AP increases, to the point where this
-%step becomes nearly as rapid as the NAC, but for lower AP this value remained
-%simiular to baseline (Figure \ref{fig:ap_adjustment}C). The rate constant for
-%promoter escape was insensitive to changes in AP, indicating that model
-%performance is insensitive to this parameter (Figure
-%\ref{fig:ap_adjustment}D), consisitent with the finding from the original
-%parameter estimation process (Figure \ref{fig:parameter_estimation_1}).
-
-%The perturbation study showed that when AP values were increased,  the rate
-%constant for NAC increased to the point of being unphysiological at more than
-%20 $s^{-1}$, and the rate constant for the abortive step increased to the
-%point of being similar in size to that of the NAC, where it is hardly rate
-%limiting for the process. However, when AP values were decreased, there is
-%little evidency by which to judge the resulting rate constants as
-%unphysiological. Therefore, we wished to assess how the rate constants optimal
-%for the perturbed APs would affect model performance, especially for the case
-%of reduced APs. To do so, let the model calculate the half life of FL
-%synthesis for -GreB APs for the rate constants optimal for each AP
-%perturbation. This showed that when APs depart from their baseline value, the
-%optimal rate constants lead to lives of FL synthesis that become increasingly
-%separarated from the value obtained from measurements from Vo et al.
-%\cite{vo_vitro_2003-1}. This showes that while the rate constants optimal for
-%decreased AP may not be judged as unphysiological, they lead to worsensed
-%model performance compared to the basline baseline +GreB values.
+\subsection{Parameter estimation is highly sensitive to the consistency of experimental data}
+When fitting the model we combined experimental data for time spent
+in abortive cycling and APs, where both sources of data
+came from initial transcription experiments performed in the presence of GreB.
+If the model correctly represents the kinetics of the system, parameter
+estimation should be sensitive to the consistency of the experimental data. To
+test this, we re-fitted the model, now using APs that were obtained in
+the absence of GreB to calculate backtracking rates. This introduces a
+mismatch between the experimental data to which the model is fitted (+GreB)
+and the experimental data used to calculate the rate constant of backtracking
+(-GreB). This re-fitting resulted in markedly different distributions of the 
+rate constants com \ref{fig:extrap_and_GreB_minus_fit}, with the mode of the
+distributions being 23.6 and 14.7 for the NAC and unscrunching and abortive
+RNA release, respectively, which we consider to be outside a physiologically
+believable range for thise rate constants.
 
 \begin{table}
   \label{tab:param_fit_revyakin}
   \caption{Fitted rate constants of initial transcription. For NAC and
   unscrunching and abortive RNA release, these values are the modes of the
-  distributions in Figure \ref{fig:high_res_search}. The rate constant of
-  promoter escape was selected from Figure \ref{fig:fig:parameter_estimation_1}}.
+  distributions in Figure \ref{fig:parameter_estimation_proper}B. The rate constant of
+  promoter escape was selected from Figure
+\ref{fig:fig:parameter_estimation_proper}B.}.
   \begin{center}
     \begin{tabular}{ccc}
        \toprule
        NAC & Unscrunching and abortive RNA release & Promoter escape \\
-       $9.0$ & $1.2$ & $20$ \\
+       $10.4$ & $1.3$ & $20$ \\
     \end{tabular}
   \end{center}
 \end{table}
+
 
 \begin{figure}
     \begin{center}
@@ -235,22 +168,6 @@ release, respectively.
 \end{figure}
 
 
-% XXX leaving this one out for now
-%\begin{figure}
-    %\begin{center}
-      %\includegraphics[scale=0.8]{../figures/ap_adjustment.pdf}
-    %\end{center}
-    %\caption{Effect on model fit, estimated rate constants, and model
-      %performance when +GreB AP values are modified from baseline. A) Effect on
-      %model fit; B) effect on rate constant of NAC; C) effect on rate constant of
-      %the abortive step; D) effect on rate constant of escape; E) effect on
-      %$\tau_r$, which is the model-obtained $\tau$ relative to the value found from
-      %measurements from Vo et.\ al \cite{vo_vitro_2003-1} (Figure
-      %\ref{fig:vo_comparison}).}
-%\label{fig:ap_adjustment}
-%\end{figure}
-
-
 \begin{figure}
     \begin{center}
         \includegraphics[scale=0.7]{../figures/vo_greb_minus_comparison.pdf}
@@ -262,31 +179,3 @@ release, respectively.
 \label{fig:vo_comparison}
 \end{figure}
 
-% XXX leaving this one out.
-%\begin{figure}
-    %\begin{center}
-      %\includegraphics[scale=0.7]{../figures/Time_to_reach_fifty_percent_of_FL.pdf}
-    %\end{center}
-    %\caption{The value of $\tau$ obtained from simulation on -GreB N25 is
-      %similar to the experimentally obtained value, and is distinct from
-      %values of $\tau$ obtained by simulation on -GreB ITS variants of N25.}
-%\label{fig:its_variant_fl_comparison}
-%\end{figure}
-
-% If you end up short with things in the results section, add something here
-% about the sensitivity of the parameters. Define sensitivity as how much the
-% value can be varied +/- before a 5% change in best fit is reached?
-
-% Can we say that because the NAC is similar to elongation NAC, and that the
-% ensemble experiment was so closely matched, that our two main assumptions
-% are justified:
-    % 1) that each backtracking event leads to an abortive release?
-    % 2) that -GreBassisted cleavage and RNA release is rapid enough to be
-    % negligeble for the oveall kinetics of the system?
-
-%But how do we interpret the AP for the +GreB experiments? This is a bit of a
-%conundrum. We are interpreting them as if GreB results in a reduction of
-%the probability of backtracking at each position. That is OK, though, because
-%then we only count the unscrunching steps that have proceeded without
-%influence by GreB. We thus assume that rescue upon backtracking is fast
-%enough.
