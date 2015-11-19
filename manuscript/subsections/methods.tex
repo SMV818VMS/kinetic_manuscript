@@ -1,14 +1,17 @@
 %\addbibresource{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk.bib}
 \subsection{Model of initial transcription}
 Our model is based on a minimal scheme for initial transcription, containing
-reactions for i) the NAC, ii) backtracking (the
-first unscrunching step), iii) promoter escape, and iv) unscrunching and
-abortive RNA release (Figure \ref{fig:model_and_rates}A). The rate constant
-for backtracking is calculated assuming that the AP at a template position is
-equal to the probability of backtracking. Since backtracking is in kinetic
-competition only with the NAC, the NAC will proceed with probability 100\% -
-AP. Thus, for a given rate constant of the NAC, we calculate the rate
-constant of backstepping as follows:
+reactions for i) the NAC, ii) backtracking (here, the
+first unscrunching step), iii) unscrunching and abortive RNA release (UAR), and iv)
+promoter escape (Figure \ref{fig:model_and_rates}A). The rate constants
+for these reactions will be estimated from
+fitting to data. In addition, we make use of the assumption that the
+probability to backtrack at a template position is equal to the abortive
+probability (AP) at that position as calculated by Hsu et. al
+\cite{hsu_initial_2006}. In our mode, backtracking is in kinetic competition
+with the NAC, which means that the NAC will proceed with probability 100\% -
+AP. Thus, for a given rate constant of the NAC, we calculate the rate constant
+of backstepping as follows:
 \begin{equation}
   b = \frac{\text{NAC}\cdot\text{AP}}{1-\text{AP}}.
   \label{eq:backtrackingcalc}
@@ -31,24 +34,23 @@ The data used for parameter estimation is the distribution of time spent in
 abortive cycling \cite{revyakin_abortive_2006}. This data was obtained from
 100 individual initial transcription events. For such low copy-number
 experiments, there is an inherent stochastic component in the experimental
-outcome that derives from the randomness of molecular motion. Indeed,
-single-molecule experiments of the rate of transcription elongation show large
-standard deviations \cite{adelman_single_2002,
+outcome that derives from the randomness of molecular motion. Indeed, the
+rates of transcription elongation obtained by single-molecule experiments show
+large standard deviations \cite{adelman_single_2002,
 tolic-norrelykke_diversity_2004}. We therefore simulate initial transcription
 using stochastic simulations. Specifically, we use the direct method for the
 stochastic simulation algorithm \cite{gillespie_exact_1977} as implemented in
 the StocPY software \cite{maarleveld_stochpy:_2013}. 
 
-We estimate rate constants by first randomly sample 100000 triplets of the rate
-constants for promoter escape, unscrunching and abortive RNA release. We then
-use the value for the NAC to calculate rate constants for backtracking through
-formula \eqref{eq:backtrackingcalc}. For each combination of rate constants,
-we simulate 100 initial transcription events to find the predicted
-distribution of time spent in abortive cycling specific to these rate
-constants. This distribution is then compared to the measured values from
+We estimate rate constants by first randomly sample 100000 triplets of the
+rate constants for the NAC, promoter escape, and unscrunching and abortive RNA
+release. We then use the value for the NAC to calculate rate constants for
+backtracking through formula \eqref{eq:backtrackingcalc}. Having thus obtained
+all four rate constants, we simulate 100 initial transcription events to find the
+predicted distribution of time spent in abortive cycling specific to these
+rate constants. This distribution is then compared to the measured values from
 Revaykin et.\ al \cite{revyakin_abortive_2006} using the root mean squared
-distance metric.  The resulting fits are ranked by the metric distance, (lower
-is better). The full proceedure is illustrated in Figure
+distance metric. The full proceedure is illustrated in Figure
 S\ref{fig:parameter_estimation_scheme}.
 
 \begin{figure}
