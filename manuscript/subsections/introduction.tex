@@ -1,151 +1,93 @@
 %\addbibresource{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk.bib}
-Gene expression is at the core of cellular metabolism and is a highly regulated
-process at multiple levels. The first steps in gene expression in bacteria are
-marked by the binding of RNAP to a promoter, formation of the open complex,
-and the synthesis of nascent RNA. During initial RNA transcription, RNAP
-remains bound to the promoter and can therefore not move downstream the template as
-for transcription elongation. Instead, translocation during
-initial transcription occurs by the mechanism of scrunching
-\cite{revyakin_abortive_2006, kapanidis_initial_2006}, where the DNA bubble is
-enlarged as downstream DNA is pulled into RNAP to expose the active site for
-NTP binding. After having gone through several cycles of scrunching to
-synthesize an RNA of 8-15 nt in length,
+Transcription of DNA is at the core of cellular metabolism and a highly
+regulated process at multiple levels. In bacteria, transcription is performed
+by a single RNAP, which when associated with a $\sigma$ factors can identify
+and bind to promoter regions of DNA. After promoter binding, a part of DNA
+including the transcription start site is melted, forming a DNA bubble and the
+RNAP-DNA open complex, from where RNA synthesis may proceed. RNAP is still
+bound to the promoter during the first steps of RNA synthesis and can
+therefore not translocate downstream the template as it does during
+transcription elongation. Instead, translocation during initial transcription
+occurs by the mechanism of scrunching \cite{revyakin_abortive_2006,
+kapanidis_initial_2006}, where DNA is pulled into RNAP to expose the enzyme's
+active site for NTP binding. This causes the DNA bubble to grow by one base
+pair each time an NTP is added to the RNA's growing 3\ppp end. After having
+gone through several rounds of scrunching to synthesize an RNA of 8-15 nt in
+length,
 \cite{carpousis_cycling_1980,hsu_vitro_2003,tang_real-time_2009,hsu_initial_2006},
-RNAP may proceed to escape promoter bounds and enter the phase of productive
-transcription elongation. However, promoter escape is not the only pathway
-available. Before reaching escape, RNAP may instead release the
-nascent RNA and fall back to the open complex formation, from where initial
-transcription may be initiated once more \cite{carpousis_cycling_1980}. The
-process of repeated RNA synthesis and abortive release is known as abortive
-cycling. It has been shown that the extent of abortive cycling varies
-considerably between different promoters, and that abortive transcript
-synthesis is sensitive to mutations both in the core promoter region and in
-the initial transcribed sequence (ITS) \cite{hsu_initial_2006,
-hsu_promoter_2002, vo_vitro_2003}.
+RNAP may escape the promoter and enter the phase of productive transcription
+elongation. However, not all initial transcription attempts result in promoter
+escape. At any position before escape is reached, RNAP may instead release the
+nascent RNA and fall back to the open complex formation, from where RNAP may
+initiate transcription once more \cite{carpousis_cycling_1980}. This process of
+repeated RNA synthesis and abortive release is known as abortive cycling. It
+has been shown that the extent of abortive cycling depends on the sequence
+context of both the core promoter region and the initial transcribed
+sequence (ITS) \cite{hsu_initial_2006, hsu_promoter_2002, vo_vitro_2003}.
 
-The reaction steps that preceed abortive RNA release have not been determined.
-What is known is that some or all abortive RNA releases involve the step of
-backtracking. Backtracking constitutes a reverse motion where RNAP releases
-scrunched DNA, forcing the nascent RNA 3\ppp end to extrude into the NTP entry
-channel. The evidence for backtracking's involvement in abortive RNA release
-is that the amount of abortive product is reduced in the presence of GreB, a
-protein that rescues backtracked complexes by stimulating RNAP's intrinsic RNA
-cleavage activity
+The reaction steps that precede abortive RNA release have not been fully
+determined. What is known so far is that some or all abortive RNA releases
+involve the step of backtracking. Backtracking constitutes a reverse motion
+where RNAP releases scrunched DNA, forcing the nascent RNA 3\ppp end to
+extrude into the NTP entry channel. The evidence for backtracking's
+involvement in abortive RNA release is that the amount of abortive product is
+reduced in the presence of GreB, a protein that rescues backtracked complexes
+by stimulating RNAP's intrinsic RNA cleavage activity
 \cite{hsu_initial_2006,hsu_escherichia_1995,feng_grea-induced_1994}.
-Therefore, although uncertainty remains about the details, the conceptual
-model of abortive cycling consists of the progressive steps of scrunching and
-nucleotide addition (together referred to as the nucleotide addition cycle,
-NAC), and the regressive steps of backtracking, unscrunching, and abortive RNA
-release. In this model, little is known about the kinetics of the individual
-steps.
 
-Early work with bulk transcription experiments on the \textit{lac} UV5
-promoter showed a half-life of full length RNA synthesis on short DNA
-templates of 1 minute, and that promoter-binding was not the rate-limiting
-step \cite{stefano_lac_1979}. Given the short length of the templates, this
-implied a rate-limiting step between promoter binding and promoter escape. It
-was soon after shown that the time-delay for full length RNA synthesis
-coincided with a high rate of synthesis of short abortive transcripts, which
-implied abortive cycling as the rate limiting step
-\cite{munson_abortive_1981}. Recent kinetic information abount initial
-transcription has come largely from single-molecule experiments
-\cite{revyakin_abortive_2006, kapanidis_initial_2006, tang_real-time_2009,
-kapanidis_retention_2005, margeat_direct_2006}. For bacterial RNAP, it has
-been found that the backtracking and abortive RNA release steps are slow
-relative to forward translocation and RNA synthesis
-\cite{revyakin_abortive_2006, margeat_direct_2006}. The most detailed view of
-the kinetics of initial transcription in bacteria so far is given by
-characterization of the distributions of time RNAP spends in abortive cycling
-on the N25 promoter in the presence of GreB \cite{revyakin_abortive_2006}.
-These distributions show RNAP spending between 3 and 20 seconds in abortive
-cycling before achieving promoter escape \cite{revyakin_abortive_2006}.
+The current conceptual model of abortive cycling therefore consists of the
+progressive steps of scrunching and nucleotide addition (together referred to
+as the nucleotide addition cycle, NAC), and the regressive steps of
+backtracking, unscrunching, and abortive RNA release. In this model, little is
+known about the kinetics of the individual steps. Early work with bulk
+transcription experiments on the \textit{lac} UV5 promoter showed a half-life
+of full length RNA synthesis on short DNA templates of 1 minute, and that
+promoter-binding was not the rate-limiting step \cite{stefano_lac_1979}. Given
+the short length of the templates, this implied a rate-limiting step between
+promoter binding and promoter escape. It was soon after shown that the
+time-delay for full length RNA synthesis coincided with a high rate of
+synthesis of short abortive transcripts, which implied abortive cycling as the
+rate limiting step \cite{munson_abortive_1981}. Recent knowledge about the
+kinetics of initial transcription has come largely from single-molecule
+experiments \cite{revyakin_abortive_2006, kapanidis_initial_2006,
+tang_real-time_2009, kapanidis_retention_2005, margeat_direct_2006}. For
+bacterial RNAP, it has been found that the backtracking and abortive RNA
+release steps are slow relative to forward translocation and RNA synthesis
+\cite{revyakin_abortive_2006, margeat_direct_2006}, but so far the exact
+kinetic difference of these steps has not been quantified. The most detailed
+view of the kinetics of initial transcription in bacteria so far is the
+characterization of the time RNAP spends in abortive cycling on the N25
+promoter in the presence of GreB \cite{revyakin_abortive_2006}. This work
+showed that RNAP spending between 3 and 20 seconds in abortive cycling over a
+stretch of 11 bp of DNA before achieving promoter escape
+\cite{revyakin_abortive_2006}.
 
 By identifying the rate limiting steps and the distribution of time spent in
-abortive cycling, single-molecule experiments have revealed the general
-kinetic picture of initial transcription. However, their time-resolution has
-not been sufficient for separating the individual steps of backtracking,
-unscrunching, and abortive RNA release; neither have they been able to
-characterize the NAC for promoter bound RNAP \cite{revyakin_abortive_2006,
-margeat_direct_2006}. This means that the question of how translocation and
-nucleotide addition are affected by promoter-bound RNAP remains unanswered.
-It is not known if these reactions have different rates during initiation than
-for elongation, caused by the different conformation of the enzyme and the
-strain of an enlarged DNA bubble.
+abortive cycling, single-molecule experiments have revealed a general kinetic
+picture of initial transcription. However, their time-resolution has not yet
+been sufficient for distinguishing the rate constants for the individual steps
+of backtracking, unscrunching, and abortive RNA release. And in contrast to
+their usage with transcription elongation, single-molecule experiments have
+not yet found the speed of the NAC during initial transcription
+\cite{revyakin_abortive_2006, margeat_direct_2006}. As a consequence, it is
+not known if the speed of transcription differs between promoter-bound and
+freely elongating RNAPs.
 
-For investigating initial transcription, traditional bulk experiments retain
-an advantage over their single-molecule counterparts in that they provide
-information the relative molar abundance of abortive transcripts of different
-lengths \cite{hsu_monitoring_2009}. This allows the determination of at which
-positions RNAP is more likely to disengage to produce an abortive RNA. By
-quantifying the relative abundance of each abortive RNA species, one may
-calculate the probability of producing an abortive transcript of a given
-length, known as the abortive probability (AP) \cite{hsu_promoter_2002,
-hsu_quantitative_1996}. Since backtracking is a starting point for some or
-all abortive RNA releases, bulk transcription experiments therefore give a
-posision-specific indication of the likelihood of backtracking during initial
-transcription.
-
-In this work, we have created a kinetic model of initial transcription that
-combines the time-distribution of abortive cycling from single-molecule
-experiments and abortive probabilities obtained from steady state bulk
-experiments. Applying this model, we obtained the rate constants for the NAC
-and the combined step of unscrunching and abortive RNA release. Our results
-show show that the rate of the NAC is the same for initial transription as for
-elongation elongation, and nearly 10 times faster than the rate-limiting step
-of unscrunching and abortive RNA release.
-
-% Now you want to say something about the abortive probability. What is the
-% link to kinetics? The link is the frequency of backtracking events.
-
-%For the N25 promoter in the presence of GreB, Revaykin et.\ al determined the
-%speed of transcription after promoter escape to be approximately 10 nt
-%s$^{-1}$, but could not resolve this number wile RNAP was engaged in abortive
-%cycling \cite{revyakin_abortive_2006}. Thus, the rate constants for these
-%processes before promoter escape is achieved are at present unknown.
-
-%GreB does not however decrease abortive product synthesis for transcripts
-%shorter than 4-5 nt \cite{hsu_initial_2006}, implying that complexes with
-%such short RNA-DNA hybrids may dissociate from DNA without backtracking, or
-%that GreB cannot rescue short nascent RNA efficiently.  Backtracking during
-%initial transcription would cause an unscrunching of the DNA bubble and a
-%displacement of the 3\ppp end of the nascent RNA into the NTP entry channel,
-%shortening the RNA-DNA hybrid for nascent RNAs shorter than 10 nts. Since
-%elongation complexes with a shortened hybrid have been shown to be unstable
-%\cite{nudler_rnadna_1997}, the shortened hybrid remains a candidate
-%explanation for abortive RNA release resulting from backtracking.
-
-%At the same time, the initially short RNA-DNA hybrid is likely not what
-%causes backtracking in the first place. This follows as the amount of
-%abortive transcript is not strongly associated with the length of the nascent
-%RNA-DNA hybrid \cite{hsu_initial_2006}, and neither is there any association
-%between free energy of the RNA-DNA hybrid and promoter productive yield
-%\cite{skancke_sequence-dependent_2015}.
-
-%Experiments of initial transcription have shown that the molar amount of
-%abortive transcripts often largely exceeds that of productive full length
-%transcripts \cite{carpousis_cycling_1980}. For the N25 promoter, a 20-fold
-%exess of abortive to full length transcript was found
-%\cite{hsu_initial_2006}.  If backtracking were implied in all aborted RNAs,
-%and if backtracking were equally likely at each template position, this would
-%correspond to a frequency of 1 backtracking event for every 4 nt of
-%synthesized RNA for initial transcription on N25, which achieves promoter
-%escape after synthesizing a 11 nt RNA. In comparison, the frequency during
-%elongation is in the order of 10$^{-3}$ bp$^{-1}$
-%\cite{shaevitz_backtracking_2003}. The probability to backtrack from a given
-%template position during initial transcription would be proportional to the
-%probability of producing an abortive RNA of the corresponding length.  The
-%probability of producing an abortive RNA can be calculated from bulk
-%transcription studies where the amount of abortive species of each length is
-%quantified \cite{hsu_quantitative_1996}. This shows a complex
-%promoter-specific pattern of abortive probabilities (APs)
-%\cite{hsu_initial_2006,hsu_vitro_2003}. While the AP pattern is not fully
-%understood, it is known that it is highly sequence specific
-%\cite{hsu_vitro_2006}, and that some of the sequence-specificity can be
-%explained by the propensity of RNAP to reside in the pre-translocated state
-%at different template positions~\cite{skancke_sequence-dependent_2015}. APs
-%are insensitive to changes in NTP concentration \cite{hsu_vitro_2003}, but
-%are reduced in the presence of GreB \cite{hsu_initial_2006}. The reduction of
-%AP in the presence of GreB likely reflects the rescuing of backtracked
-%complexes by stimulation of RNA cleavage, and not GreB binding in the
-%secondary channel to reduce backtracking by steric occlusion
-%\cite{opalka_structure_2003, hsu_initial_2006}.
+While single-molecule experiments can reveal highly detailed information about
+the movement and position of single RNAPs during initial transcription,
+traditional bulk experiments must still be used to quantify the relative molar
+abundance of abortive transcripts of different lengths. By knowing the
+relative abundance of each abortive RNA species, one may calculate the
+probability of producing an abortive transcript of a given length, known as
+the abortive probability (AP) \cite{hsu_promoter_2002, hsu_quantitative_1996}.
+Since backtracking is a starting point for some or all abortive RNA releases,
+bulk transcription experiments therefore give a position-specific indication
+of the likelihood of backtracking during initial transcription. In this work,
+we have created a kinetic model of initial transcription that combines the
+time-distribution of abortive cycling from single-molecule experiments and
+abortive probabilities obtained from steady state bulk experiments. Applying
+this model, we obtained the rate constants for the NAC and the combined step
+of unscrunching and abortive RNA release. Our results show show that the rate
+of the NAC is the same for initial transcription as for elongation elongation,
+and nearly 10 times faster than the rate-limiting step of unscrunching and
+abortive RNA release.
