@@ -907,8 +907,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="329.09026"
-     inkscape:cy="496.36411"
+     inkscape:cx="239.09026"
+     inkscape:cy="494.93554"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -925,7 +925,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1299,18 +1299,7 @@
        id="path10294"
        d="m 511.68474,717.52561 -277.18219,0 0,-25.70828"
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.90007699;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker10190)" />
-    <flowRoot
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.7463274px;line-height:125%;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       id="flowRoot10296"
-       xml:space="preserve"><flowRegion
-         id="flowRegion10298"><rect
-           y="722.40485"
-           x="254.91527"
-           height="24.540974"
-           width="309.94354"
-           id="rect10300" /></flowRegion><flowPara
-         id="flowPara10302"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial">Unscrunching and abortive RNA release</flowPara></flowRoot>    <path
+    <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path10304"
