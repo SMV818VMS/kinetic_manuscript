@@ -1406,14 +1406,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="397.28224"
-     inkscape:cy="444.55352"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="438.44849"
+     inkscape:cy="423.50436"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1033"
+     inkscape:window-height="969"
      inkscape:window-x="0"
      inkscape:window-y="23"
      inkscape:window-maximized="1" />
@@ -1425,7 +1425,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -4066,7 +4066,7 @@
            x="452.85715"
            y="464.80878" /></flowRegion><flowPara
          id="flowPara11904"
-         style="font-weight:normal">Backstepping</flowPara></flowRoot>    <flowRoot
+         style="font-weight:normal">Backtracking</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot11906"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -4930,5 +4930,18 @@
            x="344.46201"
            y="614.79498"
            style="text-align:start;text-anchor:start" /></flowRegion><flowPara
-         id="flowPara17844">Simulation and comparison with data</flowPara></flowRoot>  </g>
+         id="flowPara17844">Simulation and comparison with data</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4438"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(301.53053,390.59515)"><flowRegion
+         id="flowRegion4440"><rect
+           id="rect4442"
+           width="112.12693"
+           height="81.317284"
+           x="218.69803"
+           y="309.72888" /></flowRegion><flowPara
+         id="flowPara4444">NAC</flowPara><flowPara
+         id="flowPara4446">UAR</flowPara><flowPara
+         id="flowPara4448">Escape</flowPara></flowRoot>  </g>
 </svg>

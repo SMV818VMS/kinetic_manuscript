@@ -1,17 +1,16 @@
 %\addbibresource{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk.bib}
 \subsection{Model of initial transcription}
 Our model is based on a minimal scheme for initial transcription, containing
-reactions for i) the NAC, ii) backtracking (here, the
-first unscrunching step), iii) unscrunching and abortive RNA release (UAR), and iv)
-promoter escape (Figure \ref{fig:model_and_rates}A). The rate constants
-for these reactions will be estimated from
-fitting to data. In addition, we make use of the assumption that the
-probability to backtrack at a template position is equal to the abortive
-probability (AP) at that position as calculated by Hsu et. al
-\cite{hsu_initial_2006}. In our mode, backtracking is in kinetic competition
-with the NAC, which means that the NAC will proceed with probability 100\% -
-AP. Thus, for a given rate constant of the NAC, we calculate the rate constant
-of backstepping as follows:
+reactions for i) the NAC, ii) backtracking (here, the first unscrunching step,
+also known as backstepping), iii) unscrunching and abortive RNA release (UAR),
+and iv) promoter escape (Figure \ref{fig:model_and_rates}A). The rate
+constants for these reactions will be estimated from fitting to data. In
+addition, we make use of the assumption that the probability to backtrack at a
+template position is equal to the abortive probability (AP) at that position
+as calculated by Hsu et. al \cite{hsu_initial_2006}. In our mode, backtracking
+is in kinetic competition with the NAC, which means that the NAC will proceed
+with probability 100\% - AP. Thus, for a given rate constant of the NAC, we
+calculate the rate constant of backtracking as follows:
 \begin{equation}
   b = \frac{\text{NAC}\cdot\text{AP}}{1-\text{AP}}.
   \label{eq:backtrackingcalc}
@@ -23,10 +22,10 @@ In this work we use APs obtained both for the absence of GreB (-GreB) and in
 the presence of GreB (+GreB). When GreB is present, backtracked complexes may
 be rescued by GreB stimulated cleavage of the unaligned 3\ppp end of the
 transcript. Therefore, APs obtained in the presence of GreB represent the
-probability to both backstep and to avoid rescue by GreB until abortive RNA
+probability to both backtrack and to avoid rescue by GreB until abortive RNA
 release. We assume that GreB-mediated cleavage and subsequent NACs are rapid
 steps compared to unscrunching, using the APs obtained in the presence of GreB
-as effective backstepping probabilities. All AP values are obtained from Hsu
+as effective backtracking probabilities. All AP values are obtained from Hsu
 et al. \cite{hsu_initial_2006}.
 
 \subsection{Implementation and parameter estimation}
@@ -64,7 +63,7 @@ S\ref{fig:parameter_estimation_scheme}.
     transcription proceeds until the nascent RNA has reached the
     experimentally obtained maximum size of abortive transcript (MSAT)
     \cite{hsu_initial_2006}. For ICs with an 2nt RNA or longer, there is a
-    competition between the nucleotide addition cycle (NAC) and backstepping.
+    competition between the nucleotide addition cycle (NAC) and backtracking.
     Backstepping leads to a backtracked state from which further backtracking
     and abortive RNA release occurs, returning RNAP to the open complex. From
     the open complex forward transcription may resume once more. B) Kinetic
