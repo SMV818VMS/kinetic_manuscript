@@ -1,92 +1,91 @@
 %\addbibresource{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk.bib}
-In this work we have used a kinetic model to show that the speed of initial
-transcription that best fits experimental data lies around 10 nt/s
+In this work we have used a kinetic model to show that promoter-bound
+transcription by RNAP proceeds at around 10 nt/s
 (Figure~\ref{fig:revyakin_fit}, Table~\ref{tab:param_fit_revyakin}), highly
-similar to that of transcription elongation. We additionally showed that
-unscrunching and abortive RNA release are slow steps compared to the NAC
-(Table~\ref{tab:param_fit_revyakin}). The rate constants were validated by
-testing the model with kinetic data obtained under experimental conditions
-different than those to which the model was fitted
-(Figure~\ref{fig:vo_comparison}).
+similar to the speed under identical reaction conditions for
+transcription elongation \cite{revyakin_abortive_2006}. We found that 
+the steps of unscrunching and abortive RNA release are nearly ten times
+slower, proceeding at around 1.3 s$^{-1}$ (Table~\ref{tab:param_fit_revyakin}).
+These rate constants were validated by comparing with kinetic data obtained
+under experimental conditions different than those to which the model was
+fitted (Figure~\ref{fig:vo_comparison}).
 
 % Explain the meaning of the study
-
-% Explain why the finding is important
-% Point to discussion about whether the strain of the DNA bubble is causing
-% abortive RNA release. It's important to characterize the effects of having a
-% strained DNA bubble to understand the nature of abortive RNA synthesis. Can
-% point to your own paper, as well as to Martin's two. And that other guy?
-% Place some of this in the introduction too? To seed the whole thing, and say
-% why it's interesting to study this?
+Knowing the rate constants of initial transcription adds to the overall
+understanding of the mechanism of promoter-bound RNA synthesis and abortive
+cycling. It has been proposed that the cause of both abortive RNA release and
+promoter escape is the release of built-up energy caused by the strain of the
+increasingly enlarged DNA bubble
+\cite{straney_stressed_1987,hsu_promoter_2002,revyakin_abortive_2006}. Since
+then, it has been found that this strain seems unrelated to the free energy of
+the DNA-DNA bubble \cite{hsu_initial_2006, skancke_sequence-dependent_2015},
+and that the strain seems largely unaffected by nicks and gaps in the scrunched
+DNA bubble \cite{samanta_insights_2013}. In our study, we have shown that this
+strain additionally does not have a marked impact on the rate of transcription
+(Table~\ref{tab:param_fit_revyakin}). In other words, our model predicts that
+the rates of translocation, NTP binding, and pyrophosphorolysis do not differ
+largely betwen transcription with promoter bound and elongating RNAPs.
 
 % Relate the findings to similar studies
+The most similar study to the work presented here is a study of the kinetics
+of initial transcription with the T7 RNAP by Tang et al.
+\cite{tang_real-time_2009}. Using time-series data, they discerned rate
+constants for the individual translocation steps, showing a 10-fold variation
+for the NAC rate constant, from 6 nt s$^{-1}$ to 60 nt s$^{-1}$
+\cite{tang_real-time_2009}. This raises the question if there is a similar
+variation in the rate constant of the NAC for \textit{E. coli} RNAP. We 
+argue that this is not the case, since the average rate constant we obtained
+coincided closely with the speed during transcription elongation. The speed
+during transcription elongation should be close to the upper bound of what may
+be achieved for promoter-bound RNAP, which means that if the averages
+coincide, there is little room for individual steps at a speed much slower than
+10 nt s$^{-1}$. Therefore, if there are any individual NACs during
+initial transcription that are slow, they are not likely to be much slower
+than the average. Our results therefore support a model where there is no
+clear bottleneck step for the NAC during initial transcription, implying that
+the strain of the growing DNA bubble and steric clashes with $\sigma$ do
+not greatly affect the NAC. Instead, transcription during initiation proceeds
+similarly as for elongation, except for a higher probability to backtrack,
+which has been shown to have a sequenec-dependent context
+\cite{skancke_sequence-dependent_2015}.
 
 % Consider alternative explanations of the findings
 
 % Acknowledge the study's limitation
+While the average is likely a good measure for the NAC, a limitation of the
+current study is that it does not discern variation in the rate of unscrunching
+and abortive RNA release from initial complexes with different RNAs. It is
+known that GreB cannot contribute to the rescue of backtracked complexes with
+RNAs shorter than 5 nt \cite{hsu_initial_2006}, implying a length-dependence
+in the speed of unscrunching and abortive RNA release. Work on elongation
+complexes have shown that a weakened RNA-DNA hybrid prevents backtracking
+\cite{nudler_rnadna_1997}, making it likely that unscrunching takes longer for
+a complete compared to a partially formed RNA-DNA hybrid. At the same time,
+the rate constant of 1.2 s$^{-1}$ identified here just above the ~1 s$^{-1}$
+temporal resolution of the experiment of Revyakin et al., where this reaction
+step could not be discerned \cite{revyakin_abortive_2006}, implying that the
+value of 1.2 s$^{-1}$ represents a lower boundary. To resolve this number more
+precisely, experimental techniques are needed that can resolve backtracking
+and abortive RNA release at the time scale in which they occur. Alternatively,
+as increasingly complex molecular simulations of RNAP dynamics are obtained
+\cite{silva_millisecond_2014}, the details of the rapid kinetics of abortive
+cycling may be instead first be obtained using numerical methods alone.
 
-% Suggest further research
-
-% End with take-home message
-
-The model of initial transcription used in this work uses the same rate
-constant for NAC and unscrunching and abortive release at each template
-position (Figure~\ref{fig:model_and_rates}). Therefore, the rate constants
-presented here must be considered average values. Given the complex nature of
-initial transcription, one may ask if the use of average rate constants is a reasonable
-assumption. For T7 RNAP, a kinetic study showed a 10-fold variation for the
-NAC rate constant, from 6 nt$^{-s}$ to \cite{tang_real-time_2009}. We would
-argue that this is not the case for bacterial RNAP. The average rate constant
-we found for NAC matched closely the average speed of transcription during
-elongation. Since it is unlikely that the NAC is faster for some steps during
-initiation, the closely matching averages require that the NAC cannot be much
-slower either. Our results therefore support at model where there is no
-bottleneck step during for the NAC during initial transcription, but that
-transcription during initiation is the same as for elongation, except that
-there is a higher probability to backtrack. This implies that the strain of
-the growing DNA bubble and the steric clashes with $\sigma$ do not greatly
-affect the NAC during initiation. On the other hand, it is likely that these
-processes contribute to the increased rate of backtracking during initiation
-compared to those found for elongation.
-
-% XXX new section:
-% Add something about the value of NAC, talk about the distribution (it's
-% quite wide). Mention the issue of supercoiling, and the case of linear
-% fragments. Talk about distributions in general: Abortive and backtracking
-% has a very narrow distribution around 1-2, while NAC is more wide, but with
-% a clear peak for the highest values around 11.4 whatev. Limitation in
-% resolving this resolution is partially in the low number of single
-% nucleotide experiments, 100, for which there is plenty of variation in the
-% speed of NAC, at lest for elongation.
-
-Our model assumes that APs calculated from the abundance of aborted RNA are
-equal to the probability of the initial backstep
-(Figure~\ref{fig:model_and_rates}). The alternative would be that some
-complexes, especially in the absence of GreB, remain in long backtracked
+A key assumption in our model is that the APs calculated from the abundance of
+aborted RNA indicate the probability of the initial backtracking step
+(Figure~\ref{fig:model_and_rates}). There remains however the possibility that
+the actial probability to backtrack is higher than what is observed from the
+APs. This would occur if complexes remain in long backtracked
 pauses, as has been observed for transcription elongation
-\cite{shaevitz_backtracking_2003}. If long backtracked pauses were common
-during initiation, the APs would only reflect those backtracked
-complexes that abort, so that that the actual probability to backtrack would
-be higher than what is indicated by the APs. However, we showed that rate
-constants obtained by fitting a model to +GreB APs are descriptive for the
-kinetics of initial transcription without GreB
-(Figure~\ref{fig:vo_comparison}), where such long backtracked pauses may take
-place. This result indicates that such long backtracked pauses, if they exist,
-do not make a large contribution to the kinetics of initial transcription.
-
-The rate constant for unscrunching and abortive RNA release was found to have
-a narrow optimum at 1.7 $\pm 0.4$. We speculate that this value may vary for
-different template positions. Presumably, backtracking happens more readily
-and abortive release is more rapid for an incomplete RNA-DNA hybrid
-\cite{nudler_rnadna_1997,komissarova_shortening_2002}. This would imply that
-this step is slower for complexes that have obtained with a full-length
-RNA-DNA hybrid. For N25, this may not be so relevant, since promoter escape
-happens at +11, shortly after a full hybrid has been obtained. To resolve
-this number more precisely, experimental techniques are needed that can
-resolve backtracking and abortive RNA release at the time scale in which they
-occur. Alternatively, as increasingly complex molecular simulations of RNAP
-dynamics are obtained \cite{silva_millisecond_2014}, the details of this
-process may be instead first be obtained using numerical methods alone.
+\cite{shaevitz_backtracking_2003}. If this phenomeon occurs, it should further
+be more prominent in experiments performed in the absence of GreB, since GreB
+has been found to reduce the duration of backtracked pauses
+\cite{shaevits_backtracking_2003}. However, we showed that our model fits data
+obtained both from +GreB and -GreB experiments (Figures
+\ref{fig:revyakin_fit}, \ref{fig:vo_comparison}). This indicates that the APs
+are sufficient to describe the backtracking probability during initial
+transcription, and that if long backtracked pauses exist, they do not make a
+large contribution to the kinetics of initial transcription.
 
 In conclusion, this work supports a model of initial transcription where the
 forward rate of transcription is highly similar to the rate for transcription
