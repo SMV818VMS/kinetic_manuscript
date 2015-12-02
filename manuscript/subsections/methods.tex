@@ -1,24 +1,31 @@
 %\addbibresource{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk.bib}
 \subsection{Model of initial transcription}
-Our model describes the process of initial transcription by considering the following  
-reactions  i) NAC ii) backtracking iii) unscrunching and abortive RNA release (UAR),
-and iv) promoter escape (Figure \ref{fig:model_and_rates}A). Here, we consider backtracking  as the first unscrunching step,
-also known as backstepping. The rate
-constants for these reactions are estimated using our
-experimental data.
+Our model describes the process of initial transcription by considering the
+following  reactions  i) NAC ii) backtracking iii) unscrunching and abortive
+RNA release (UAR), and iv) promoter escape (Figure
+\ref{fig:model_and_rates}A). Here, we consider backtracking  as the first
+unscrunching step, also known as backstepping. The rate constants for these
+reactions are estimated using our experimental data.
 
-We assume that the probability to
-backtrack at any given template position is equal to the abortive probability (AP) at
-that position. We used the AP values that were calculated from experiments by Hsu et al. \cite{hsu_initial_2006}. For a given
-freely sampled (WHATS THAT? FREELY SAMPLED RATE?) rate constant of the NAC, we calculated the rate constant of
-backtracking as follows:
+We assume that the probability to backtrack at any given template position is
+equal to the abortive probability (AP) at that position. We used the AP values
+that were calculated from experiments by Hsu et al. \cite{hsu_initial_2006}.
+For a given freely sampled (WHATS THAT? FREELY SAMPLED RATE?) rate constant of
+the NAC, we calculated the rate constant of backtracking as follows:
 \begin{equation}
   b_i = \frac{\text{NAC}_i\cdot\text{AP}_i}{1-\text{AP}_i}.
   \label{eq:backtrackingcalc}
 \end{equation}
-with the subscript $i$ denotes the position of the RNAP. This equation represents a relationship between the rate of NAC and
-backtracking (I DISSAGRE THAT IT IS COMPETITION, THERE IS NO COMPETITION HERE, NAC [AP/(1-AP)] THE RATE WILL BE ZERO WHEN AP=0, AND EXPLODE TO INFINITY WHEN AP APPROACHES 1. THE PROBLEM IS THAT SOMEONE WILL COMMENT (I WOULD!) THAT IF AP IS LOW, AND NAC IS HIGH, THEN YOU GET THE OPPOSITE EFFECT THAN DESIGRED, BECAUSE HIGH NAC SHOULD PREVENT BACKTRACKING, WHEREAS HERE ITS ENCOURGES IT (BY HIGH RATE OF b). IT WILL ONLY WORK IF AP AND NAC ARE HIGH OR NAC LOW AND AP IS WHATEVER.  . Figure~\ref{fig:model_and_rates}B shows the initial
-transcription kinetic reaction diagram with the rate constants to be estimated. 
+with the subscript $i$ denotes the position of the RNAP. This equation
+represents a relationship between the rate of NAC and backtracking (I DISSAGRE
+    THAT IT IS COMPETITION, THERE IS NO COMPETITION HERE, NAC [AP/(1-AP)] THE
+    RATE WILL BE ZERO WHEN AP=0, AND EXPLODE TO INFINITY WHEN AP APPROACHES 1.
+    THE PROBLEM IS THAT SOMEONE WILL COMMENT (I WOULD!) THAT IF AP IS LOW, AND
+    NAC IS HIGH, THEN YOU GET THE OPPOSITE EFFECT THAN DESIGRED, BECAUSE HIGH
+    NAC SHOULD PREVENT BACKTRACKING, WHEREAS HERE ITS ENCOURGES IT (BY HIGH
+    RATE OF b). IT WILL ONLY WORK IF AP AND NAC ARE HIGH OR NAC LOW AND AP IS
+WHATEVER.) Figure~\ref{fig:model_and_rates}B shows the initial transcription
+kinetic reaction diagram with the rate constants to be estimated. 
 
 In this work we apply the model using APs obtained both for the absence of
 GreB (-GreB) and in the presence of GreB (+GreB). When GreB is present,
@@ -41,7 +48,14 @@ large standard deviations \cite{adelman_single_2002,
 tolic-norrelykke_diversity_2004}. We therefore simulate initial transcription
 using stochastic simulations. XXX Specifically, we use the direct method for the
 stochastic simulation algorithm \cite{gillespie_exact_1977} as implemented in
-the StocPY software \cite{maarleveld_stochpy:_2013}. DETTE MÅ FORKLARES BEDRE, DU KAN IKKE VÆRE MER DIFFUS ENN DETTE. 1) JEG ANTAR AT MANGE REVIEWER SOM KAN MODELLERING HAR IKKE HØRT OM STOCHASTIC SIMULATION ALGORITHM STOCPY. KUNNE DU GI DETALJER MATEMATISK? FOR EKSEMPEL: TO INCORPORATE STOCHASTICITY INTO INITIATION PROCESS, WE USED (OR THE MOTION IS DESCRIBED BY A RANDOM VARIABLE..) RANDOM PROBABILITY (X\tilde \CAL{N} (0,1) ) TO DESCRIBE THE MOTION INITIATION.... JEG KAN SKRIVE DET, MEN JEG FORTSATT IKKE VET HVORDAN DU IMPLEMENTERTE DETTE. 
+the StocPY software \cite{maarleveld_stochpy:_2013}. DETTE MÅ FORKLARES BEDRE,
+DU KAN IKKE VÆRE MER DIFFUS ENN DETTE. 1) JEG ANTAR AT MANGE REVIEWER SOM KAN
+MODELLERING HAR IKKE HØRT OM STOCHASTIC SIMULATION ALGORITHM STOCPY. KUNNE DU
+GI DETALJER MATEMATISK? FOR EKSEMPEL: TO INCORPORATE STOCHASTICITY INTO
+INITIATION PROCESS, WE USED (OR THE MOTION IS DESCRIBED BY A RANDOM
+VARIABLE..) RANDOM PROBABILITY $(X \sim \mathcal{N} (0,1) )$ TO DESCRIBE THE
+MOTION INITIATION.... JEG KAN SKRIVE DET, MEN JEG FORTSATT IKKE VET HVORDAN DU
+IMPLEMENTERTE DETTE. 
 
 We estimate rate constants by first randomly sample 100000 triplets of the
 rate constants for the NAC, promoter escape, and unscrunching and abortive RNA
@@ -50,17 +64,38 @@ backtracking through equation \eqref{eq:backtrackingcalc}. Having thus obtained
 all four rate constants, we simulate 100 initial transcription events to find the
 predicted distribution of time spent in abortive cycling specific to these
 rate constants. This distribution is then compared to the measured values from
-Revaykin et al. \cite{revyakin_abortive_2006} using the root of mean square error (RMSE). The full procedure is illustrated in Figure
-S\ref{fig:parameter_estimation_scheme}. %fixed the numbering to S1. Se comments on S1.
-KOMMENTAR S1: 
-VI KOMMER TIL Å FÅ KOMMENTAR HER, FORDI DET 'VANLIGE' PROSEDYREN ER LEAST SQUARE ELLER MINIMUM LIKELIHOOD. JEG MENER AT I FØLGE FIGURE S1, HAR DU INGEN OPPDATERING MELLOM RMSE, OG EN ALGORITHM SOM SKAL MINIMALISERE DEN.... ER DET SLIK AT DU BARE VELGER 100000000 RANDOM VERDIER TIL PARAMETRENE, DA BEREGNER 10000000 RMSE, OG VELGER DEN SOM GAV DEG MINSTE VERDIEN ET AV DISSE 10000000 SIMULAREINGER? DET FINNES BEDRE OG EN STANDARD MÅTE Å GJØRE DEN PÅ: OPTIMALISERINGS (MINIMALISERING AV RMSE) PROBLEM.  
+Revaykin et al. \cite{revyakin_abortive_2006} using the root of mean square
+error (RMSE). The full procedure is illustrated in Figure
+S\ref{fig:parameter_estimation_scheme}. %fixed the numbering to S1. Se
+comments on S1.  KOMMENTAR S1: 
+VI KOMMER TIL Å FÅ KOMMENTAR HER, FORDI DET 'VANLIGE' PROSEDYREN ER LEAST
+SQUARE ELLER MINIMUM LIKELIHOOD. JEG MENER AT I FØLGE FIGURE S1, HAR DU INGEN
+OPPDATERING MELLOM RMSE, OG EN ALGORITHM SOM SKAL MINIMALISERE DEN.... ER DET
+SLIK AT DU BARE VELGER 100000000 RANDOM VERDIER TIL PARAMETRENE, DA BEREGNER
+10000000 RMSE, OG VELGER DEN SOM GAV DEG MINSTE VERDIEN ET AV DISSE 10000000
+SIMULAREINGER? DET FINNES BEDRE OG EN STANDARD MÅTE Å GJØRE DEN PÅ:
+OPTIMALISERINGS (MINIMALISERING AV RMSE) PROBLEM.  
 
-JEG OM SKREVET PROSEDYREN:
-We estimated the rate four constants by using the following procedure (Figure S1): First, we assigned random values to the three rate constants NAC ($k_n$), promoter escape ($k_e$) and the uncrunching and abortive RNA release ($k_u$) within certain fixed boundaries (see below).  These values were chosen independently from a uniform distribution ($\sim \cal U (0,1)$) IS IT UNIFORMLY? OR NORMAL?. Secondly, we calculated the rate constant of backtracking ($k_b$) using equations \ref{eq:backtrackingcalc}. We then simulated 100 initial transcription events HER MÅ VI FORKLARE EVENTS! BEREGNING I EN TILFELDIG SEKVENS? and calculated the distribution of time span spent in abortive cycling as a result of these specific rate constants. The resulted time span was compared to empirical values \cite{revyakin_abortive_2006} by root of mean square error (RMSE). We repeated this four steps procedure 100,000 times, and chose the set of parameters that yielded a minimal RMSE.  
+JEG OM SKREVET PROSEDYREN: We estimated the rate four constants by using the
+following procedure (Figure S1): First, we assigned random values to the three
+rate constants NAC ($k_n$), promoter escape ($k_e$) and the uncrunching and
+abortive RNA release ($k_u$) within certain fixed boundaries (see below).
+These values were chosen independently from a uniform distribution ($\sim \cal
+U (0,1)$) IS IT UNIFORMLY? OR NORMAL?. Secondly, we calculated the rate
+constant of backtracking ($k_b$) using equations \ref{eq:backtrackingcalc}. We
+then simulated 100 initial transcription events HER MÅ VI FORKLARE EVENTS!
+BEREGNING I EN TILFELDIG SEKVENS? and calculated the distribution of time span
+spent in abortive cycling as a result of these specific rate constants. The
+resulted time span was compared to empirical values
+\cite{revyakin_abortive_2006} by root of mean square error (RMSE). We repeated
+this four steps procedure 100,000 times, and chose the set of parameters that
+yielded a minimal RMSE.  
 
-To identify the boundaries of the rate constants, we first performed
-an initial screening, marking the rate constants values that have resulted in large RMSE, in which simulations are inconsistent with experimental data. In this screening, we found the minimum and maximum values of all rate constants to be
-1 s$^{-1}$ and 25 s$^{-1}$ respectively. 
+To identify the boundaries of the rate constants, we first performed an
+initial screening, marking the rate constants values that have resulted in
+large RMSE, in which simulations are inconsistent with experimental data. In
+this screening, we found the minimum and maximum values of all rate constants
+to be 1 s$^{-1}$ and 25 s$^{-1}$ respectively. 
 
 \begin{figure}
 	\begin{center}
