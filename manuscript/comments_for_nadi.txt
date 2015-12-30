@@ -1,0 +1,21 @@
+1) Kinetic competition: NAC and backtracking are in kinetic competition by
+defitition: it's a constraint in the model. I have added an extra step in
+deriving the equation for the rate constant of backtracking. You argued that a
+high NAC should prevent high rates of backtracking, but this is not the case.
+It is the AP (experimentally obtained) which decides the balance between NAC
+and backtracking. The total flux is NAC + backtracking, and AP is just
+backtracking / total flux.
+
+2) Stochastic simulations. Gillespie's stochastic simulation algorithm (SSA)
+is well known by modellers of biochemical kinetics modelling, so I don't think
+any further introduction is needed. The basis for the theory is that chemical
+reactions are assumed to be random and independent. The probability of having
+one reaction happen over another is given by the reaction rate expression. See
+the wikipedia-article for an introduction.
+
+3) I tried looking into different optimalization packages, but I concluded
+that there was not much to gain. This is because these simulations are cheap,
+so I can cover the entire parameter space densely, so there is no real need
+for optimization.
+
+4) 
