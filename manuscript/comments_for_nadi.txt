@@ -18,4 +18,39 @@ that there was not much to gain. This is because these simulations are cheap,
 so I can cover the entire parameter space densely, so there is no real need
 for optimization.
 
-4) 
+4) Mode of distribution: samme som peak. 
+
+5) A rate constant på 1/s for NAC er det samme som nt/s, fordi en NAC == 1 nt.
+
+6) Figure 1 in results: OK, remove background grid. Add y axis with all
+100.000 events.
+
+7) Endre fra "screening" til "iteration", eventuelt nevne i teksten at first
+round of screening var first iteration.
+
+8) Legge til nukleotidene til N25 på Figure 2?
+
+9) Ta vekk "rounds" i figurtekst og hovedtekst, så bare "in abortive cycling"
+
+10) Ta vekk tabellen, den har bare en rad.
+
+11) 'did not measure abortive cycling lasting shorter', ikke cycle of abortive cycling
+
+12) Ikke si "most above" when fitting to extrapolated, si noe som 90% of
+values higher than ...
+
+13) The NAC is limited by substrate availability, so it cannot be expected to
+be higher than what was ovserved for elongation. However, in the first
+iteration, we wanted to see if the model would reject unrealistic values. --
+Add this to the methods at the end when you set the 1-25 boundary?
+
+14) Remove grid from histograms.
+
+15) Check order of Figures, Nadi thinks it is wrong.
+
+16) Consistency in terms of factor affecting the AP values: GreB +/- and sequence
+
+17) Cumul scrunch fit, ta bort grid og unødvendige farger. Endre tekst på "fit
+to measurments" til "fit and extrapolation to single exponental function".
+
+18) Nadi blander inn støy, white noise: ikke riktig vei å gå.
