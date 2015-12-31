@@ -22,8 +22,9 @@ for optimization.
 
 5) A rate constant på 1/s for NAC er det samme som nt/s, fordi en NAC == 1 nt.
 
-6) Figure 1 in results: OK, remove background grid. Add y axis with all
-100.000 events.
+# DONE
+#6) Figure 1 in results: OK, remove background grid. Add y axis with all
+#100.000 events.
 
 7) Endre fra "screening" til "iteration", eventuelt nevne i teksten at first
 round of screening var first iteration.
@@ -44,13 +45,15 @@ be higher than what was ovserved for elongation. However, in the first
 iteration, we wanted to see if the model would reject unrealistic values. --
 Add this to the methods at the end when you set the 1-25 boundary?
 
-14) Remove grid from histograms.
+# DONE
+#14) Remove grid from histograms.
 
 15) Check order of Figures, Nadi thinks it is wrong.
 
-16) Consistency in terms of factor affecting the AP values: GreB +/- and sequence
+16) Consistency is in terms of factor affecting the AP values: GreB +/- and sequence
 
-17) Cumul scrunch fit, ta bort grid og unødvendige farger. Endre tekst på "fit
-to measurments" til "fit and extrapolation to single exponental function".
+# DONE
+# 17) Cumul scrunch fit, ta bort grid og unødvendige farger. Endre tekst på "fit
+# to measurments" til "fit and extrapolation to single exponental function".
 
 18) Nadi blander inn støy, white noise: ikke riktig vei å gå.
