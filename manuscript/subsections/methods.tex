@@ -1,65 +1,101 @@
 %\addbibresource{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk.bib}
 \subsection{Model of initial transcription}
-Our model is based on a scheme for initial transcription, containing
-reactions for i) the NAC, ii) backtracking (here, the first unscrunching step,
-also known as backstepping), iii) unscrunching and abortive RNA release (UAR),
-and iv) promoter escape (Figure \ref{fig:model_and_rates}A). The rate
-constants for these reactions are estimated by fitting the model to
-experimental data.
-
-To enhance the model, we use the assumption that the probability to
-backtrack at a template position is equal to the abortive probability (AP) at
-that position as calculated by Hsu et al. \cite{hsu_initial_2006}. For a given
-freely sampled rate constant of the NAC, we calculate the rate constant of
-backtracking as follows:
+Our model describes the process of initial transcription by considering the
+following reactions: i) the NAC ii) backtracking iii) unscrunching and abortive
+RNA release (UAR), and iv) promoter escape (Figure
+S\ref{fig:model_and_rates}A). We consider backtracking as the first
+unscrunching step, also known as backstepping. To find the rate constant of
+backtracking we emply a novel method which makes use of abortive probabilities
+(APs) calculated from experimental data \cite{hsu_quantitative_1996}. The
+method relies on two key points. The first is the model constraint that the
+reactions of the NAC and backtracking are in kinetic competition. The second
+is the assumption that the probability to backtrack at any given template
+position is equal to the AP at that position. Thus we get
+\begin{equation*}
+    \frac{b_i}{b_i + \text{NAC}_i} = \text{AP}_i,
+\end{equation*}
+where subscript $i$ indicates position, and NAC and $b$ are the rate constants
+the nucleotide addition cycle and backtracking, respectively. From this
+expression, we obtain the rate constant for backtracking given a rate constant
+of the NAC and an AP:
 \begin{equation}
-  b = \frac{\text{NAC}\cdot\text{AP}}{1-\text{AP}}.
+  b_i = \frac{\text{NAC}_i\cdot\text{AP}_i}{1-\text{AP}_i}.
   \label{eq:backtrackingcalc}
 \end{equation}
-This equation represents a direct kinetic competition between the NAC and
-backtracking. Figure~\ref{fig:model_and_rates}B shows the initial
-transcription kinetic scheme together with placeholder values for the
-estimated rate constants.
+Figure~S\ref{fig:model_and_rates}B shows the initial transcription kinetic
+reaction diagram with the rate constants to be estimated, and
+Figure~S\ref{fig:backtracking_calc_example} shows example calculations of rate
+constants from backtracking.
 
-In this work we apply the model using APs obtained both for the absence of
-GreB (-GreB) and in the presence of GreB (+GreB). When GreB is present,
-backtracked complexes may be rescued by GreB stimulated cleavage of the
-unaligned 3\ppp end of the transcript. Therefore, APs obtained in the presence
-of GreB represent the probability to both backtrack and to avoid rescue by
-GreB until abortive RNA release. We assume that GreB-mediated cleavage and
-subsequent NACs are rapid steps compared to unscrunching, using the APs
-obtained in the presence of GreB as effective backtracking probabilities. All
-AP values are obtained from Hsu et al. \cite{hsu_initial_2006}.
+In this work we run model simulations alternately using APs obtained both for
+the absence of GreB (-GreB) and in the presence of GreB (+GreB). When GreB is
+present, we note that backtracked complexes may be rescued by GreB stimulated
+cleavage of the unaligned 3\ppp end of the transcript. Therefore, APs obtained
+in the presence of GreB represent the probability to both backtrack and to
+avoid rescue by GreB until abortive RNA release. We therefore assume that
+GreB-mediated cleavage and subsequent NACs are rapid steps compared to
+unscrunching. This permits using the APs obtained in the presence of GreB as
+effective backtracking probabilities. All AP values used in this work are
+obtained from Hsu et al. \cite{hsu_initial_2006}.
 
-\subsection{Implementation and parameter estimation}
-The data used for parameter estimation is the distribution of time spent in
-abortive cycling \cite{revyakin_abortive_2006}. This data was obtained from
-100 individual initial transcription events. For such low copy-number
-experiments, there is an inherent stochastic component in the experimental
-outcome that derives from the randomness of molecular motion. Indeed, the
-rates of transcription elongation obtained by single-molecule experiments show
-large standard deviations \cite{adelman_single_2002,
-tolic-norrelykke_diversity_2004}. We therefore simulate initial transcription
-using stochastic simulations. Specifically, we use the direct method for the
-stochastic simulation algorithm \cite{gillespie_exact_1977} as implemented in
-the StocPY software \cite{maarleveld_stochpy:_2013}. 
+\subsection{Implementation and rate constant estimation}
+A central result in this work is determining the model rate constants. We do
+this running multiple simulations with different combinations of rate
+constants and fitting to exeprimental data. The data used for rate constant
+estimation is the distribution of time spent in abortive cycling on the N25
+promoter in the presence of $100\ \mu M$ NTP determined by Revyakin et al.\
+\cite{revyakin_abortive_2006}. This data was obtained from 100 individual
+initial transcription events. For experiments with single molecules, there is
+an inherent stochastic component in the experimental outcome that derives from
+the randomness of molecular motion. That this is evident for transcription can
+be inferred from the large variation observed in single-molecule experiments
+of the speed of transcription elongation \cite{adelman_single_2002,
+tolic-norrelykke_diversity_2004}. To account for this randomness, we perform
+the kinetic simulations using the Gillespie algorithm for stochastic
+simulations of chemical reactions \cite{gillespie_exact_1977}. Specifically,
+we make use the version implemented by Maarleveld et al.\ in the StocPY
+software \cite{maarleveld_stochpy:_2013}.
 
-We estimate rate constants by first randomly sample 100000 triplets of the
-rate constants for the NAC, promoter escape, and unscrunching and abortive RNA
-release. We then use the value for the NAC to calculate rate constants for
-backtracking through formula \eqref{eq:backtrackingcalc}. Having thus obtained
-all four rate constants, we simulate 100 initial transcription events to find the
-predicted distribution of time spent in abortive cycling specific to these
-rate constants. This distribution is then compared to the measured values from
-Revaykin et al. \cite{revyakin_abortive_2006} using the root mean squared
-distance metric. The full procedure is illustrated in Figure
-S\ref{fig:parameter_estimation_scheme}.
+The proceedure for rate constant estimation is as follows (rate constants
+indicated in Figure S1): First, we assign random values to the three rate
+constants NAC ($k_n$), promoter escape ($k_e$) and unscrunching and abortive
+RNA release ($k_u$) within certain fixed boundaries (see below). These values
+are chosen independently from a uniform distribution. Secondly, we use the
+rate constant of the NAC and the APs to calculate the rate constant of
+backtracking ($k_b$) using equation \ref{eq:backtrackingcalc}. We then
+simulate 100 initial transcription events and calculate the distribution of
+time spent in abortive cycling as a result of these specific rate constants.
+The result is measured against the empirical distribution
+\cite{revyakin_abortive_2006} using the root mean square error (RMSE). By
+repeating this procedure several times, we obtain statistics of which
+values of rate constants that are associated with the best match with the
+experimental data. By virtue of using stochstic simulations, one does not
+arrive at a unique set of rate constants that have optimal fit with data; if a
+simulation is repeated without changing the rate constants, slightly different
+results will be obtained due to the inherent stochastisity of the reaction
+process. Therefore, we here find the optimal rate constants by running
+multiple simulations and identifying the rate constants that are most often
+associated with best fit to data from the distribution of fitness.
+
+The boundaries of the rate constants for parameter estimation were chosen from
+extema estimated from experimental data. The speed of the NAC during initial
+transcription cannot be much less than 3 nt/s, since Revyakin et al.\ measured
+3.5 seconds as the shortest duration of abortive cycling
+\cite{revyakin_abortive_2006} to cover the ~ 11 nts required for promoter
+escape on N25. At the same time, it should not be larger than at most 25 nt/s,
+which is at the upper limit of measured values from single-molecule
+experiments \cite{bai_mechanochemical_2007}. For backtracking and abortive RNA
+release, it is known that the rate constant must be faster than 1 s$^{-1}$,
+this was the time-resolution of the experimental equipment and this reaction
+step could not be resolved \cite{revyakin_abortive_2006}. We therefore set the
+minimum and maximum values of all rate constants to be 1 s$^{-1}$ and 25
+s$^{-1}$, respectively. 
 
 \begin{figure}
 	\begin{center}
-        \includegraphics{../illustrations/model_and_rates.pdf}
+        \includegraphics{/home/jorgsk/Dropbox/The-Tome/my_papers/kinetic_initiation/illustrations/model_and_rates.pdf}
 	\end{center}
-    \caption{Kinetic model scheme and reaction rate constants.  \textbf{A})
+    \caption{Kinetic model scheme and reaction rate constants. \textbf{A})
     From the open complex (OC) transcription proceeds by nucleotide additions
     cycles from one initial transcribing complex (IC) to the next, where each
     IC is identified in subscript by the length of its nascent RNA. Initial
@@ -67,12 +103,12 @@ S\ref{fig:parameter_estimation_scheme}.
     experimentally obtained maximum size of abortive transcript (MSAT)
     \cite{hsu_initial_2006}. For ICs with an RNA of 2 nt in length or longer, there is a
     competition between the nucleotide addition cycle (NAC) and backtracking.
-    Backstepping leads to a backtracked state from which further backtracking
-    and abortive RNA release occurs, returning RNAP to the open complex. From
-    the open complex forward transcription may resume once more. \textbf{B})
-    Kinetic scheme containing placeholder values for the estimated rate
-    constants for NAC, $x$, promoter escape, $y$, and unscrunching and abortive
-    release, $z$, as well as the rate constants of bakcstepping, $b_i(x)$.}
+    Backtracking causes termination of transcription, and only further
+    backtracking (unscrunching) and abortive RNA release may follow, returning
+    RNAP to the open complex. From the open complex forward transcription may
+    resume once more. \textbf{B}) Kinetic reactions diagram containing the
+    rate constants NAC (denoted here as $k_n$), promoter escape (denoted as
+    $k_e$) and unscrunching and abortive release ($k_u$), as well as the rate
+    constants of backtracking, $k_{b,i}$.}
     \label{fig:model_and_rates}
 \end{figure}
-
