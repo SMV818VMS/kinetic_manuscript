@@ -3,7 +3,7 @@
 Our model describes the process of initial transcription by considering the
 following reactions: i) the NAC ii) backtracking iii) unscrunching and abortive
 RNA release (UAR), and iv) promoter escape (Figure
-S\ref{fig:model_and_rates}A). We consider backtracking as the first
+\ref{fig:model_and_rates}A). We consider backtracking as the first
 unscrunching step, also known as backstepping. To find the rate constant of
 backtracking we emply a novel method which makes use of abortive probabilities
 (APs) calculated from experimental data \cite{hsu_quantitative_1996}. The
@@ -22,7 +22,7 @@ of the NAC and an AP:
   b_i = \frac{\text{NAC}_i\cdot\text{AP}_i}{1-\text{AP}_i}.
   \label{eq:backtrackingcalc}
 \end{equation}
-Figure~S\ref{fig:model_and_rates}B shows the initial transcription kinetic
+Figure~\ref{fig:model_and_rates}B shows the initial transcription kinetic
 reaction diagram with the rate constants to be estimated, and
 Figure~S\ref{fig:backtracking_calc_example} shows example calculations of rate
 constants from backtracking.
@@ -57,34 +57,37 @@ we make use the version implemented by Maarleveld et al.\ in the StocPY
 software \cite{maarleveld_stochpy:_2013}.
 
 The proceedure for rate constant estimation is as follows (rate constants
-indicated in Figure S1): First, we assign random values to the three rate
-constants NAC ($k_n$), promoter escape ($k_e$) and unscrunching and abortive
-RNA release ($k_u$) within certain fixed boundaries (see below). These values
-are chosen independently from a uniform distribution. Secondly, we use the
-rate constant of the NAC and the APs to calculate the rate constant of
-backtracking ($k_b$) using equation \ref{eq:backtrackingcalc}. We then
-simulate 100 initial transcription events and calculate the distribution of
-time spent in abortive cycling as a result of these specific rate constants.
-The result is measured against the empirical distribution
-\cite{revyakin_abortive_2006} using the root mean square error (RMSE). By
-repeating this procedure several times, we obtain statistics of which
-values of rate constants that are associated with the best match with the
-experimental data. By virtue of using stochstic simulations, one does not
-arrive at a unique set of rate constants that have optimal fit with data; if a
-simulation is repeated without changing the rate constants, slightly different
-results will be obtained due to the inherent stochastisity of the reaction
-process. Therefore, we here find the optimal rate constants by running
-multiple simulations and identifying the rate constants that are most often
-associated with best fit to data from the distribution of fitness.
+indicated in Figure \ref{fig:model_and_rates}B): First, we assign random
+values to the three rate constants NAC ($k_n$), promoter escape ($k_e$) and
+unscrunching and abortive RNA release ($k_u$) within certain fixed boundaries
+(see below). These values are chosen independently from a uniform
+distribution. Secondly, we use the rate constant of the NAC and the APs to
+calculate the rate constant of backtracking ($k_b$) using equation
+\ref{eq:backtrackingcalc}. We then simulate 100 initial transcription events
+and calculate the distribution of time spent in abortive cycling as a result
+of these specific rate constants.  The result is measured against the
+empirical distribution \cite{revyakin_abortive_2006} using the root mean
+square error (RMSE). By repeating this procedure several times, we obtain
+statistics of which values of rate constants that are associated with the best
+match with the experimental data. By virtue of using stochstic simulations,
+one does not arrive at a unique set of rate constants that have optimal fit
+with data; if a simulation is repeated without changing the rate constants,
+slightly different results will be obtained due to the inherent stochastisity
+of the reaction process. Therefore, we here find the optimal rate constants by
+running multiple simulations and identifying the rate constants that are most
+often associated with best fit to data from the distribution of fitness.
 
 The boundaries of the rate constants for parameter estimation were chosen from
-extema estimated from experimental data. The speed of the NAC during initial
+extrema estimated from experimental data. The speed of the NAC during initial
 transcription cannot be much less than 3 nt/s, since Revyakin et al.\ measured
 3.5 seconds as the shortest duration of abortive cycling
-\cite{revyakin_abortive_2006} to cover the ~ 11 nts required for promoter
+\cite{revyakin_abortive_2006} to cover the ~ 11 nt/s required for promoter
 escape on N25. At the same time, it should not be larger than at most 25 nt/s,
 which is at the upper limit of measured values from single-molecule
-experiments \cite{bai_mechanochemical_2007}. For backtracking and abortive RNA
+experiments \cite{bai_mechanochemical_2007}. While it is not clear how
+transcription would proceed faster for promoter-bound RNAP, we use 25 nt/s as
+a maximum value also in order to see if the model is able to discard these
+values during rate constant estimation. For backtracking and abortive RNA
 release, it is known that the rate constant must be faster than 1 s$^{-1}$,
 this was the time-resolution of the experimental equipment and this reaction
 step could not be resolved \cite{revyakin_abortive_2006}. We therefore set the

@@ -8,9 +8,9 @@
     \label{fig:parameter_estimation_scheme}
 \end{figure}
 
-Figure 7:
+Text for Figure 7:
 
-One cycle of the parameter estimation protocol. \textbf{1:} Rate constants for
+One cycle of the rate constant estimation protocol. \textbf{1:} Rate constants for
 the NAC, UAR and promoter escape are randomly sampled from a uniform
 distribution (example values are shown). Of these values, the NAC is used
 further to obtain backtracking rates at each template position (\textbf{3}).
@@ -23,11 +23,11 @@ initial transcription (\textbf{4}). This scheme is then used to simulate the
 kinetics of 100 initial transcription events; from these 100 events the
 distribution of time spent in abortive cycling is calculated and compared to
 measured data from Revyakin et al.\ \cite{revyakin_abortive_2006}
-(\textbf{5}). From the distance between the meassured distribution and the
+(\textbf{5}). From the distance between the measured distribution and the
 simulated distribution, a fitness score is produced. This score is associated
 to the three randomly selected rate constants in step \textbf{1}, and is a
 measure for how well the kinetic scheme with these rate constants (together
 with the AP values) agree with the experimental data. By repeating steps
-\textbf{1}-\textbf{5} many times, distributions are obtained for which values
+\textbf{1}-\textbf{5} multiple times, distributions are obtained showing which values
 of rate constants have the best fitness to experimental data (Figures
-\ref{fig:parameter_estimation_proper,fig:extrap_and_GreB_minus_fit}) 
+\ref{fig:parameter_estimation_proper} and \ref{fig:extrap_and_GreB_minus_fit}) 
