@@ -1,13 +1,13 @@
 %\addbibresource{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk.bib}
 In this work we have used a kinetic model to show that promoter-bound
-transcription by RNAP before promoter escape proceeds at around 10 nt/s
-(Figure~\ref{fig:revyakin_fit}, Figure~\ref{fig:estimated_parameters}), highly
+transcription by RNAP before promoter escape proceeds at around 10.4 nt/s
+(\FIGS~\ref{fig:revyakin_fit} and \FIG~\ref{fig:estimated_parameters}), highly
 similar to the speed obtained for transcription elongation after promoter
 escape \cite{revyakin_abortive_2006}. We found that the steps of unscrunching
 and abortive RNA release are nearly ten times slower, proceeding at around 1.4
 s$^{-1}$. These rate constants were validated by comparing with kinetic data
-obtained under experimental conditions different than those to which the model
-was fitted (Figure~\ref{fig:vo_comparison}).
+obtained under experimental conditions different to those to which the model
+was fitted (\FIG~\ref{fig:vo_comparison}).
 
 % Explain the meaning of the study
 Knowing the rate constants of initial transcription is important for the overall
@@ -29,13 +29,13 @@ greatly between transcription for promoter bound and elongating RNAP. We have
 further showed that it is unlikely that the time spent in short abortive
 cycles (< 3.5 seconds) follows an exponential distribution, as originally
 suggested by Revyakin et al. \cite{revyakin_abortive_2006}, since this would
-require what we consider an unphysiologically high rate constant of the NAC at
-23.4 $^{-1}$ in order to fit the distribution curve (Figure
-\ref{fig:extrap_and_GreB_minus_fit}A). Instead, using the rate constant of the
-NAC obtained by simply fitting to the measured data, the distribution of time
-spent in abortive cycling is predicted to contain a transient delay of about
-one second before the first promoter escape events come to pass (Figure
-\ref{fig:revyakin_fit}).
+require an unphysiologically large rate constant of the NAC of 23.4 $^{-1}$ in
+order to fit the distribution curve
+(\FIG~\ref{fig:extrap_and_GreB_minus_fit}A). Instead, using the rate constant
+of the NAC obtained by simply fitting to the measured data, the distribution
+of time spent in abortive cycling is predicted to contain a transient delay of
+about one second before the first promoter escape events come to pass
+(\FIG~\ref{fig:revyakin_fit}).
 
 % Relate the findings to similar studies
 The most similar study to the work presented here is a study of the kinetics
@@ -63,50 +63,46 @@ greatly affect the NAC. Instead, we propose that transcription during
 initiation to proceeds similarly as for elongation except for a higher
 probability to backtrack.
 
-% Consider alternative explanations of the findings
-
 % Acknowledge the study's limitation
-A limitation of the current study is that it does not discern variation in the
-rate of unscrunching and abortive RNA release from initial complexes with RNAs
-of different lengths. It is known that GreB cannot contribute to the rescue of
-backtracked complexes with RNAs shorter than 5 nt \cite{hsu_initial_2006},
-which implies a length-dependence in the rate of unscrunching and abortive RNA
-release. Work on elongation complexes have shown that a weakened RNA-DNA
-hybrid prevents backtracking \cite{nudler_rnadna_1997}, making it likely that
-unscrunching takes longer for a complete compared to a partially formed
-RNA-DNA hybrid. At the same time, the rate constant of 1.4 s$^{-1}$ identified
-here just above the ~1 s$^{-1}$ temporal resolution of the experiment of
-Revyakin et al., where this reaction step could not be discerned
-\cite{revyakin_abortive_2006}, implying that the value of 1.4 s$^{-1}$
-represents a lower boundary. To resolve this number more precisely,
-experimental techniques are needed that can resolve backtracking and abortive
-RNA release at the time scale in which they occur. Alternatively, as
-increasingly complex molecular simulations of RNAP dynamics are obtained
+A limitation of the current study is that it does not capture the likely
+variation in the rate constant of unscrunching and abortive RNA release from
+ITCs with RNAs of varying lengths. It is known that GreB cannot
+contribute to the rescue of backtracked complexes with RNAs shorter than 5 nt
+\cite{hsu_initial_2006}, which implies an RNA-length-dependence in the rate of
+unscrunching and abortive RNA release. Work on elongation complexes have shown
+that a weakened RNA-DNA hybrid prevents backtracking
+\cite{nudler_rnadna_1997}, making it likely that unscrunching takes longer for
+a complete compared to a partially formed RNA-DNA hybrid. At the same time,
+the rate constant of 1.4 s$^{-1}$ identified here just above the ~1 s$^{-1}$
+temporal resolution of the experiment of Revyakin et al., where this reaction
+step could not be discerned \cite{revyakin_abortive_2006}, implying that the
+value of 1.4 s$^{-1}$ represents a lower boundary. To resolve this number more
+precisely, experimental techniques are needed that can resolve backtracking
+and abortive RNA release at the time scale in which they occur. Alternatively,
+as increasingly complex molecular simulations of RNAP dynamics are obtained
 \cite{silva_millisecond_2014}, the details of the rapid kinetics of abortive
 cycling may be instead first be obtained using numerical methods alone.
 
 A key assumption in our model is that the APs calculated from the abundance of
-aborted RNA indicate the probability of the initial backtracking step
-(Figure~\ref{fig:model_and_rates}). There remains however the possibility that
-the actual probability to backtrack is higher than what is observed from the
-APs. This would occur if complexes remain in long backtracked pauses, as has
-been observed for transcription elongation \cite{shaevitz_backtracking_2003}.
-If this phenomenon occurs, it should further be more prominent in experiments
-performed in the absence of GreB, since GreB has been found to reduce the
-duration of backtracked pauses \cite{shaevitz_backtracking_2003}. However, we
-showed that our model fits data obtained both from +GreB and -GreB experiments
-(Figures \ref{fig:revyakin_fit}, \ref{fig:vo_comparison}). This indicates that
-the APs are sufficient to describe the backtracking probability during initial
-transcription, which suggests that that if long backtracked pauses exist, they
-do not make a large contribution to the overall kinetics of initial
-transcription.
+aborted RNA indicate the probability of the initial backtracking step. There
+remains however the possibility that the actual probability to backtrack is
+higher than what is observed from the APs. This would be the case if ITCs
+can remain in long backtracked pauses, as has been observed for elongating
+complexes \cite{shaevitz_backtracking_2003}. Revyakin et al.\
+included GreB in their experiments specifically to avoid the possibiltiy of
+long backtracked pauses \cite{revyakin_abortive_2006}. Therefore, it is
+likely that the rate constants estimated from their data are unaffected by this
+phenomenon. Since the rate constants also led to good fits in combination with
+APs calculated from -GreB experiments (\FIG~\ref{fig:vo_comparison}) we
+consider the APs to give a sufficient description of backtracking probability
+during initial transcription.
 
 In conclusion, this work supports a model of initial transcription where the
 forward rate of transcription is highly similar to the rate for transcription
 elongation, and where the backtracking and abortive release step is more than
 5 times slower. Since model fitting resulted in physiologically reasonable
 rate constants, and since these rate constants hold up to independent kinetic
-data (Figure~\ref{fig:vo_comparison}), this supports that the assumptions
+data (\FIG~\ref{fig:vo_comparison}), this supports that the assumptions
 underlying the model are sound. Therefore, it is likely that the APs reflect
 probabilities to backtrack during initial transcription. This supports using
 calculated APs, and not just bulk quantification, as a measure when
