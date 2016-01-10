@@ -22,8 +22,8 @@ of the NAC and an AP:
   b_i = \frac{\text{NAC}_i\cdot\text{AP}_i}{1-\text{AP}_i}.
   \label{eq:backtrackingcalc}
 \end{equation}
-\FIG~\SONEFIGREF shows an example calculation of rate constants of
-backtracking using NAC = 10 $s^{-1}$.
+\FIG~\ref{fig:model_and_rates} shows an example calculation of rate constants
+of backtracking using NAC = 10 $s^{-1}$.
 
 In this work we run model simulations alternately using APs obtained both for
 the absence of GreB (-GreB) and in the presence of GreB (+GreB). When GreB is
@@ -55,9 +55,9 @@ we make use the version implemented by Maarleveld et al.\ in the StocPY
 software \cite{maarleveld_stochpy:_2013}.
 
 The proceedure for rate constant estimation (illustrated in
-\FIG~\SONEFIGREF) is as follows (rate constant names indicated in
-\FIG~\ref{fig:model_and_rates}): First, we assign random values to the three
-rate constants NAC ($k_n$), promoter escape ($k_e$) and unscrunching and
+\FIG~\ref{fig:model_and_rates}) is as follows (rate constant names indicated
+in \FIG~\ref{fig:model_and_rates}): First, we assign random values to the
+three rate constants NAC ($k_n$), promoter escape ($k_e$) and unscrunching and
 abortive RNA release ($k_u$) within certain fixed boundaries (see below).
 These values are chosen independently from a uniform distribution. Secondly,
 we use the rate constant of the NAC and the APs to calculate the rate constant
@@ -65,16 +65,16 @@ of backtracking ($k_b$) using Eq.~(\ref{eq:backtrackingcalc}). We then
 simulate 100 initial transcription events and calculate the distribution of
 time spent in abortive cycling as a result of these specific rate constants.
 The result is measured against the empirical distribution
-\cite{revyakin_abortive_2006} using the root mean square error. By
-repeating this procedure several times, we obtain statistics of which values
-of rate constants that are associated with the best match with the
-experimental data. By virtue of using stochstic simulations, one does not
-arrive at a unique set of rate constants that have optimal fit with data; if a
-simulation is repeated without changing the rate constants, slightly different
-results will be obtained due to the inherent stochastisity of the reaction
-process. Therefore, we here find the optimal rate constants by running
-multiple simulations and identifying the rate constants that are most often
-associated with best fit to data from the distribution of fitness.
+\cite{revyakin_abortive_2006} using the root mean square error. By repeating
+this procedure several times, we obtain statistics of which values of rate
+constants that are associated with the best match with the experimental data.
+By virtue of using stochstic simulations, one does not arrive at a unique set
+of rate constants that have optimal fit with data; if a simulation is repeated
+without changing the rate constants, slightly different results will be
+obtained due to the inherent stochastisity of the reaction process. Therefore,
+we here find the optimal rate constants by running multiple simulations and
+identifying the rate constants that are most often associated with best fit to
+data from the distribution of fitness.
 
 The boundaries of the rate constants for parameter estimation were chosen from
 extrema estimated from experimental data. The speed of the NAC during initial
