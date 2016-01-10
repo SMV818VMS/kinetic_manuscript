@@ -1,4 +1,5 @@
-sourcefile = main
+# sourcefile = main
+sourcefile = main_plos
 # merged_sourcefile = biochem_merged
 
 # CLEAN_FILES+= *.log *.aux *.toc *.blg ${sourcefile}.pdf ${merged_sourcefile}.* *.xml *.bcf *.bbl *.lof
@@ -9,6 +10,7 @@ RM = rm -f
 default : pdf
 
 $(sourcefile).pdf : $(sourcefile).tex
+
 	pdflatex $(sourcefile)
 	@if(grep "There were undefined references" $(sourcefile).log > /dev/null);\
 	then \
@@ -29,6 +31,15 @@ $(sourcefile).pdf : $(sourcefile).tex
 	# pdflatex $(merged_sourcefile)
 
 pdf : $(sourcefile).pdf
+
+plos: 
+
+	latex $(sourcefile)
+	bibtex $(sourcefile)
+	latex $(sourcefile)
+	latex $(sourcefile)
+	dvipdfm $(sourcefile)
+
 
 .PHONY : clean
 clean :
