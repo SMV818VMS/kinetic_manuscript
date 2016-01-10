@@ -1,26 +1,27 @@
-# sourcefile = main
-sourcefile = main_plos
+sourcefile_main = main
+sourcefile_plos = main_plos
 # merged_sourcefile = biochem_merged
 
 # CLEAN_FILES+= *.log *.aux *.toc *.blg ${sourcefile}.pdf ${merged_sourcefile}.* *.xml *.bcf *.bbl *.lof
-CLEAN_FILES+= *.log *.aux *.toc *.blg ${sourcefile}.pdf *.xml *.bcf *.bbl *.lof
+# CLEAN_FILES+= *.log *.aux *.toc *.blg ${sourcefile_main}.pdf ${sourcefile_plos}.pdf *.xml *.bcf *.bbl *.lof *.dvi *.dep *.out
+CLEAN_FILES+= *.log *.aux *.toc *.blg *.xml *.bcf *.bbl *.lof *.dvi *.dep *.out
 
 RM = rm -f
 
 default : pdf
 
-$(sourcefile).pdf : $(sourcefile).tex
+$(sourcefile_main).pdf : $(sourcefile_main).tex
 
-	pdflatex $(sourcefile)
-	@if(grep "There were undefined references" $(sourcefile).log > /dev/null);\
+	pdflatex $(sourcefile_main)
+	@if(grep "There were undefined references" $(sourcefile_main).log > /dev/null);\
 	then \
-		bibtex $(sourcefile); \
-		pdflatex $(sourcefile); \
+		bibtex $(sourcefile_main); \
+		pdflatex $(sourcefile_main); \
 	fi
 	
-	@if(grep "Rerun" $(sourcefile).log > /dev/null);\
+	@if(grep "Rerun" $(sourcefile_main).log > /dev/null);\
 	then \
-		pdflatex $(sourcefile);\
+		pdflatex $(sourcefile_main);\
 	fi
 	# XXX Leave this out until the end
 	# Finally flatten the file for submission to journals
@@ -30,15 +31,17 @@ $(sourcefile).pdf : $(sourcefile).tex
 	# bibtex $(merged_sourcefile)
 	# pdflatex $(merged_sourcefile)
 
-pdf : $(sourcefile).pdf
+$(sourcefile_plos).pdf : $(sourcefile_plos).tex
 
-plos: 
+	latex $(sourcefile_plos)
+	bibtex $(sourcefile_plos)
+	latex $(sourcefile_plos)
+	latex $(sourcefile_plos)
+	dvipdfm $(sourcefile_plos)
 
-	latex $(sourcefile)
-	bibtex $(sourcefile)
-	latex $(sourcefile)
-	latex $(sourcefile)
-	dvipdfm $(sourcefile)
+pdf : $(sourcefile_main).pdf
+
+plos: $(sourcefile_plos).pdf
 
 
 .PHONY : clean

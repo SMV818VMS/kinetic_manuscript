@@ -22,8 +22,8 @@ of the NAC and an AP:
   b_i = \frac{\text{NAC}_i\cdot\text{AP}_i}{1-\text{AP}_i}.
   \label{eq:backtrackingcalc}
 \end{equation}
-\FIG~\ref{fig:model_and_rates} shows an example calculation of rate constants
-of backtracking using NAC = 10 $s^{-1}$.
+\FIG~\ref{fig:extrap_and_GreB_minus_fit} shows an example calculation of rate
+constants of backtracking using NAC = 10 $s^{-1}$.
 
 In this work we run model simulations alternately using APs obtained both for
 the absence of GreB (-GreB) and in the presence of GreB (+GreB). When GreB is
@@ -55,7 +55,7 @@ we make use the version implemented by Maarleveld et al.\ in the StocPY
 software \cite{maarleveld_stochpy:_2013}.
 
 The proceedure for rate constant estimation (illustrated in
-\FIG~\ref{fig:model_and_rates}) is as follows (rate constant names indicated
+\FIG~\ref{fig:extrap_and_GreB_minus_fit}) is as follows (rate constant names indicated
 in \FIG~\ref{fig:model_and_rates}): First, we assign random values to the
 three rate constants NAC ($k_n$), promoter escape ($k_e$) and unscrunching and
 abortive RNA release ($k_u$) within certain fixed boundaries (see below).
@@ -108,4 +108,30 @@ s$^{-1}$, respectively.
     follows: $k_n$ (NAC), $k_e$ (promoter escape), $k_u$ (unscrunching and
     abortive RNA release) and $k_{b,i}$ (backtracking).}
     \label{fig:model_and_rates}
+\end{figure}
+
+\begin{figure}[h]
+  \caption{ {\bf Scheme of rate constant estimation protocol.} \textbf{1:}
+    Rate constants for the NAC, UAR and promoter escape are randomly sampled
+    from a uniform distribution (example values are shown). Of these values,
+    the NAC is used further to obtain backtracking rates at each template
+    position (\textbf{3}). This is done by solving
+    Eq.~(\ref{eq:backtrackingcalc}), where the APs are obtained from Hsu et
+    al.\ \cite{hsu_initial_2006} (\textbf{2}). The backtracking rate
+    constants, together with the NAC, UAR, and promoter escape rate constants
+    sampled in step \textbf{1}, encompass the complete kinetic scheme of
+    initial transcription (\textbf{4}). This scheme is then used to simulate
+    the kinetics of 100 initial transcription events; from these 100 events
+    the distribution of time spent in abortive cycling is calculated and
+    compared to measured data from Revyakin et al.\
+    \cite{revyakin_abortive_2006} (\textbf{5}). From the distance between the
+    measured distribution and the simulated distribution, a fitness score is
+    produced. This score is associated to the three randomly selected rate
+    constants in step \textbf{1}, and is a measure for how well the kinetic
+    scheme (the three random rate constants and the AP values) agree with the
+    experimental data. By repeating steps \textbf{1}-\textbf{5} multiple
+    times, distributions are obtained from where we find which values of the
+    rate constants provide the best fit with experimental data
+    (\FIGS~\ref{fig:parameter_estimation_proper} and
+    \ref{fig:extrap_and_GreB_minus_fit}). }
 \end{figure}
