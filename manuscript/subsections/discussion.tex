@@ -1,8 +1,8 @@
 %\addbibresource{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk.bib}
 In this work we have used a kinetic model to show that promoter-bound
-transcription by RNAP before promoter escape proceeds at around 10.4 nt/s
-(\FIGS~\ref{fig:revyakin_fit} and \FIG~\ref{fig:estimated_parameters}), highly
-similar to the speed obtained for transcription elongation after promoter
+transcription by RNAP before promoter escape proceeds at around 10.6 nt/s
+(\FIGS~\ref{fig:estimated_parameters}~and~\ref{fig:revyakin_fit}), highly
+similar to the speed found for transcription elongation after promoter
 escape \cite{revyakin_abortive_2006}. We found that the steps of unscrunching
 and abortive RNA release are nearly ten times slower, proceeding at around 1.4
 s$^{-1}$. These rate constants were validated by comparing with kinetic data
@@ -23,19 +23,18 @@ strain manifests itself through bulges in the template-strand of DNA, which
 may contribute to the obligate displacement of different parts of $\sigma$
 before promoter escape \cite{winkelman_crosslink_2015}. In our study, we have
 shown that this strain does not have a marked impact on the rate of
-transcription. In other words, our model predicts that the rate constant of
-the NAC (translocation, NTP binding, and pyrophosphorolysis) does not differ
-greatly between transcription for promoter bound and elongating RNAP. We have
-further showed that it is unlikely that the time spent in short abortive
-cycles (< 3.5 seconds) follows an exponential distribution, as originally
-suggested by Revyakin et al. \cite{revyakin_abortive_2006}, since this would
-require an unphysiologically large rate constant of the NAC of 23.4 $^{-1}$ in
-order to fit the distribution curve
-(\FIG~\ref{fig:extrap_and_GreB_minus_fit}A). Instead, using the rate constant
-of the NAC obtained by simply fitting to the measured data, the distribution
-of time spent in abortive cycling is predicted to contain a transient delay of
-about one second before the first promoter escape events come to pass
-(\FIG~\ref{fig:revyakin_fit}).
+transcription. In other words, our model predicts that the reactions in the
+NAC (translocation, NTP binding, and pyrophosphorolysis) are not delayed
+because of strain in RNAP and the presence of scrunched DNA. We have further
+showed that the time spent in short abortive cycles ($< 3.5$ seconds) does not
+follows an exponential distribution, as originally suggested by Revyakin et
+al.\ \cite{revyakin_abortive_2006}, since this would require an
+unphysiologically large rate constant of the NAC of 23.4 s$^{-1}$ in order to
+fit the distribution curve (\FIG~\ref{fig:extrap_and_GreB_minus_fit}A).
+Instead, using the rate constant of the NAC obtained by simply fitting to the
+measured data, the distribution of time spent in abortive cycling is predicted
+to contain a transient delay of about one second before the first promoter
+escape events come to pass (\FIG~\ref{fig:revyakin_fit}).
 
 % Relate the findings to similar studies
 The most similar study to the work presented here is a study of the kinetics
@@ -48,22 +47,22 @@ the NAC at all translocation steps. This raises the question if there is a
 similar variation in the rate constant of the NAC for \textit{E. coli} RNAP.
 Since the average rate constant we obtained coincided closely with the speed
 during transcription elongation, we would argue that a large variation is
-not likely for \textit{E. coli}. Assuming that the speed during transcription
+not likely for \textit{E. coli}. If the speed during transcription
 elongation represents an upper limit of what may be achieved for
 promoter-bound RNAP, there is little room for individual steps at a speed much
 lower than 10 nt/s, since this would have to be compensated for by other
 steps where the speed is much higher than 10 nt/s in order to maintain the
 average value. Therefore, if there are any individual NACs during initial
-transcription that are slow, for example from slow translocation during
-displacement of $\sigma_{3,2}$, they are not likely to be much slower than the
-average. Our results therefore support a model where there is no strong
-bottleneck step for the NAC during initial transcription, implying that the
-strain of the growing DNA bubble and steric clashes with $\sigma$ do not
-greatly affect the NAC. Instead, we propose that transcription during
-initiation to proceeds similarly as for elongation except for a higher
+transcription that are slow, for example during displacement of
+$\sigma_{3,2}$, they are not likely to be much slower than the average. Our
+results therefore support a model where there is no strong bottleneck step for
+the NAC during initial transcription, implying that the strain of the growing
+DNA bubble and steric clashes with $\sigma$ do not greatly affect the NAC.
+Instead, we our results are consistent with a model where transcription during
+initiation proceeds similarly as for elongation except for a higher
 probability to backtrack.
 
-% Acknowledge the study's limitation
+% Acknowledge limitations
 A limitation of the current study is that it does not capture the likely
 variation in the rate constant of unscrunching and abortive RNA release from
 ITCs with RNAs of varying lengths. It is known that GreB cannot
@@ -72,25 +71,21 @@ contribute to the rescue of backtracked complexes with RNAs shorter than 5 nt
 unscrunching and abortive RNA release. Work on elongation complexes have shown
 that a weakened RNA-DNA hybrid prevents backtracking
 \cite{nudler_rnadna_1997}, making it likely that unscrunching takes longer for
-a complete compared to a partially formed RNA-DNA hybrid. At the same time,
-the rate constant of 1.4 s$^{-1}$ identified here just above the ~1 s$^{-1}$
-temporal resolution of the experiment of Revyakin et al., where this reaction
-step could not be discerned \cite{revyakin_abortive_2006}, implying that the
-value of 1.4 s$^{-1}$ represents a lower boundary. To resolve this number more
-precisely, experimental techniques are needed that can resolve backtracking
-and abortive RNA release at the time scale in which they occur. Alternatively,
-as increasingly complex molecular simulations of RNAP dynamics are obtained
-\cite{silva_millisecond_2014}, the details of the rapid kinetics of abortive
-cycling may be instead first be obtained using numerical methods alone.
+a complete compared to a partially formed RNA-DNA hybrid. To resolve this
+number more precisely, experimental techniques are needed that can resolve
+backtracking and abortive RNA release at the time scale in which they occur.
+Alternatively, as increasingly complex molecular simulations of RNAP dynamics
+are obtained \cite{silva_millisecond_2014}, the details of the rapid kinetics
+of abortive cycling may be instead first be obtained using numerical methods
+alone.
 
 In conclusion, this work supports a model of initial transcription where the
 forward rate of transcription is highly similar to the rate for transcription
-elongation, and where the backtracking and abortive release step is more than
-5 times slower. Since model fitting resulted in physiologically reasonable
-rate constants, and since these rate constants hold up to independent kinetic
-data (\FIG~\ref{fig:vo_comparison}), this supports that the assumptions
-underlying the model are sound. Therefore, it is likely that the APs reflect
-probabilities to backtrack during initial transcription. This supports using
-calculated APs, and not just bulk quantification, as a measure when
-investigating the mechanisms behind the large variation in abortive RNA
-synthesis from one template position to the next \cite{hsu_initial_2006}.
+elongation, and where the backtracking and abortive release step is nearly 10
+times slower. Since model fitting resulted in physiologically meaningful rate
+constants, and since these rate constants held up to independent kinetic data
+(\FIG~\ref{fig:vo_comparison}), this supports that the underlying assumption
+that APs reflect the probability to backtrack is sound. This supports that
+these values may be considered for future modelling work to investigate the
+mechanisms behind the large variation in abortive RNA synthesis that occurs
+from one template position to the next \cite{hsu_initial_2006}.
