@@ -6,11 +6,10 @@ RNA release (UAR), and iv) promoter escape (\FIG~\ref{fig:model_and_rates}).
 We refer to backtracking here only as the first unscrunching step, also known as
 backstepping. We find the rate constant of backtracking using APs calculated
 from experimental data \cite{hsu_quantitative_1996}. The method relies on two
-key points. The first is the feature of the model that the reactions of the
-NAC and backtracking are in kinetic competition
-(\FIG~\ref{fig:model_and_rates}). The second is the assumption that the
-probability to backtrack at any given template position is equal to the AP at
-that position. In combination, we get
+key points. The first is that the reactions of the NAC and backtracking are in
+kinetic competition (\FIG~\ref{fig:model_and_rates}). The second is the
+assumption that the probability to backtrack at any given template position is
+equal to the AP at that position. In combination, we get
 \begin{equation*}
     \frac{b_i}{b_i + \text{NAC}_i} = \text{AP}_i,
 \end{equation*}
@@ -26,8 +25,8 @@ constants of backtracking when NAC = 10 $s^{-1}$.
 
 We present a rationale for why APs calculated from abundance of aborted RNA
 give a good indication of the probability of the initial backtracking step.
-An alternative possibility would be that RNAP could backtrack without
-producing an abortive RNA, i.e.\ it could enter and remain in long backtracked
+The alternative would be that RNAP could backtrack without
+producing an abortive RNA, by entering and remaining in long backtracked
 pauses, as has been observed for elongating complexes
 \cite{shaevitz_backtracking_2003}. In the data we use for rate constant
 estimation, GreB was specifically included in the experiments to avoid long
@@ -36,7 +35,7 @@ backtracked pauses, and no such pauses were reported
 RNA-DNA hybrid and strain from scrunching make backtracked initial
 transcribing complexes far less stable than their elongating counterparts. We
 therefore find it reasonable to assume that once backtracking has commenced in
-initial transcription, an abortive RNA is eventually released. The other
+initial transcription, an abortive RNA is eventually released. Another
 possibility is that abortive RNAs can be released instantly without
 backtracking via hyper forward translocation. However, this has only been
 described for long abortive transcripts ($>$~16 nt) in N25 promoter mutation
@@ -47,28 +46,31 @@ transcription on native N25 and that backtracking is the only mechanism
 leading to the release of an abortive RNA.
 
 In this work we use both APs obtained for the absence of GreB (-GreB) and in
-the presence of GreB (+GreB). When GreB is present, we note that backtracked
-complexes may be rescued by GreB stimulated cleavage of the unaligned 3\ppp
-end of the transcript. Therefore, APs obtained in the presence of GreB
-represent the combined probability of both backtracking and avoiding rescue by
-GreB until RNA is released. For comparison with -GreB data, when RNA cleavage
-is unstimulated, we assume that GreB-mediated cleavage and subsequent NACs are
-rapid steps compared to unscrunching. This permits using the APs obtained in
-the presence of GreB as effective backtracking probabilities. +GreB AP values
-used in this work are obtained from Figure 4B in Hsu et al.
-\cite{hsu_initial_2006}, and -GreB AP values have been calculated directly
-from raw data used to build Table 1 in Hsu et al.\ \cite{hsu_initial_2006}
-(data provided by Lilian M. Hsu). AP values in Hsu et al.\ have been obtained
-in the presence of $100\ \mu M$ NTP \cite{hsu_initial_2006}.
+the presence of GreB (+GreB). When GreB is present, backtracked complexes may
+be rescued by GreB stimulated cleavage of the unaligned 3\ppp end of the
+transcript. Therefore, APs obtained in the presence of GreB represent the
+combined probability of both backtracking and avoiding rescue by GreB until
+RNA is released. We therefore assume that when GreB is present, GreB-mediated
+cleavage and subsequent NACs are rapid steps compared to unscrunching; this is
+supported by the finding that unscrunching and abortive RNA release are slow
+relative to NAC \cite{revyakin_abortive_2006, margeat_direct_2006}. This
+permits using the APs obtained in the presence of GreB as effective
+backtracking probabilities. The +GreB AP values used in this work are obtained
+from Figure 4B in Hsu et al. \cite{hsu_initial_2006}, and -GreB AP values have
+been calculated directly from raw data used to build Table 1 in Hsu et al.\
+\cite{hsu_initial_2006} (data provided by Lilian M. Hsu). AP values in Hsu et
+al.\ have been obtained in the presence of $100\ \mu M$ NTP at 37 $^{\circ}$C
+\cite{hsu_initial_2006}.
 
 \SUBSECTION{Implementation and rate constant estimation}
-A central result in this work is estimating the rate constants of initial
+A central result in this work is the estimation of the rate constants of initial
 transcription. We perform this estimation by running multiple simulations with
 different combinations of rate constants and evaluating the fitness of each
 combination to experimental data. The data used for rate constant estimation
-is the distribution of time spent in abortive cycling on the N25 promoter in
-the presence of $100\ \mu M$ NTP determined by Revyakin et al.\
-\cite{revyakin_abortive_2006}.
+is the distribution of time spent in abortive cycling on the N25 promoter
+determined by Revyakin et al.\ \cite{revyakin_abortive_2006}. This data was
+obtained under $100\ \mu M$ NTP at 34 $^{\circ}$C, near-identical conditions
+to how the APs were obtained \cite{hsu_initial_2006}.
 
 The experimental data was obtained from 100 individual initial transcription
 events \cite{revyakin_abortive_2006}. For experiments with single molecules,
@@ -84,7 +86,7 @@ by Maarleveld et al.\ in the StocPY software \cite{maarleveld_stochpy:_2013}.
 
 The procedure for rate constant estimation (illustrated in
 \FIG~\ref{fig:param_estimation_scheme}) is as follows (rate constant names
-indicated in \FIG~\ref{fig:model_and_rates}): First, we assign random values
+are given in \FIG~\ref{fig:model_and_rates}): First, we assign random values
 to the three rate constants NAC ($k_n$), promoter escape ($k_e$) and
 unscrunching and abortive RNA release ($k_u$) within certain fixed boundaries
 (see below). These values are chosen independently from a uniform
@@ -100,8 +102,8 @@ the experimental data. By virtue of using stochastic simulations, one does not
 arrive at a unique set of rate constants that have optimal fit with data; if a
 simulation is repeated with identical rate constants, slightly different
 results will be obtained due to the inherent stochasticity of the reaction
-process. Therefore, we identify the best-fitting rate constants from the
-fitness distribution, i.e.\ identify those rate constants that stand out
+process. Therefore, we identify the best-fitting rate constants from peak of
+the fitness distribution, i.e.\ identify those rate constants that stand out
 by most often giving the best fit to data.
 
 The boundaries of the rate constants for parameter estimation were chosen from

@@ -7,12 +7,12 @@ method. In the first step we performed a broad parameter search by considering
 the minimum and maximum values of all rate constants to lie between 1 s$^{-1}$
 and 25 s$^{-1}$. By evaluating the model within these value ranges and
 selecting the best fitting 1\% of all simulations, we found that the rate
-constant for NAC should be greater than 7 s$^{-1}$; that the rate constant for
+constant for NAC is greater than 7 s$^{-1}$; that the rate constant for
 unscrunching and abortive RNA release lies between 1 and 3 s$^{-1}$; and that
 the rate constant for promoter escape should be greater than 2.3 s$^{-1}$
-(\FIG~\ref{fig:parameter_estimation_proper}A). Of these three, only the
-distribution of values for the rate constant of promoter escape does not show
-an optimal peak, which indicates that time spent in abortive cycling is not
+(\FIG~\ref{fig:parameter_estimation_proper}A). Of these three, the
+distribution of rate constants of promoter escape stands out by not show an
+optimal peak, which indicates that time spent in abortive cycling is not
 sensitive to the rate constant for promoter escape
 (\FIG~\ref{fig:parameter_estimation_proper}A).
 
@@ -87,13 +87,15 @@ kinetic scheme of the identified rate constants is given in
 
 \SUBSECTION{Time spent in short durations of abortive cycling does not follow
     an exponential distribution}
-Revyakin et al.\ did not measure cycles of abortive initiation lasting shorter
-than $3.5$ seconds, but proposed based on the extrapolation curve that 20\% of
-abortive cycles are shorter than one second \cite{revyakin_abortive_2006}. In
-contrast, the best fit by our kinetic model suggests that less than 4\% of
-abortive cycling events last shorter than one second. This has the
-interpretation that around 1 second is required by the model for transcribing the 11 required
-basepairs to reach promoter escape for a rate constant of the NAC of 10.6
+Revyakin et al.\ did not measure scrunching or cycles of abortive initiation
+lasting shorter than $2.5$ seconds, but proposed based on extrapolation of
+measured data that 20\% of abortive cycles are shorter than one second
+\cite{revyakin_abortive_2006}. In contrast, the best fit by our kinetic model
+suggests that less than 4\% of events last shorter than one second. These
+quick events represent cases where RNAP scrunches DNA until promoter escape
+without backtracking. This has the interpretation that around 1 second is
+required by the model for transcribing the 11 required basepairs to reach
+promoter escape, which is agrees with a rate constant of the NAC of 10.6
 s$^{-1}$ (\FIG~\ref{fig:revyakin_fit}). To test the implication of assuming
 that the exponential extrapolation is valid, we repeated the rate constant
 estimation procedure, but fitted to the extrapolated curve instead of to the
@@ -108,7 +110,7 @@ escape \cite{revyakin_abortive_2006}. Further, it is higher than the speed of
 transcription elongation obtained for substrate NTP-concentrations ten times
 as high \cite{bai_mechanochemical_2007}. Taken together, such a high value for
 the NAC seems unphysiological, which suggests that the exponential
-extrapolation for abortive cycling lasting shorter than 3.5 seconds is not
+extrapolation for abortive cycling lasting shorter than 2.5 seconds is not
 valid.
 
 \begin{figure}[h]
@@ -138,24 +140,25 @@ increase \cite{hsu_initial_2006}, which in our model transfers into larger
 rate constants for backtracking via Eq.\~(\ref{eq:backtrackingcalc}). To test
 if the rate constants are valid in the absence of GreB, we compared the model
 with the half-life of N25 full length (FL) transcript synthesis using kinetic
-data from \FIG~3B in Vo et al.\ \cite{vo_vitro_2003-1}.  We fitted the data
-from Vo et al.\ to a single exponential function to obtain a half life of FL
-transcript synthesis of 13.7 s. We then ran our model with -GreB APs but using
-the rate constants estimated for +GreB APs, which resulted in generally
-higher rate constants of backtracking due to the higher AP values associated
-with -GreB. This resulted in a good visual fit with the experimental result,
-and a model-predicted half-life of FL transcript synthesis of 16.5 s
-(\FIG~\ref{fig:vo_comparison}), which is close to value obtained from the
-experimental data. In contrast, the half-life obtained for +GreB APs was 7.0
-s. We attribute the difference between model and experimental curves after 40
-seconds (\FIG~\ref{fig:vo_comparison}) to the presence of unproductive
-complexes in the experiments that continuously synthesize abortive RNA without
-reaching promoter escape \cite{vo_vitro_2003-1}; these complexes are not
-present in the model. The overall good fit between model and experiments shows
-that the estimated rate constants are valid for the kinetics of initial
-transcription both in the presence and in the absence of GreB, which indicates
-that they are valid in general. The rate constants of backtracking associated
-with -GreB AP values are given in \FIG~\ref{fig:estimated_parameters}.
+data from \FIG~3B in Vo et al.\, obtained under $100\ \mu M$ NTP at 37
+$^{\circ}$C \cite{vo_vitro_2003-1}. We fitted the data from Vo et al.\ to a
+single exponential function to obtain a half life of FL transcript synthesis
+of 13.7 s. We then ran our model with -GreB APs but using the rate constants
+estimated for +GreB APs, which resulted in generally higher rate constants of
+backtracking due to the higher AP values associated with -GreB. This resulted
+in a good visual fit with the experimental result, and a model-predicted
+half-life of FL transcript synthesis of 16.5 s (\FIG~\ref{fig:vo_comparison}),
+which is close to value obtained from the experimental data. In contrast, the
+half-life obtained for +GreB APs was 7.0 s. We attribute the difference
+between model and experimental curves after 40 seconds
+(\FIG~\ref{fig:vo_comparison}) to the presence of unproductive complexes in
+the experiments that continuously synthesize abortive RNA without reaching
+promoter escape \cite{vo_vitro_2003-1}; these complexes are not present in the
+model. The overall good fit between model and experiments shows that the
+estimated rate constants are valid for the kinetics of initial transcription
+both in the presence and in the absence of GreB, which indicates that they are
+valid in general. The rate constants of backtracking associated with -GreB AP
+values are given in \FIG~\ref{fig:estimated_parameters}.
 
 \begin{figure}[h]
     \begin{center}
