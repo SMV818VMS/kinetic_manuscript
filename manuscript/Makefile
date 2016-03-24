@@ -44,23 +44,23 @@ $(sourcefile_plos).pdf : $(sourcefile_plos).tex
 
 $(sourcefile_bmc).pdf : $(sourcefile_bmc).tex
 
-	latex $(sourcefile_bmc)
-	bibtex $(sourcefile_bmc)
-	latex $(sourcefile_bmc)
-	latex $(sourcefile_bmc)
-	dvipdfm $(sourcefile_bmc)
+	# latex $(sourcefile_bmc)
+	# bibtex $(sourcefile_bmc)
+	# latex $(sourcefile_bmc)
+	# latex $(sourcefile_bmc)
+	# dvipdfm $(sourcefile_bmc)
 
-	# pdflatex --shell-escape $(sourcefile_bmc)
-	# @if(grep "There were undefined references" $(sourcefile_bmc).log > /dev/null);\
-	# then \
-		# bibtex $(sourcefile_bmc); \
-		# pdflatex --shell-escape $(sourcefile_bmc); \
-	# fi
-	# 
-	# @if(grep "Rerun" $(sourcefile_bmc).log > /dev/null);\
-	# then \
-		# pdflatex --shell-escape $(sourcefile_bmc);\
-	# fi
+	pdflatex --shell-escape $(sourcefile_bmc)
+	@if(grep "There were undefined references" $(sourcefile_bmc).log > /dev/null);\
+	then \
+		bibtex $(sourcefile_bmc); \
+		pdflatex --shell-escape $(sourcefile_bmc); \
+	fi
+	
+	@if(grep "Rerun" $(sourcefile_bmc).log > /dev/null);\
+	then \
+		pdflatex --shell-escape $(sourcefile_bmc);\
+	fi
 
 pdf : $(sourcefile_main).pdf
 
