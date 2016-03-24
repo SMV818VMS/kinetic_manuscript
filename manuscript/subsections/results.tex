@@ -138,30 +138,29 @@ rate constants for backtracking via Eq.\~(\ref{eq:backtrackingcalc}). To test
 if the rate constants are valid in the absence of GreB, we compared the model
 with the half-life of N25 full length (FL) transcript synthesis using kinetic
 data from \FIG~3B in Vo et al.\, obtained under $100\ \mu M$ NTP at 37
-$^{\circ}$C \cite{vo_vitro_2003-1}. The transcript data from Vo et al.\ is
+$^{\circ}$C \cite{vo_vitro_2003-1}. The kinetic data from Vo et al.\ is
 limited in that it only contains four datapoints with no reported standard
 deviations of the measurements. Furthermore, the experiments contain
 unproductive complexes that continuously synthesize abortive RNA without
 reaching promoter escape \cite{vo_vitro_2003-1} which are not modelled.
-However, since the experiments are performed in the absence of GreB, it is
-expected that RNAP will have to undergo more abortive cycles before promoter
-escape is reached, leading to a lower rate of FL product synthesis compared to
-the +GreB transcription data from Revyakin et al.
-\cite{revyakin_abortive_2006}. To be able to compare with this data, we fitted
-the four datapoints from the -GreB experiments of Vo et al.\ to a single
-exponential function to obtain a half life of FL transcript synthesis of 13.7
-s. For comparison, when using the +GreB AP values, the model predicts a
-half-life of 7.0 seconds. This shows that the experiments match the
-expectation of a decreased rate of FL synthesis due to the absence of GreB. We
-then ran the model on N25 with -GreB APs, which resulted in generally higher
-rate constants of backtracking due to the higher AP values associated with
--GreB. This resulted in a model-predicted half-life of FL transcript synthesis
-of 16.5 s (\FIG~\ref{fig:vo_comparison}), which is higher but comparable to
-the value found from the fitted experimental data. The general fit between
-model and experiments shows that the estimated rate constants may be used for
-the kinetics of initial transcription both in the presence and in the absence
-of GreB. The rate constants of backtracking associated with -GreB AP values
-are given in \FIG~\ref{fig:estimated_parameters}.
+However, since the experiments are performed in the absence of GreB, we may
+still expect that RNAP will have to on average go through more abortive cycles
+before promoter escape is reached, leading to a lower rate of FL product
+synthesis compared to the +GreB transcription data from Revyakin et al.
+\cite{revyakin_abortive_2006}. To be able to compare the model with the data
+from Vo et al./, we fitted the four datapoints from the -GreB experiments to a
+single exponential function to obtain a half life of FL transcript synthesis
+of 13.7 s. When simulating transcription in -GreB conditions, the model
+predicts a half-life of FL transcript synthesis of 16.5 s
+(\FIG~\ref{fig:vo_comparison}), which is higher but comparable to the value
+found from the fitted experimental data. For comparison, we simulated a +GreB
+version of the same experiment. For the +GreB case, the model predicted a
+half-life of 7.0 seconds. This shows that the -GreB simulation gives an
+improved match to the -GreB experimental data  than the +GreB simulation. The
+general fit between model and experiments (\FIG~\ref{fig:vo_comparison}) shows
+that the estimated rate constants are also descriptive of transcription also
+in the absence of GreB. The rate constants of backtracking associated with
+-GreB AP values are given in \FIG~\ref{fig:estimated_parameters}.
 
 \begin{figure}[h]
     \begin{center}
@@ -216,7 +215,7 @@ would be possible as a test of the model to perform parameter estimation with
 GreB-inconsistent data, by using the -GreB AP values instead of the +GreB
 ones. If the model correctly represents the kinetics of initial transcription,
 the estimation of rate constants should be sensitive to this inconsistent
-combination of experimental data. To test this, we re-fitted the model using
+combination of experimental data. To investigate this, we re-fitted the model using
 the -GreB APs instead of the +GreB APs. This resulted in markedly different
 distributions compared to the +GreB case \ref{fig:extrap_and_GreB_minus_fit}B,
 with the peak of the distributions being 23.6/s and 14.7/s for
@@ -227,5 +226,6 @@ and abortive RNA release is similar to the measured speed of transcription,
 which would not make it rate limiting for initial transcription, contrary to
 experimental findings \cite{revyakin_abortive_2006, margeat_direct_2006}. This
 is in contrast to the more physiologically relevant rate constants we obtained
-when using GreB-consistent data. This shows that the model is highly sensitive
-to the consistency of the experimental data input.
+when using GreB-consistent data. This shows that the model does not produce
+physiologically valid rate constants when provided inconsistent experimental
+data.
