@@ -16,6 +16,20 @@ optimal peak, which indicates that time spent in abortive cycling is not
 sensitive to the rate constant for promoter escape
 (\FIG~\ref{fig:parameter_estimation_proper}A).
 
+\begin{figure}[h]
+    \begin{center}
+      \includegraphics{../figures/coarse_and_finegrain_search_GreB_no_extrap}
+    \end{center}
+  \caption{ {\bf Histogram distributions of the 1\% best fitting rate
+    constants of 100000 random samples.} \textbf{A}: First iteration of
+    estimation, where all three rate constants were varied between 1 and 25
+    s$^{-1}$. \textbf{B}: Second iteration of estimation, where NAC was varied
+    between 6 and 14 s$^{-1}$, unscrunching and abortive RNA release (UAR)
+    was varied between 1 and 3 s$^{-1}$, and the promoter escape rate constant was
+    held constant at 20 s$^{-1}$.}
+    \label{fig:parameter_estimation_proper}
+\end{figure}
+
 Having narrowed down the boundaries for the rate constants, we performed a
 more focused search in the second step. Since model fitting was insensitive to
 the rate constant of promoter escape
@@ -43,20 +57,6 @@ nearly all experimental measurements fall within one standard deviation of the
 mean distribution predicted by the model (\FIG~\ref{fig:revyakin_fit}). A full
 kinetic scheme of the identified rate constants is given in
 \FIG~\ref{fig:estimated_parameters}.
-
-\begin{figure}[h]
-    \begin{center}
-      \includegraphics{../figures/coarse_and_finegrain_search_GreB_no_extrap}
-    \end{center}
-  \caption{ {\bf Histogram distributions of the 1\% best fitting rate
-    constants of 100000 random samples.} \textbf{A}: First iteration of
-    estimation, where all three rate constants were varied between 1 and 25
-    s$^{-1}$. \textbf{B}: Second iteration of estimation, where NAC was varied
-    between 6 and 14 s$^{-1}$, unscrunching and abortive RNA release (UAR)
-    was varied between 1 and 3 s$^{-1}$, and the promoter escape rate constant was
-    held constant at 20 s$^{-1}$.}
-    \label{fig:parameter_estimation_proper}
-\end{figure}
 
 \begin{figure}[h]
     \begin{center}
@@ -100,18 +100,15 @@ s$^{-1}$ (\FIG~\ref{fig:revyakin_fit}). To test the implication of assuming
 that the exponential extrapolation is valid, we repeated the rate constant
 estimation procedure, but fitted to the extrapolated curve instead of to the
 measurements. This resulted in a similar optimal rate constant for
-unscrunching and abortive RNA release, but a much larger value for the peak
-for the NAC at 23.4 s$^{-1}$ (\FIG~\ref{fig:extrap_and_GreB_minus_fit}). This
-value represents what is required in the model for $\sim$ 20\% of initial
-transcription events to last shorter than 1 second. The validity of such a
-high rate constant for the NAC may be questioned. A value of 23.4 s$^{-1}$ is
-twice as high as that reported for transcription elongation after promoter
-escape \cite{revyakin_abortive_2006}. Further, it is higher than the speed of
+unscrunching and abortive RNA release, but a much larger value for the NAC at
+23.4 s$^{-1}$ (\FIG~\ref{fig:extrap_and_GreB_minus_fit}). This value
+represents what is required for $\sim$ 20\% of initial transcription events to
+last shorter than 1 second. The validity of such a high rate constant for the
+NAC may be questioned. A value of 23.4 s$^{-1}$ is twice as high as that
+reported for transcription elongation after promoter escape
+\cite{revyakin_abortive_2006}. Further, it is higher than the speed of
 transcription elongation obtained for substrate NTP-concentrations ten times
-as high \cite{bai_mechanochemical_2007}. Taken together, such a high value for
-the NAC seems unphysiological, which suggests that the exponential
-extrapolation for abortive cycling lasting shorter than 2.5 seconds is not
-valid.
+as high \cite{bai_mechanochemical_2007}.
 
 \begin{figure}[h]
     \begin{center}
@@ -129,8 +126,9 @@ valid.
       \label{fig:extrap_and_GreB_minus_fit}
 \end{figure}
 
-\SUBSECTION{Estimated rate constants are valid for initial transcription also
+\SUBSECTION{Estimated rate constants describe initial transcription also
 in the absence of GreB}
+
 Since the experiments from Revyakin et al.\ were performed in the presence of
 GreB, we originally fitted the model using APs calculated from experiments
 also performed in the presence of GreB. However, once fitted, the estimated
@@ -141,24 +139,30 @@ rate constants for backtracking via Eq.\~(\ref{eq:backtrackingcalc}). To test
 if the rate constants are valid in the absence of GreB, we compared the model
 with the half-life of N25 full length (FL) transcript synthesis using kinetic
 data from \FIG~3B in Vo et al.\, obtained under $100\ \mu M$ NTP at 37
-$^{\circ}$C \cite{vo_vitro_2003-1}. We fitted the data from Vo et al.\ to a
-single exponential function to obtain a half life of FL transcript synthesis
-of 13.7 s. We then ran our model with -GreB APs but using the rate constants
-estimated for +GreB APs, which resulted in generally higher rate constants of
-backtracking due to the higher AP values associated with -GreB. This resulted
-in a good visual fit with the experimental result, and a model-predicted
-half-life of FL transcript synthesis of 16.5 s (\FIG~\ref{fig:vo_comparison}),
-which is close to value obtained from the experimental data. In contrast, the
-half-life obtained for +GreB APs was 7.0 s. We attribute the difference
-between model and experimental curves after 40 seconds
-(\FIG~\ref{fig:vo_comparison}) to the presence of unproductive complexes in
-the experiments that continuously synthesize abortive RNA without reaching
-promoter escape \cite{vo_vitro_2003-1}; these complexes are not present in the
-model. The overall good fit between model and experiments shows that the
-estimated rate constants are valid for the kinetics of initial transcription
-both in the presence and in the absence of GreB, which indicates that they are
-valid in general. The rate constants of backtracking associated with -GreB AP
-values are given in \FIG~\ref{fig:estimated_parameters}.
+$^{\circ}$C \cite{vo_vitro_2003-1}. The transcript data from Vo et al.\ is
+limited in that it only contains four datapoints with no reported standard
+deviations of the measurements. Furthermore, the experiments contain
+unproductive complexes that continuously synthesize abortive RNA without
+reaching promoter escape \cite{vo_vitro_2003-1} which are not modelled.
+However, since the experiments are performed in the absence of GreB, it is
+expected that RNAP will have to undergo more abortive cycles before promoter
+escape is reached, leading to a lower rate of FL product synthesis compared to
+the +GreB transcription data from Revyakin et al.
+\cite{revyakin_abortive_2006}. To be able to compare with this data, we fitted
+the four datapoints from the -GreB experiments of Vo et al.\ to a single
+exponential function to obtain a half life of FL transcript synthesis of 13.7
+s. For comparison, when using the +GreB AP values, the model predicts a
+half-life of 7.0 seconds. This shows that the experiments match the
+expectation of a decreased rate of FL synthesis due to the absence of GreB. We
+then ran the model on N25 with -GreB APs, which resulted in generally higher
+rate constants of backtracking due to the higher AP values associated with
+-GreB. This resulted in a model-predicted half-life of FL transcript synthesis
+of 16.5 s (\FIG~\ref{fig:vo_comparison}), which is higher but comparable to
+the value found from the fitted experimental data. The general fit between
+model and experiments shows that the estimated rate constants may be used for
+the kinetics of initial transcription both in the presence and in the absence
+of GreB. The rate constants of backtracking associated with -GreB AP values
+are given in \FIG~\ref{fig:estimated_parameters}.
 
 \begin{figure}[h]
     \begin{center}
@@ -173,18 +177,55 @@ values are given in \FIG~\ref{fig:estimated_parameters}.
       standard deviation (shaded region) from 10 separate 1000-event
       simulations are shown.}
 \label{fig:vo_comparison}
+
 \end{figure}
+Having thus tested the model on -GreB data, we calculated the half-life of FL
+transcript synthesis for all promoter variants in the DG100 series from
+Hsu et al./ \cite{hsu_initial_2006}. The DG100 dataset contains 43 variants of
+the N25 promoter with sequence variation in the region from +3 to +20 which
+causes a large variation in the productive yield between variants
+\cite{hsu_initial_2006}. The simulations resulted in a more than 10-fold
+variation in predicted half-life of FL synthesis, ranging from 14.7 seconds
+(DG146a) to 199 seconds (DG137a) (\FIG~\ref{fig:dg100_halflives}). Since
+productive yield is strongly associated with abortive probability, there is a
+near 1-to-1 correlation between the half-life of FL synthesis and the
+productive yield associated with each promoter variant (r=0.98, p<1e-30).
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics{../figures/Time_to_reach_fifty_percent_of_FL.pdf}
+    \end{center}
+    \caption{ {\bf Half-life of FL transcript synthesis for promoter variants
+        in the DG100 library}. Half-life was calculated as the time needed for
+        50\% of RNAP to reach promoter escape and subsequently complete
+        transcription of a 35 nucleotide run-off sequence
+        \cite{vo_vitro_2003-1}. For transcription of the run-off sequence, a
+        transcription rate of 11.2 seconds was used, which is the average of
+        the speed of transcription elongation found by Revyakin et al.\ for
+        positively and negatively supercoiled DNA
+        \cite{Revyakin_abortive_2006}.}
+\label{fig:dg100_halflives}
 
 \SUBSECTION{Model performance is highly sensitive to inconsistency in experimental data}
-The experimental data used for rate constant estimation were GreB-consistent, 
-in the sense that they were obtained from transcription experiments performed
-in the presence of GreB. However, it would also be possible to perform
-parameter estimation with GreB-inconsistent data, by using the -GreB AP values
-instead of the +GreB ones. If the model correctly represents the kinetics of
-initial transcription, the estimation of rate constants should be sensitive to
-this inconsistent combination of experimental data. To test this, we re-fitted
-the model using the -GreB APs instead of the +GreB APs. This resulted in
-markedly different distributions compared to the +GreB case
-\ref{fig:extrap_and_GreB_minus_fit}B, with the peak of the distributions being
-23.6 s$^{-1}$ and 14.7 s$^{-1}$ for the NAC and unscrunching and abortive RNA
-release, respectively.
+The experimental data used for rate constant estimation (APs from Hsu et al./
+\cite{hsu_initial_2006} and time spent in scrunching and abortive cycling from
+Revyakin et al. \cite{revyakin_abortive_2006}) is consistent in the sense that
+they were obtained from transcription experiments performed in the presence of
+GreB. However, since AP values are available also for -GreB conditions, it
+would be possible as a test of the model to perform parameter estimation with
+GreB-inconsistent data, by using the -GreB AP values instead of the +GreB
+ones. If the model correctly represents the kinetics of initial transcription,
+the estimation of rate constants should be sensitive to this inconsistent
+combination of experimental data. To test this, we re-fitted the model using
+the -GreB APs instead of the +GreB APs. This resulted in markedly different
+distributions compared to the +GreB case \ref{fig:extrap_and_GreB_minus_fit}B,
+with the peak of the distributions being 23.6 s$^{-1}$ and 14.7 s$^{-1}$ for
+the NAC and unscrunching and abortive RNA release, respectively. The value for
+the NAC is twice as high as was reported for transcription elongation after
+promoter escape \cite{revyakin_abortive_2006}, and the value for unscrunhcing
+and abortive RNA release is similar to the measured speed of transcription,
+which would not make it rate limiting for initial transcription, contrary to
+experimental findings \cite{revyakin_abortive_2006, margeat_direct_2006}. This
+is in contrast to the more physiologically relevant rate constants we obtained
+when using GreB-consistent data. This shows that the model is highly sensitive
+to the consistency of the experimental data input.
