@@ -1,49 +1,5 @@
 %% BioMed_Central_Tex_Template_v1.06
-%%                                      %
-%  bmc_article.tex            ver: 1.06 %
-%                                       %
-
-%%IMPORTANT: do not delete the first line of this template
-%%It must be present to enable the BMC Submission system to
-%%recognise this template!!
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                     %%
-%%  LaTeX template for BioMed Central  %%
-%%     journal article submissions     %%
-%%                                     %%
-%%          <8 June 2012>              %%
-%%                                     %%
-%%                                     %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                                                 %%
-%% For instructions on how to fill out this Tex template           %%
-%% document please refer to Readme.html and the instructions for   %%
-%% authors page on the biomed central website                      %%
-%% http://www.biomedcentral.com/info/authors/                      %%
-%%                                                                 %%
-%% Please do not use \input{...} to include other tex files.       %%
-%% Submit your LaTeX manuscript as one .tex document.              %%
-%%                                                                 %%
-%% All additional figures and files should be attached             %%
-%% separately and not embedded in the \TeX\ document itself.       %%
-%%                                                                 %%
-%% BioMed Central currently use the MikTex distribution of         %%
-%% TeX for Windows) of TeX and LaTeX.  This is available from      %%
-%% http://www.miktex.org                                           %%
-%%                                                                 %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%% additional documentclass options:
-%  [doublespacing]
-%  [linenumbers]   - put the line numbers on margins
-
-%%% loading packages, author definitions
-
-%\documentclass[twocolumn]{bmcart}% uncomment this for twocolumn layout and comment line below
+%
 \documentclass{bmcart}
 
 %%% Load packages
@@ -54,6 +10,9 @@
 \usepackage[utf8]{inputenc} %unicode support
 %\usepackage[applemac]{inputenc} %applemac support if unicode package fails
 %\usepackage[latin1]{inputenc} %UNIX support if unicode package fails
+
+\usepackage{commath}
+\usepackage[lined,ruled]{algorithm2e}
 
 % For making a better prime symbol
 \usepackage{rotating} % make your own prime symbol
@@ -107,8 +66,8 @@
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{The Average Speed of Transcription is Similar for Promoter Bound and Elongating
-RNA Polymerase}
+\title{Kinetic Model of Initial Transcription Suggests the Same Average Speed
+for Promoter Bound and Elongating RNA Polymerase}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
@@ -132,7 +91,7 @@ RNA Polymerase}
 \author[
    addressref={aff1},
    email={nadi.bar@ntnu.no}
-]{\inits{NB}\fnm{Nadav S} \snm{Bar}}
+]{\inits{NB}\fnm{Nadav} \snm{Bar}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
@@ -144,13 +103,14 @@ RNA Polymerase}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \address[id=aff1]{%                           % unique id
-  \orgname{Department of Chemical Enginerering, Norwegian University of Science and Technology}, % university, etc
-  \street{Sem Sælands vei},                     %
+  \orgname{Department of Chemical Engineering, Norwegian University of Science and Technology (NTNU)}, % university, etc
+  \street{Sem S\ae landsvei 4},                     %
   %\postcode{}                                % post or zip code
-  \city{Trondheim},                           % city
-  \cny{Norway}                                % country
+  \city{Trondheim},                              % city
+  \cny{Norway}                                    % country
+%\\
+%Emails: JS: jorgsk@nt.ntnu.no, NB: nadi.bar@ntnu.no$^*$ 
 }
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
 %% Enter short notes here                   %%
@@ -196,6 +156,9 @@ RNA Polymerase}
 \kwd{transcription initiation}
 \kwd{scrunching}
 \kwd{kinetics}
+\kwd{promoter-bound transcription}
+\kwd{abortive initiation}
+\kwd{RNA polymerase}
 \end{keyword}
 
 % MSC classifications codes, if any
@@ -240,7 +203,7 @@ RNA Polymerase}
 \section*{Introduction}
 \input{subsections/introduction.tex}
 
-\section*{Materials and Methods}
+\section*{Methods}
 \input{subsections/methods.tex}
 
 \section*{Results}
@@ -261,7 +224,7 @@ RNA Polymerase}
   The authors declare that they have no competing interests.
 
 \section*{Author's contributions}
-    Text for this section \ldots
+   
 
 \section*{Acknowledgements}
 We thank Lilian M. Hsu for thoughtful comments on the manuscript during the
@@ -283,65 +246,129 @@ writing process and for sharing experimental data.
 
 % if your bibliography is in bibtex format, use those commands:
 \bibliographystyle{bmc-mathphys} % Style BST file (bmc-mathphys, vancouver, spbasic).
-\bibliography{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk_abr_nodot.bib}
-% for author-year bibliography (bmc-mathphys or spbasic)
-% a) write to bib file (bmc-mathphys only)
-% @settings{label, options="nameyear"}
-% b) uncomment next line
-%\nocite{label}
+%\bibliography{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk_abr_nodot.bib}
 
-% or include bibliography directly:
-% \begin{thebibliography}
-% \bibitem{b1}
-% \end{thebibliography}
+\section*{Figures}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                               %%
-%% Figures                       %%
-%%                               %%
-%% NB: this is for captions and  %%
-%% Titles. All graphics must be  %%
-%% submitted separately and NOT  %%
-%% included in the Tex document  %%
-%%                               %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%1 
+\begin{figure}[h!]
+    \begin{center}
+     % \includegraphics{../illustrations/model_and_rates_mini}
+    \end{center}
+  \caption{{\bf Kinetic model of initial transcription on the N25 promoter.}
+    From the open complex (OC) transcription proceeds by NACs from one initial
+    transcribing complex (ITC) to the next, where each ITC is identified in
+    subscript by the length of its nascent RNA. Initial transcription proceeds
+    until the nascent RNA has reached the experimentally obtained maximum size
+    of abortive transcript; for N25, this is 11 nt \cite{hsu_initial_2006}.
+    The pathways NAC and backtracking are competing processes for ITCs with an
+    RNA of 2nt or longer. In our model, backtracking leads to unscrunching and
+    abortive RNA release. $k_n$ denotes NAC, $k_e$ promoter escape, $k_u$
+    unscrunching and abortive RNA release and $k_{b,i}$ denotes
+    backtracking.}
+    \label{fig:model_and_rates}
+\end{figure}
 
-%%
-%% Do not use \listoffigures as most will included as separate files
+% 2
+\begin{figure}[h!]
+    \begin{center}
+     % \includegraphics{../illustrations/concept.pdf}
+    \end{center}
+  \caption{ {\bf parameter estimation protocol.} From left to right: we assign
+  random values from uniform distribution, where $a$ is individually chosen
+  for each of the parameters. The next stage, we use $k_n$ to calculate the
+  backtracking rates $k_b,i$ at each template position $i$, by solving eq.
+  \ref{eq:backtrackingcalc} with AP data from \cite{hsu_initial_2006}. We then
+  simulate with these parameters the kinetics of 100 initial transcription
+  events with sequences identical to \cite{revyakin_abortive_2006}, and
+  calculate the duration of the  time $T_j,\ j=\{1....100\}$ spent in
+  scrunching and abortive cycling. At the next stage, we compare the root
+  square mean error (RMSE) of our results with measured data $\hat T _j,\
+  j={1...100}$ obtained from \cite{revyakin_abortive_2006}. We repeat the
+  procedure in a Monte-Carlo fashion and select the parameter set that yield
+  lowest RMSE.}
+    \label{fig:param_estimation_scheme}
+\end{figure}
 
-%\section*{Figures}
-  %\begin{figure}[h!]
-  %\caption{\csentence{Sample figure title.}
-      %A short description of the figure content
-      %should go here.}
-      %\end{figure}
+% 3
+\begin{figure}[h!]
+\begin{center}
+      %\includegraphics{../figures/coarse_and_finegrain_search_GreB_no_extrap}
+    \end{center}
+  \caption{ {\bf Distributions of the 1\% best fitting rate constants of
+      100000 random samples.} \textbf{A}: First iteration of estimation, where
+      all three rate constants were varied between 1/s and 25/s (see Methods).
+      \textbf{B}: Second iteration of estimation, where NAC ($K_n$) was varied
+      between 6/s and 14/s, unscrunching and abortive RNA release (UAR, $K_u$)
+      was varied between 1/s and 3/s, and the promoter escape rate constant
+      was held constant at 20/s.}
+    \label{fig:parameter_estimation_proper}
+\end{figure}
 
-%\begin{figure}[h!]
-  %\caption{\csentence{Sample figure title.}
-      %Figure legend text.}
-      %\end{figure}
+% 4 
+\begin{figure}[h!]
+    \begin{center}
+     % \includegraphics{../figures/scrunch_times_cumulative_}
+    \end{center}
+  \caption{{\bf Comparison of model predictions and measurements of time spent
+      in scrunching and abortive cycling.} The central line is the mean of 100
+      simulated initial transcription events. The shaded region indicates one
+      standard deviation. Measurements and exponential fit were obtained from
+      \cite{revyakin_abortive_2006}.}
+\label{fig:revyakin_fit}
+\end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                               %%
-%% Tables                        %%
-%%                               %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% 5 (previsouly 6)
+\begin{figure}[h!]
+    \begin{center}
+    %  \includegraphics{../figures/coarse_search-fits_2_3}
+    \end{center}
+    \caption{
+      {\bf Rate constant distributions obtained by fitting the model to
+      extrapolated and inconsistent experimental data.} \textbf{A}:
+      Distributions of top 1\% rate constants after fitting the model to the
+      extrapolated curve for the distribution of time spent in scrunching and
+      abortive cycling \cite{revyakin_abortive_2006}. \textbf{B}:
+      Distributions of top 1\% rate constants after fitting the model using AP
+      values obtained in the absence of GreB. In silhouette is shown the
+      distributions from \FIG~\ref{fig:parameter_estimation_proper}A for
+      comparison.}
+      \label{fig:extrap_and_GreB_minus_fit}
+\end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                               %%
-%% Additional Files              %%
-%%                               %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 6 (prev. 7)
+\begin{figure}[h!]
+    \begin{center}
+      %  \includegraphics{../figures/GreB_minus_kinetics}
+    \end{center}
+    \caption{ {\bf Kinetics of FL transcript synthesis under -GreB conditions;
+            a comparison between model and measurements from Vo et
+        al.~\cite{vo_vitro_2003-1}}. To use stochastic simulations to simulate
+        the bulk experiment we simulated a sufficiently large number of
+        transcription events (1000) for which there is low variability due to
+        stochastic effects. To highlight the low variability, the mean and
+        standard deviation (shaded region) from 10 separate 1000-event
+        simulations are shown.}
+  \label{fig:vo_comparison}
+\end{figure}
 
-%\section*{Additional Files}
-  %\subsection*{Additional file 1 --- Sample additional file title}
-    %Additional file descriptions text (including details of how to
-    %view the file, if it is in a non-standard format or the file extension).  This might
-    %refer to a multi-page table or a figure.
-
-  %\subsection*{Additional file 2 --- Sample additional file title}
-    %Additional file descriptions text.
+% 7 (prev 8)
+\begin{figure}[h!]
+    \begin{center}
+      %  \includegraphics{../figures/Time_to_reach_fifty_percent_of_FL}
+    \end{center}
+    \caption{ {\bf Half-life of FL transcript synthesis for promoter variants
+        in the DG100 library}. Half-life was calculated as the time needed for
+        50\% of RNAP to reach promoter escape and subsequently complete
+        transcription of a 35 nucleotide run-off sequence
+        \cite{vo_vitro_2003-1}. For transcription of the run-off sequence, a
+        transcription rate of 11.2 seconds was used, which is the average of
+        the speed of transcription elongation found by Revyakin et al.\ for
+        positively and negatively supercoiled DNA
+        \cite{revyakin_abortive_2006}.}
+    \label{fig:dg100_halflives}
+\end{figure}
 
 \end{backmatter}
 \end{document}
