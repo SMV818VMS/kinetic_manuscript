@@ -86,7 +86,7 @@ for Promoter Bound and Elongating RNA Polymerase}
 \author[
    addressref={aff1},                   % id's of addresses, e.g. {aff1,aff2}
    %noteref={n1},                        % id's of article notes, if any
-   email={jorgsk@nt.ntnu.no}   % email address
+  % email={jorgsk@nt.ntnu.no}   % email address
 ]{\inits{JS}\fnm{J\o rgen} \snm{Skancke}}
 \author[
    addressref={aff1},
@@ -108,8 +108,8 @@ for Promoter Bound and Elongating RNA Polymerase}
   %\postcode{}                                % post or zip code
   \city{Trondheim},                              % city
   \cny{Norway}                                    % country
-%\\
-%Emails: JS: jorgsk@nt.ntnu.no, NB: nadi.bar@ntnu.no$^*$ 
+\\
+Emails: JS: jorgsk@nt.ntnu.no, NB: nadi.bar@ntnu.no$^*$ 
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
@@ -224,7 +224,7 @@ for Promoter Bound and Elongating RNA Polymerase}
   The authors declare that they have no competing interests.
 
 \section*{Author's contributions}
-   
+   JS developed and simulated the model. JS and NB wrote the article, NB supervised the project. 
 
 \section*{Acknowledgements}
 We thank Lilian M. Hsu for thoughtful comments on the manuscript during the
@@ -261,12 +261,12 @@ writing process and for sharing experimental data.
     subscript by the length of its nascent RNA. Initial transcription proceeds
     until the nascent RNA has reached the experimentally obtained maximum size
     of abortive transcript; for N25, this is 11 nt \cite{hsu_initial_2006}.
-    The pathways NAC and backtracking are competing processes for ITCs with an
-    RNA of 2nt or longer. In our model, backtracking leads to unscrunching and
-    abortive RNA release. $k_n$ denotes NAC, $k_e$ promoter escape, $k_u$
-    unscrunching and abortive RNA release and $k_{b,i}$ denotes
-    backtracking.}
-    \label{fig:model_and_rates}
+    The pathways of the NAC and backtracking are competing processes for ITCs
+    with an RNA length of 2nt and longer. In our model, backtracking leads to
+    unscrunching and abortive RNA release. We denote the rate constants for
+    the processes as $k_n$ (NAC), $k_e$ (promoter)
+    escape, $k_u$ (unscrunching and abortive RNA release), and $k_{b,i}$ 
+    (backtracking at position $i$).} \label{fig:model_and_rates}
 \end{figure}
 
 % 2
@@ -274,19 +274,19 @@ writing process and for sharing experimental data.
     \begin{center}
      % \includegraphics{../illustrations/concept.pdf}
     \end{center}
-  \caption{ {\bf parameter estimation protocol.} From left to right: we assign
-  random values from uniform distribution, where $a$ is individually chosen
-  for each of the parameters. The next stage, we use $k_n$ to calculate the
-  backtracking rates $k_b,i$ at each template position $i$, by solving eq.
-  \ref{eq:backtrackingcalc} with AP data from \cite{hsu_initial_2006}. We then
-  simulate with these parameters the kinetics of 100 initial transcription
-  events with sequences identical to \cite{revyakin_abortive_2006}, and
-  calculate the duration of the  time $T_j,\ j=\{1....100\}$ spent in
-  scrunching and abortive cycling. At the next stage, we compare the root
-  square mean error (RMSE) of our results with measured data $\hat T _j,\
-  j={1...100}$ obtained from \cite{revyakin_abortive_2006}. We repeat the
-  procedure in a Monte-Carlo fashion and select the parameter set that yield
-  lowest RMSE.}
+  \caption{ {\bf Parameter estimation protocol.}
+    From left to right: we assign random values from the uniform distribution,
+    where $a$ is individually chosen for each of the parameters. In the next
+    stage, we use $k_n$ to calculate the backtracking rates $k_b,i$ at each
+    template position $i$, by solving eq. \ref{eq:backtrackingcalc} with AP
+    data from \cite{hsu_initial_2006}. We then simulate with these parameters
+    the kinetics of 100 initial transcription events on the N25 promoter 
+    and calculate cumulative distribution of time $T_j,\ j=\{1....100\}$ spent
+    in abortive cycling. At the next stage, we compare the root square mean
+    error (RMSE) of our results with the cumulative distribution from measured
+    data $\hat T$ obtained from \cite{revyakin_abortive_2006}.  We repeat the
+    procedure in a Monte-Carlo fashion and select the parameters set that
+  yield lowest RMSE.}
     \label{fig:param_estimation_scheme}
 \end{figure}
 
@@ -295,14 +295,20 @@ writing process and for sharing experimental data.
 \begin{center}
       %\includegraphics{../figures/coarse_and_finegrain_search_GreB_no_extrap}
     \end{center}
-  \caption{ {\bf Distributions of the 1\% best fitting rate constants of
-      100000 random samples.} \textbf{A}: First iteration of estimation, where
-      all three rate constants were varied between 1/s and 25/s (see Methods).
-      \textbf{B}: Second iteration of estimation, where NAC ($K_n$) was varied
-      between 6/s and 14/s, unscrunching and abortive RNA release (UAR, $K_u$)
-      was varied between 1/s and 3/s, and the promoter escape rate constant
-      was held constant at 20/s.}
-    \label{fig:parameter_estimation_proper}
+  \caption{ {\bf Results of parameter estimation with two iterations (A and
+      B).}
+      The cumulative distribution (in percent) of the values of the rate
+      constants from Monte-Carlo sampling (in
+      $1/s$)}. Results were found from the 1\% best fitting rate constants
+      from a total of $10^5$ random samples. \textbf{A}: First iteration of
+      the estimation, where all three rate constants were varied between 1/s
+      and 25/s (see Methods). \textbf{B}: Second iteration of estimation,
+      where NAC ($K_n$) was varied between 6/s and 14/s, unscrunching and
+      abortive RNA release (UAR, $K_u$) was varied between 1/s and 3/s, and
+      the promoter escape rate constant was held constant at 20/s. Blue dashed
+      lines represent the peaks of the histograms with the values
+      indicated at the bottom (see Methods). }
+      \label{fig:parameter_estimation_proper}
 \end{figure}
 
 % 4 
@@ -310,12 +316,13 @@ writing process and for sharing experimental data.
     \begin{center}
      % \includegraphics{../figures/scrunch_times_cumulative_}
     \end{center}
-  \caption{{\bf Comparison of model predictions and measurements of time spent
-      in scrunching and abortive cycling.} The central line is the mean of 100
-      simulated initial transcription events. The shaded region indicates one
-      standard deviation. Measurements and exponential fit were obtained from
-      \cite{revyakin_abortive_2006}.}
-\label{fig:revyakin_fit}
+  \caption{{\bf Comparison of model predictions of time spent in abortive
+  cycling with measurements and previous estimates.}
+  The mean of simulations of 100 transcription events. Shaded region indicates
+  one standard deviation. Measurements (squares) and exponential fit (dashed
+  curve) were obtained from \cite{revyakin_abortive_2006}. Discrepancy is
+  large for short initial transcription events.}
+  \label{fig:revyakin_fit}
 \end{figure}
 
 
@@ -326,15 +333,17 @@ writing process and for sharing experimental data.
     \end{center}
     \caption{
       {\bf Rate constant distributions obtained by fitting the model to
-      extrapolated and inconsistent experimental data.} \textbf{A}:
-      Distributions of top 1\% rate constants after fitting the model to the
-      extrapolated curve for the distribution of time spent in scrunching and
-      abortive cycling \cite{revyakin_abortive_2006}. \textbf{B}:
-      Distributions of top 1\% rate constants after fitting the model using AP
-      values obtained in the absence of GreB. In silhouette is shown the
-      distributions from \FIG~\ref{fig:parameter_estimation_proper}A for
-      comparison.}
-      \label{fig:extrap_and_GreB_minus_fit}
+      previously estimated data.}
+      The probability distribution (in percent) of 1\% best fitting estimates
+      of total of $10^5$ random samples. The estimation procedure in this
+      figure used the extrapolated curve of \cite{revyakin_abortive_2006} and
+      not the data measurement as was shown in
+      \FIG~\ref{fig:parameter_estimation_proper}B (presented here in
+      silhouette). The dashed lines are the peaks of the histograms (see
+      Methods): blue lines from estimation using measured data
+      (\FIG~\ref{fig:parameter_estimation_proper}), and black
+      lines are from estimation using the extrapolated curve.}
+\label{fig:extrap_and_GreB_minus_fit}
 \end{figure}
 
 % 6 (prev. 7)
@@ -342,33 +351,39 @@ writing process and for sharing experimental data.
     \begin{center}
       %  \includegraphics{../figures/GreB_minus_kinetics}
     \end{center}
-    \caption{ {\bf Kinetics of FL transcript synthesis under -GreB conditions;
-            a comparison between model and measurements from Vo et
-        al.~\cite{vo_vitro_2003-1}}. To use stochastic simulations to simulate
-        the bulk experiment we simulated a sufficiently large number of
-        transcription events (1000) for which there is low variability due to
-        stochastic effects. To highlight the low variability, the mean and
-        standard deviation (shaded region) from 10 separate 1000-event
-        simulations are shown.}
+    \caption{ {\bf Kinetics of full length (FL) transcript synthesis under
+      -GreB and +GreB conditions.}
+      Comparison of the mean of 1000 model simulations (solid curve), with
+      measurements \citep[squares, ][]{vo_vitro_2003-1} of total FL transcript
+      in the presence of -GreB, and the mean of 1000 model simulations (dashed)
+      with estimated FL product in the presence of +GreB. For the +GreB case FL
+      transcript was estimated using the measured values from Revyakin et al.\
+      and adding the time needed for transcribing a 35 bp runoff sequence, the
+      same as was used in the experiments of Vo et al./
+      \cite{vo_vitro_2003-1}. The vertical stippled lines indicate the
+      half-life values. Due to the large number of stochastic transcription
+      events ($N=1000$) we simulated, variability was low, and we are able to
+      compare with the bulk experiments. The variance of the 1000 simulations
+      was $<10^{-2}$.}
   \label{fig:vo_comparison}
 \end{figure}
 
-% 7 (prev 8)
-\begin{figure}[h!]
-    \begin{center}
-      %  \includegraphics{../figures/Time_to_reach_fifty_percent_of_FL}
-    \end{center}
-    \caption{ {\bf Half-life of FL transcript synthesis for promoter variants
-        in the DG100 library}. Half-life was calculated as the time needed for
-        50\% of RNAP to reach promoter escape and subsequently complete
-        transcription of a 35 nucleotide run-off sequence
-        \cite{vo_vitro_2003-1}. For transcription of the run-off sequence, a
-        transcription rate of 11.2 seconds was used, which is the average of
-        the speed of transcription elongation found by Revyakin et al.\ for
-        positively and negatively supercoiled DNA
-        \cite{revyakin_abortive_2006}.}
-    \label{fig:dg100_halflives}
-\end{figure}
-
+% % 7 (prev 8)
+% \begin{figure}[h!]
+%     \begin{center}
+%       %  \includegraphics{../figures/Time_to_reach_fifty_percent_of_FL}
+%     \end{center}
+%     \caption{ {\bf Half-life of FL transcript synthesis for promoter variants
+%         in the DG100 library}. Half-life was calculated as the time needed for
+%         50\% of RNAP to reach promoter escape and subsequently complete
+%         transcription of a 35 nucleotide run-off sequence
+%         \cite{vo_vitro_2003-1}. For transcription of the run-off sequence, a
+%         transcription rate of 11.2 seconds was used, which is the average of
+%         the speed of transcription elongation found by Revyakin et al.\ for
+%         positively and negatively supercoiled DNA
+%         \cite{revyakin_abortive_2006}.}
+%     \label{fig:dg100_halflives}
+% \end{figure}
+% 
 \end{backmatter}
 \end{document}
