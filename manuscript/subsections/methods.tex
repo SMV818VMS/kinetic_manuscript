@@ -58,90 +58,85 @@ from raw data used to build Table 1 in Hsu et al.\ \cite{hsu_initial_2006}
 % combination to experimental data. 
 
 To estimate our rate constants, we obtained data of distribution of time spent
-in abortive cycling on the N25 promoter \cite{revyakin_abortive_2006}, consist
-of 100 individual initial transcription events. These experiments are
-inherently stochastic due to the randomness of the molecular motion, and this
-stochasticity is expressed by the large variations in the speed of
-transcription elongation \cite{adelman_single_2002,
-tolic-norrelykke_diversity_2004} . In order to combine these single molecule
-data with our bulk experiments, we modeled our kinetic simulations with the
-well-known Gillespie algorithm for stochastic simulations of chemical
-reactions \cite{gillespie_exact_1977}. More specifically, we implemented the
-version of Maarleveld et al.\ in the StocPY software
-\cite{maarleveld_stochpy:_2013}. We stress that the single molecule experiment
-data was obtained under $100\ \mu M$ NTP at 34 $^{\circ}$C
-\cite{revyakin_abortive_2006}, which is near-identical to the experimental
-conditions of the APs data  \cite{hsu_initial_2006}.
+in abortive cycling on the N25 promoter \cite{revyakin_abortive_2006},
+consisting of 100 individual initial transcription events. In these
+experiments there is an inherent stochastic component in the experimental
+outcome due to the randomness of molecular motion, as is evident from
+the large variation in the speed of transcription elongation observed in
+single-molecule experiments \cite{adelman_single_2002,
+tolic-norrelykke_diversity_2004}. To account for this randomness, we obtained
+the model kinetics using the Gillespie algorithm for stochastic simulations of
+chemical reactions \cite{gillespie_exact_1977}. Specifically, we make use the
+version implemented by Maarleveld et al.\ in the StocPY software
+\cite{maarleveld_stochpy:_2013}.
 
 The procedure for rate constant estimation (Algorithm 1, see also
 \FIG~\ref{fig:param_estimation_scheme}) is as follows: First, we assigned
 random independent values from a uniform distribution to the three rate
-constants NAC ($K_n$), promoter escape ($K_e$) and unscrunching and abortive
-RNA release ($K_u$) within certain fixed boundaries $m$ (see below). Second,
-we calculated the rate constant of backtracking $k_{b,i}$ at each nucleotide
-$i$ (Eq.~(\ref{eq:backtrackingcalc})) with the assigned $K_n$ and the APs we
-acquired from experiment data \cite{hsu_initial_2006}. With our set ${K_n,\
-K_u,\ K_e,\ K_{b,i}}$, we  simulated 100 initial transcription events
-(SEQUENCES?) (identical to the sequences of \cite{revyakin_abortive_2006} so
-we can later compare), and calculated the distribution of time spent in
-abortive cycling $T_j,\ j=1...100$. We then compared our results with the
-corresponding sequences of the empirical distribution $\hat T_j,\ k=1...100$
-\cite{revyakin_abortive_2006} by using the root mean square error (RMSE):
-
-\begin{equation}
-   RMSE=\sqrt{\frac{\Sigma_{j=1}^{100}(\hat T_j-T_j)^2}{100}}
-\end{equation}
-
-We repeat this procedure, but narrowing the boundaries $m$ that we allow the
-parameters to vary, and in this manner, we narrow the search and fine tune the
-estimation. Since our simulations incorporate stochasticity in the random
-choice of initial parameters and the Gillespie algorithm, the parameters we
-estimate and the duration of abortive cycling are not deterministic, and thus
-we choose from the resulting distribution of values the ones that best fit the
-observations.
+constants NAC ($k_n$), promoter escape ($k_e$) and unscrunching and abortive
+RNA release ($k_u$) within certain fixed boundaries (see below). Second,
+we calculated the rate constant of backtracking $k_{b,i}$ at each position
+$i$ (Eq.~(\ref{eq:backtrackingcalc})) with the assigned $k_n$ and the APs we
+acquired from experiment data \cite{hsu_initial_2006}. With our set ${k_n,\
+k_u,\ k_e,\ k_{b,i}}$, we simulated 100 initial transcription events and
+calculated the distribution of time spent in abortive cycling $T_j,\
+j=1...100$. We then compared our results with the corresponding empirical
+distribution $\hat T$ \cite{revyakin_abortive_2006} using the root mean
+square error (RMSE). Since we use of stochastic simulations there is no unique
+set of rate constants that best fit the data. We find the best fitting rate
+constants by filtering for the best-fitting simulations and calculating the
+weighted mean of the resulting parameter distributions.
 
 \begin{algorithm}[htb]
 \newcommand{\forcond}{$i=0$ \KwTo $n$}
 \SetKwFunction{FRecurs}{FnRecursive}%
 %\DontPrintSemicolon
 \SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
- \Input{Data of abortive probability AP \cite{hsu_initial_2006}, Data of abortive cycle duration \cite{revyakin_abortive_2006}}
+ \Input{Abortive probabilities AP \cite{hsu_initial_2006}, distribution of
+   time spent in abortive cycling \cite{revyakin_abortive_2006}}
  \BlankLine
-   CHOOSE boundary $m$ \;
-   INIT $T_1=m$, $T_2=m$, $T_3=m$ \; 
-   \Repeat{estimation tolerance achieved}{
-      \For{K:=1 to number of iterations (e.g. 1000000)}{
-         SET random $K_u\sim  \mathcal{U}(1,T_1)$, random $K_n\sim \mathcal{U}(1,T_2)$, random $K_e\sim \mathcal{U}(1,T_3)$\; 
-         \For{i:=1 to sequence length}{
-            CALCULATE $k_{b,i}$ using the input data AP$_i$ at the nucleotide $i$ (eq. \ref{eq:backtrackingcalc})\;
-         }
-         \For{j:=1 to number of simulations (e.g. 100)}{
-            CALCULATE duration of abortive cycling $T_j$ (eq. XXX JORGEN)\;
-         } 
-         DETERMINE $\hat T_j$ from the input data \;
-         CALCULATE RMSE error, (eq. XXX) \;
-         \If{ RMSE $<\epsilon$ }{STORE $T_{1..3}(k)$, $K_u(k)$, $K_n(k)$ and $K_e(k)$ \;}
-      } \
-      UPDATE duration times $T_1,\ T_2$, and $T_3$ to the values $T(k)$ stored \;  
-   } \
-   \Output{$K_u$, $K_n$, $K_e$ and $K_{b,i}$. }
+   DETERMINE $\hat T$ from the input data \;
+   CHOOSE boundaries $B_1$, $B_2$, $B_3$ \; 
+    \For{l:=1 to number of iterations (e.g. 1000000)}{
+       SET random $k_u\sim  \mathcal{U}(B_1)$, random $k_n\sim
+       \mathcal{U}(B_2)$, random $k_e\sim \mathcal{U}(B_3)$\; 
+       \For{i:=1 to sequence length}{
+          CALCULATE $k_{b,i}$ using input data AP$_i$ (eq. \ref{eq:backtrackingcalc})\;
+       }
+       \For{j:=1 to number of simulations (e.g. 100)}{
+          CALCULATE duration of abortive cycling $T_j$ \;
+       } 
+       CALCULATE RMSE($T$, $\hat T$) \;
+    }\
+    FILTER top 1\% of simulation results \;
+    UPDATE boundaries $B_1,\ B_2$, and $B_3$ \;  
+    \For{l:=1 to number of iterations (e.g. 1000000)}{
+       SET random $k_u\sim  \mathcal{U}(B_1)$, random $k_n\sim
+       \mathcal{U}(B_2)$, random $k_e\sim \mathcal{U}(B_3)$\; 
+       \For{i:=1 to sequence length}{
+          CALCULATE $k_{b,i}$ using input data AP$_i$ (eq. \ref{eq:backtrackingcalc})\;
+       }
+       \For{j:=1 to number of simulations (e.g. 100)}{
+          CALCULATE duration of abortive cycling $T_j$ \;
+       } 
+       CALCULATE RMSE($T$, $\hat T$) \;
+    }\
+   CALCULATE optimal parameters from weighted mean of top 1\% of rate constant
+   distribution\;  
+   \Output{$k_u$, $k_n$, $k_e$ and $k_{b,i}$}
 \caption{Parameter estimation}
 \end{algorithm}
 
-The boundaries $m$ of the rate constants were estimated from experiments. We
-restricted the lowest speed of the  initial transcription NAC to 3 nt/s, since
-??XX I DID NOT AGREE\ UNDERSTAND YOUR EXPLANATION....  2.5 seconds as the
-shortest duration of abortive cycling \cite{revyakin_abortive_2006} to cover
-the $\sim 11$ nts required for promoter escape on N25. We restricted the upper
-NAC initial values to 25 nt/s, the upper limit of transcription elongation
-speed measured \cite{bai_mechanochemical_2007}, but it is unlikely that the
-speed of promoter-bound transcription is faster than transcription elongation
-due to RNA stress and scrunching \cite{revyakin_abortive_2006}. For
-backtracking and abortive RNA release, $K_u$, it is known that the rate
-constant must be faster than 1/s, since this was the time-resolution of
-experimental equipment which could not resolve this value
-\cite{revyakin_abortive_2006} I DONT UNDERSTAND THIS ARGUMENT: RATE CONSTANT
-MUST BE >1 BECAUSE EXPERIMENTAL EQUIPMENT THAT COULD NOT RESOLVE THIS VALUE?
-To explore possible values for all rate constants equally, we set the minimum
-and maximum values of all rate constants to be 1/s and 25/s, respectively. 
-
+The boundaries for rate constant values were set based on extrema from
+experimental findings. The processes of promoter escape and backtracking and
+abortive RNA release were not resolved using experimental equipment with a
+resolution of 1/s \cite{revyakin_abortive_2006}, indicating that these
+processes are faster than this. The shortest time reported for reaching
+promoter escape on N25 was 2.5 s \cite{revyakin_abortive_2006}, which
+indicates that the speed of the NAC is at least 4.5 nt/s, corresponding to an
+initiating complex that reaches promoter escape without backtracking on the 11
+bps needed for N25 to reach promoter escape. The speed of transcription is not
+likely to be higher than 25 nt/s, corresponding to the upper limit of measured
+for transcription elongation \cite{bai_mechanochemical_2007}. To explore
+possible values for all rate constants equally, we set the minimum and maximum
+values of all rate constants to be 1/s and 25/s, respectively.
