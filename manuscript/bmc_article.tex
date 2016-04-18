@@ -246,14 +246,14 @@ writing process and for sharing experimental data.
 
 % if your bibliography is in bibtex format, use those commands:
 \bibliographystyle{bmc-mathphys} % Style BST file (bmc-mathphys, vancouver, spbasic).
-%\bibliography{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk_abr_nodot.bib}
+\bibliography{/home/jorgsk/Dropbox/phdproject/bibtex/jorgsk_abr_nodot.bib}
 
 \section*{Figures}
 
 %1 
 \begin{figure}[h!]
     \begin{center}
-     % \includegraphics{../illustrations/model_and_rates_mini}
+      %\includegraphics{../illustrations/model_and_rates_mini}[scale=0.2]
     \end{center}
   \caption{{\bf Kinetic model of initial transcription on the N25 promoter.}
     From the open complex (OC) transcription proceeds by NACs from one initial
@@ -266,13 +266,14 @@ writing process and for sharing experimental data.
     unscrunching and abortive RNA release. We denote the rate constants for
     the processes as $k_n$ (NAC), $k_e$ (promoter)
     escape, $k_u$ (unscrunching and abortive RNA release), and $k_{b,i}$ 
-    (backtracking at position $i$).} \label{fig:model_and_rates}
+    (backtracking at position $i$).}
+    \label{fig:model_and_rates}
 \end{figure}
 
 % 2
 \begin{figure}[h!]
     \begin{center}
-     % \includegraphics{../illustrations/concept.pdf}
+      %\includegraphics{../illustrations/concept.pdf}[scale=0.2]
     \end{center}
   \caption{ {\bf Parameter estimation protocol.}
     From left to right: we assign random values from the uniform distribution,
@@ -284,16 +285,16 @@ writing process and for sharing experimental data.
     and calculate cumulative distribution of time $T_j,\ j=\{1....100\}$ spent
     in abortive cycling. At the next stage, we compare the root square mean
     error (RMSE) of our results with the cumulative distribution from measured
-    data $\hat T$ obtained from \cite{revyakin_abortive_2006}.  We repeat the
+    data $\hat T$ obtained from \cite{revyakin_abortive_2006}. We repeat the
     procedure in a Monte-Carlo fashion and select the parameters set that
-  yield lowest RMSE.}
+    yield lowest RMSE.}
     \label{fig:param_estimation_scheme}
 \end{figure}
 
 % 3
 \begin{figure}[h!]
 \begin{center}
-      %\includegraphics{../figures/coarse_and_finegrain_search_GreB_no_extrap}
+      %\includegraphics{../figures/Fig3}[scale=0.2]
     \end{center}
   \caption{{\bf Results of parameter estimation with two iterations (A and
       B).}
@@ -314,7 +315,7 @@ writing process and for sharing experimental data.
 % 4 
 \begin{figure}[h!]
     \begin{center}
-     % \includegraphics{../figures/scrunch_times_cumulative_}
+      %\includegraphics{../figures/Fig4}[scale=0.2]
     \end{center}
   \caption{{\bf Comparison of model predictions of time spent in abortive
   cycling with measurements and previous estimates.}
@@ -326,30 +327,29 @@ writing process and for sharing experimental data.
 \end{figure}
 
 
-% 5 (previsouly 6)
+% 5 
 \begin{figure}[h!]
     \begin{center}
-    %  \includegraphics{../figures/coarse_search-fits_2_3}
+      %\includegraphics{../figures/Fig6}[scale=0.2]
     \end{center}
     \caption{
       {\bf Rate constant distributions obtained by fitting the model to
-      previously estimated data.}
-      The probability distribution (in percent) of 1\% best fitting estimates
+      GreB-inconsistent experimental data.}
+      The distribution (in percent) of the 1\% best fitting estimates
       of total of $10^5$ random samples. The estimation procedure in this
-      figure used the extrapolated curve of \cite{revyakin_abortive_2006} and
-      not the data measurement as was shown in
-      \FIG~\ref{fig:parameter_estimation_proper}B (presented here in
-      silhouette). The dashed lines are the peaks of the histograms (see
-      Methods): blue lines from estimation using measured data
+      figure used $k_{b,i}$ calculated from GreB- APs. The result obtained
+      with GreB+ APs (\FIG~\ref{fig:parameter_estimation_proper}B is presented here in
+      silhouette. The dashed lines are the weighed means of the distribution:
+      blue lines from estimation using measured data
       (\FIG~\ref{fig:parameter_estimation_proper}), and black
-      lines are from estimation using the extrapolated curve.}
-\label{fig:extrap_and_GreB_minus_fit}
+      lines are from estimation using inconsistent experimental data}
+\label{fig:GreB_minus_fit}
 \end{figure}
 
-% 6 (prev. 7)
+% 6 
 \begin{figure}[h!]
     \begin{center}
-      %  \includegraphics{../figures/GreB_minus_kinetics}
+        %\includegraphics{../figures/Fig7}[scale=0.2]
     \end{center}
     \caption{ {\bf Kinetics of full length (FL) transcript synthesis under
       -GreB and +GreB conditions.}
@@ -368,22 +368,19 @@ writing process and for sharing experimental data.
   \label{fig:vo_comparison}
 \end{figure}
 
-% % 7 (prev 8)
-% \begin{figure}[h!]
+% Supplementary figure.
+% \begin{figure}[h]
 %     \begin{center}
-%       %  \includegraphics{../figures/Time_to_reach_fifty_percent_of_FL}
+%       \includegraphics{../illustrations/estimated_parameters_filled}
 %     \end{center}
-%     \caption{ {\bf Half-life of FL transcript synthesis for promoter variants
-%         in the DG100 library}. Half-life was calculated as the time needed for
-%         50\% of RNAP to reach promoter escape and subsequently complete
-%         transcription of a 35 nucleotide run-off sequence
-%         \cite{vo_vitro_2003-1}. For transcription of the run-off sequence, a
-%         transcription rate of 11.2 seconds was used, which is the average of
-%         the speed of transcription elongation found by Revyakin et al.\ for
-%         positively and negatively supercoiled DNA
-%         \cite{revyakin_abortive_2006}.}
-%     \label{fig:dg100_halflives}
+%     \caption{ {\bf Estimated rate constants for initial transcription on the N25
+%       promoter.} The rate constants for the NAC and unscrunching and abortive
+%       RNA release were obtained by parameter estimation (see text). The values
+%       for backtracking were calculated from the value of the NAC and position
+%       specific APs using equation \eqref{eq:backtrackingcalc}. Rate constants
+%       for backtracking calculated for -GreB APs are given in parenthesis.}
+%     \label{fig:estimated_parameters}
 % \end{figure}
-% 
+
 \end{backmatter}
 \end{document}

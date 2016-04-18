@@ -6,39 +6,38 @@ reactions: i) the NAC, ii) backtracking, iii) unscrunching and abortive RNA
 release (UAR), and iv) promoter escape (\FIG~\ref{fig:model_and_rates}).  We
 refer to backtracking here only as the first unscrunching step, also known as
 backstepping. The model employs the average value for the rate constant of
-initial transcription, while the rate constants for the other processes are
-template position specific. The rate constants for these reactions are found
-through fitting the model to experimental data. To more precicely identify the
-rate constant for backtracking, we make use of APs calculated from
-experimental data \cite{hsu_quantitative_1996}. We assume that the probability
-to abortively release a transcript reflects the probability of backtracking
-from a template position corresponding to the transcript length. Combining
-this with the fact that backtracking and the NAC are in kinetic competition
-(\FIG~\ref{fig:model_and_rates}) we get
+NAC, while the rate constants for the other processes are template position
+specific. The rate constants in the model are found through fitting the
+model to experimental data. To more precicely identify the rate constant for
+backtracking, we make use of additional information in the form of APs
+calculated from experimental data \cite{hsu_quantitative_1996}. We assume that
+the probability to abortively release a transcript reflects the probability of
+backtracking from a template position corresponding to the aborted transcript
+length. Combining this with the fact that backtracking and the NAC are in
+kinetic competition (\FIG~\ref{fig:model_and_rates}) we get
 \begin{equation*}
   \frac{k_{b,i}}{k_{b,i} + k_n} = \text{AP}_i,
 \end{equation*}
 where subscript $i$ indicates position, AP$_i$ is abortive probability, and
 $k_n$ and $k_{b,i}$ are the rate constants of the nucleotide addition cycle
-and backtracking, respectively. Rearranging, we get the expression for the
+and backtracking, respectively. Rearranging, we get an expression for the
 rate constant of backtracking:
 \begin{equation}
   k_{b,i} = \frac{k_n\cdot\text{AP}_i}{1-\text{AP}_i}.
   \label{eq:backtrackingcalc}
 \end{equation}
 
-As commonly assumed \cite{xue_kinetic_2008,tang_real-time_2009}, we consider 
+As commonly assumed \cite{xue_kinetic_2008,tang_real-time_2009}, we consider
 backtracking as the only mechanism that leads to the release of an abortive
-RNA during initial transcription on native N25. Abortive RNAs may also be released
-via hyper forward translocation in addition to backtracking, but this was only
-observed for long abortive transcripts ($>$~16 nt) in N25 promoter mutation
-variants \cite{chander_alternate_2007, chander_mechanisms_2015}, and not for
-native N25 \cite{chander_alternate_2007}. The model does not permit RNAP to
-enter long backtracked pauses, which have been observed for transcription
-elongation \cite{shaevitz_backtracking_2003}. This is consistent with the
-experimental data we use for rate constant estimation where GreB was included
-in the experiments to avoid long backtracked pauses
-\cite{revyakin_abortive_2006}.
+RNA during initial transcription. Abortive RNAs may also be released via hyper
+forward translocation in addition to backtracking, but this was only observed
+for long abortive transcripts ($>$~16 nt) in N25 promoter mutation variants
+\cite{chander_alternate_2007, chander_mechanisms_2015}, and not for native N25
+\cite{chander_alternate_2007}. The model does not permit RNAP to enter long
+backtracked pauses, which have been observed for transcription elongation
+\cite{shaevitz_backtracking_2003}. This is consistent with the experimental
+data we use for rate constant estimation where GreB was included in the
+experiments to avoid long backtracked pauses \cite{revyakin_abortive_2006}.
 
 The transcription data used for rate constant estimation and model evaluation
 have been obtained under comparable conditions: $100\ \mu M$ NTP at 37
@@ -59,7 +58,7 @@ from raw data used to build Table 1 in Hsu et al.\ \cite{hsu_initial_2006}
 
 To estimate our rate constants, we obtained data of distribution of time spent
 in abortive cycling on the N25 promoter \cite{revyakin_abortive_2006},
-consisting of 100 individual initial transcription events. In these
+derived from 100 individual initial transcription events. In these
 experiments there is an inherent stochastic component in the experimental
 outcome due to the randomness of molecular motion, as is evident from
 the large variation in the speed of transcription elongation observed in
@@ -67,24 +66,23 @@ single-molecule experiments \cite{adelman_single_2002,
 tolic-norrelykke_diversity_2004}. To account for this randomness, we obtained
 the model kinetics using the Gillespie algorithm for stochastic simulations of
 chemical reactions \cite{gillespie_exact_1977}. Specifically, we make use the
-version implemented by Maarleveld et al.\ in the StocPY software
-\cite{maarleveld_stochpy:_2013}.
+version implemented in the StocPY software \cite{maarleveld_stochpy:_2013}.
 
 The procedure for rate constant estimation (Algorithm 1, see also
-\FIG~\ref{fig:param_estimation_scheme}) is as follows: First, we assigned
+\FIG~\ref{fig:param_estimation_scheme}) is as follows: first, we assigned
 random independent values from a uniform distribution to the three rate
 constants NAC ($k_n$), promoter escape ($k_e$) and unscrunching and abortive
 RNA release ($k_u$) within certain fixed boundaries (see below). Second,
 we calculated the rate constant of backtracking $k_{b,i}$ at each position
-$i$ (Eq.~(\ref{eq:backtrackingcalc})) with the assigned $k_n$ and the APs we
+$i$ (Eq.~(\ref{eq:backtrackingcalc})) with the assigned $k_n$ and the APs 
 acquired from experiment data \cite{hsu_initial_2006}. With our set ${k_n,\
 k_u,\ k_e,\ k_{b,i}}$, we simulated 100 initial transcription events and
 calculated the distribution of time spent in abortive cycling $T_j,\
-j=1...100$. We then compared our results with the corresponding empirical
+j=1,...,100$. We then compared our results with the corresponding empirical
 distribution $\hat T$ \cite{revyakin_abortive_2006} using the root mean
-square error (RMSE). Since we use of stochastic simulations there is no unique
+square error (RMSE). Since we use stochastic simulations there is no unique
 set of rate constants that best fit the data. We find the best fitting rate
-constants by filtering for the best-fitting simulations and calculating the
+constants by selecting the best-fitting simulations and calculating the
 weighted mean of the resulting parameter distributions.
 
 \begin{algorithm}[htb]
