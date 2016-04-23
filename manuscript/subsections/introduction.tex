@@ -16,27 +16,28 @@ escape, which occurs when the nascent RNA has
 reached 8-15 nt in length, \cite{carpousis_cycling_1980,
 hsu_vitro_2003, tang_real-time_2009, hsu_initial_2006}, or through abortive
 release of the RNA. Abortive RNA release is thought to follow after RNAP has
-backtracked, a reverse motion where RNAP releases scrunched
+backtracked, a reverse motion where RNAP reverse translocates, and releases the scrunched
 DNA (also known as unscrunching) \cite{hsu_escherichia_1995,
 feng_grea-induced_1994, hsu_initial_2006}. After abortive RNA release, RNAP
 falls back to the open complex formation where transcription may be
 re-initiated \cite{carpousis_cycling_1980}. The extent of repeated RNA
-synthesis and abortive release, together known as abortive cycling, varies
-depending on the sequence context of both the core promoter region and the
-initial transcribed sequence \cite{hsu_initial_2006, hsu_promoter_2002,
+synthesis and abortive release (together known as abortive cycling) varies
+depending on the promoter and the
+initial transcribed sequences \cite{hsu_initial_2006, hsu_promoter_2002,
 vo_vitro_2003, skancke_sequence-dependent_2015}. Regardless of sequence
-context, the extent of abortive RNA release tends to be reduced in the
+context, abortive RNA release is reduced in the
 presence of GreB, a protein factor which stimulates RNA cleavage in
 backtracked complexes \cite{hsu_initial_2006}.
 
 While much has been discovered about the individual reaction steps of initial
 transcription in bacteria, a detailed description of the kinetics of the
-process is lacking. An interesting aspect of the kinetics of initial
-transcription is that transcription is performed by an RNAP that is tethered to
-DNA and is strained from accommodating an enlarged and growing DNA bubble.
+process is lacking. More specifically, little is known about how the kinetics
+of transcription differs between promoter-bound and promoter-free RNAP. An
+interesting aspect of the kinetics of initial transcription is that
+transcription is performed by an RNAP that is tethered to
+DNA and is subjected to strain from the growing DNA bubble.
 This is in contrast to elongation, where RNAP transcribes with a fixed DNA
-bubble, moving along a DNA template. Little is known about how the kinetics of
-transcription differs between promoter-bound and promoter-free RNAP. Early
+bubble size, moving along a DNA template. Early
 work on initial transcription kinetics identified abortive cycling as the rate
 limiting step for full length RNA production on short templates
 \cite{stefano_lac_1979, munson_abortive_1981}. Recent knowledge has come
@@ -53,25 +54,25 @@ initial transcription are slow steps relative to forward translocation and RNA
 synthesis \cite{revyakin_abortive_2006, margeat_direct_2006}. And while the
 individual reaction steps have been too fast to measure, Revyakin et al.\ has
 quantified the total time RNAP spends scrunching before reaching promoter
-escape \cite{revyakin_abortive_2006}; on the N25 promoter, RNAP was measured
-to spend between 2.5 and 20 seconds abortively cycling over 11 bp of DNA before
-achieving promoter escape \cite{revyakin_abortive_2006}. Abortive cycles, or
-single scrunch-events that lead directly to promoter escape, shorter than 2.5
-seconds were not measured, but were proposed based on extrapolation of data to
-follow an exponential fit \cite{revyakin_abortive_2006}.
+escape \cite{revyakin_abortive_2006}; on N25 promoters, RNAP spends between 2.5
+and 20 seconds in abortive cycling over 11 bp of DNA before achieving promoter
+escape \cite{revyakin_abortive_2006}. Abortive cycles, or single scrunch-events
+that lead directly to promoter escape, shorter than 2.5 seconds were not
+measured, but were proposed based on extrapolation of data to follow an
+exponential fit \cite{revyakin_abortive_2006}. Despite this quantitive
+information, few kinetic models of transcription initiation exist. Moreover,
+none use experimental data from bacterial initiation transcription to estimate
+their rate constants. Tang et al.\ estimated rate constants ranging from 6
+s$^{-1}$ to 60 s$^{-1}$ for T7 RNAP \cite{tang_real-time_2009}, but since this
+RNAP is structurally different from bacterial RNAP it is unclear how their
+results relate to bacterial transcription initiation.
 
-No kinetic models of bacterial RNAP have been published that use experimental
-data to estimate rate constants during initial transcription. Tang et al.
-have estimated rate constants ranging from 6 s$^{-1}$ to 60 s$^{-1}$ for
-initial transcription by T7 RNAP \cite{tang_real-time_2009}. Since T7 RNAP is
-structurally different from bacterial RNAP, it is not clear how this
-corresponds to transcription initiation in bacteria. Xue et al. published a
-kinetic model for initial transcription for bacterial RNAP, but did not fit
-the model's parameters to experimental data, instead relying on model
-parameters obtained from transcription elongation data
-\cite{xue_kinetic_2008}. This highlights the need for a model that can
-identify the rate constants of initial transcription in bacterial RNAP based
-on relevant experimental data.
+Xue et al.\ published a kinetic model for initial transcription for bacterial
+RNAP, but did not fit the model's parameters to experimental data, instead
+relying on model parameters obtained from transcription elongation
+\cite{xue_kinetic_2008}, not initiation. This highlights the need for a model
+that can identify the rate constants of initial transcription in bacterial RNAP
+based on relevant experimental data.
 
 While single-molecule experiments have revealed highly detailed information
 about the movement and position of single RNAPs during initial transcription,
@@ -82,10 +83,10 @@ abortive transcript of a given length, known as the abortive probability
 (AP) \cite{hsu_promoter_2002, hsu_quantitative_1996}. Since abortive RNA
 release is thought to follow from backtracking, the APs provide a
 position-specific indication of the likelihood to backtrack during initial
-transcription. In the present study, we have used a kinetic model of initial
-transcription by \textit{E.\ coli} RNAP to find the rate constants of initial
-transcription using a novel method that combines the APs obtained from steady
-state bulk experiments with the time-distribution of abortive cycling from
+transcription. In the present study, we have developed a kinetic model of initial
+transcription of \textit{E.\ coli} RNAP and estimated its rate constants using
+a novel method that combines the APs obtained from steady state bulk
+experiments with the time-distribution of abortive cycling from
 single-molecule experiments. With this method, we inferred the speed of
 initial transcription (i.e.\ the rate constant of the nucleotide addition
 cycle (NAC)) and the rate constant for unscrunching and abortive RNA release.
@@ -93,7 +94,7 @@ Our results indicate two important notions: 1) the average speed transcription
 is similar for promoter-bound RNAP and elongating RNAP following promoter
 escape, and 2) the rate of the NAC is 10 times faster than unscrunching and
 abortive RNA release, in agreement previous experimental evidence. We
-additionally predict a non-exponential shape of the distribution of abortive
-cycles lasting shorter than 2.5 seconds which accounts for the $\sim1$ second
+additionally predicted a non-exponential shape of the distribution of abortive
+cycles shorter than 2.5 seconds, cycles that correspond to the $\sim1$ second
 required by RNAP to synthesize an RNA of sufficient length to undergo promoter
 escape.
