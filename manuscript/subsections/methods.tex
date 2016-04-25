@@ -5,8 +5,8 @@ Our model describes the process of initial transcription through the following
 reactions: i) the NAC, ii) backtracking, iii) unscrunching and abortive RNA
 release (UAR), and iv) promoter escape (\FIG~\ref{fig:model_and_rates}).  We
 refer to backtracking here only as the first unscrunching step, also known as
-backstepping. The model assumes an average value for the rate constant of
-NAC, whereas the rate constants for the other processes are template position
+backstepping. The model assumes an average value for the rate constants of the
+NAC and UAR, whereas the rate constants for backtracking are template position
 specific. The rate constants in the model are found through fitting the
 model to experimental data. We exploited APs values obtained from expriments
 \cite{hsu_quantitative_1996} to identify the rate constant for
@@ -58,12 +58,12 @@ Hsu).
 % combination to experimental data. 
 
 To estimate our rate constants, we obtained data of distribution of time spent
-in abortive cycling on the N25 promoter \cite{revyakin_abortive_2006},
-derived from 100 individual initial transcription events. In these
-experiments there is an inherent stochastic component in the experimental
-outcome due to the randomness of molecular motion, as is evident from
-the large variation in the speed of transcription elongation observed in
-single-molecule experiments \cite{adelman_single_2002,
+in in scrunching and abortive cycling on the N25 promoter
+\cite{revyakin_abortive_2006}, derived from 100 individual initial
+transcription events. In these experiments there is an inherent stochastic
+component in the experimental outcome due to the randomness of molecular
+motion, as is evident from the large variation in the speed of transcription
+elongation observed in single-molecule experiments\cite{adelman_single_2002,
 tolic-norrelykke_diversity_2004}. To account for this randomness, we obtained
 the model kinetics using the Gillespie algorithm for stochastic simulations of
 chemical reactions \cite{gillespie_exact_1977}. Specifically, we make use the

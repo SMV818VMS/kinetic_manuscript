@@ -6,31 +6,31 @@ We identified the rate constants for initial transcription using a two-step
 method (see Methods). We found in the first step that the rate constant for
 NAC is greater than 6/s; that the rate constant for unscrunching and abortive
 RNA release lies between 1/s and 3/s; and that the rate constant for promoter
-escape should be greater than 2.3/s
-(\FIG~\ref{fig:parameter_estimation_proper}A). The distribution for the
+escape is greater than 2.3/s
+(\FIG~\ref{fig:parameter_estimation_two_iterations}A). The distribution for the
 promoter escape rate constant (right panel) did not exhibit any optimal peak,
 which indicates that the time that RNAP spends in abortive cycling is not
 sensitive to the rate constant for promoter escape. This is reasonable since
 the reaction for promoter escape occurs downstream the sequence and does not
 affect the duration of abortive cycling.   
 
-In the second step, we varied the rate constants for NAC between 6/s and 14/s,
-and UAR between 1/s and 3/s, based on the distributions of these values from
-the first step (\FIG~\ref{fig:parameter_estimation_proper}A). Because it did
-not affect abortive cycling, we fixed rate constant of promoter escape to
-20/s. The top 1\% best fitting results from the second round of rate constant
-estimation resulted in clear peaks in the distributions for both rate
-constants. The rate constant for the NAC showed a peak at 10.6/s
-(\FIG~\ref{fig:parameter_estimation_proper}B), consistent with the measured
+In the second step, we varied the rate constant for the NAC between 6/s and
+14/s, and UAR between 1/s and 3/s, based on the distributions of these values
+from the first step (\FIG~\ref{fig:parameter_estimation_two_iterations}A). Because it
+did not affect abortive cycling, we fixed the rate constant of promoter escape
+to 20/s. The top 1\% best fitting results from the second round of estimation
+resulted in clear peaks in the distributions for both rate constants. The rate
+constant for the NAC showed a peak at 10.6/s
+(\FIG~\ref{fig:parameter_estimation_two_iterations}B), consistent with the measured
 speed of elongating RNAP (9.2 nt/s on positively supercoiled DNA and 13.3 nt/s
-on negatively supercoiled DNA \cite{revyakin_abortive_2006}). The rate
-constant for UAR peaked at 1.4/s, nearly 10 times slower than the NAC. This
-low value is consistent with experimental evidence, suggesting that
-unscrunching and abortive RNA release are rate limiting for initial
+on negatively supercoiled DNA \cite{revyakin_abortive_2006}). The rate constant
+for UAR peaked at 1.4/s, nearly 10 times slower than the NAC. This low value is
+consistent with experimental evidence, suggesting that unscrunching and
+abortive RNA release are rate limiting for initial
 transcription~\cite{revyakin_abortive_2006, margeat_direct_2006}. Overall, the
-rate constants we estimated resulted in an accurate predictive model where
-most experimental measurements fell within one standard deviation of the mean
-model prediction (\FIG~\ref{fig:revyakin_fit}). 
+rate constants we estimated resulted in an accurate predictive model where most
+experimental measurements fell within one standard deviation of the mean model
+prediction (\FIG~\ref{fig:revyakin_fit}). 
 
 \SUBSECTION{Short duration scrunching does not follow an exponential distribution}
   
@@ -82,13 +82,10 @@ test of validity.
 The comparison of the model predictions (blue solid line in
 \FIG~\ref{fig:vo_comparison}) to the measured -GreB data (squares) indicate
 the estimated rate constants (obtained from +GreB data) are valid also for
-transcription initiation in the absence of GreB. The rate constants of
-backtracking associated with -GreB AP values are given in
-\FIG~\ref{fig:estimated_parameters} (Supplementary Figures). The model
+transcription initiation in the absence of GreB. The model
 predicted the half-life of full length transcript synthesis in -GreB
-conditions to be 17.4 s. In comparison, a half-life of 7.0 seconds was
-obtained for full length transcript synthesis for +GreB conditions
-(\FIG~\ref{fig:vo_comparison}). 
+conditions to be 17.4 s. In comparison, this value was 7.0 seconds under +GreB
+conditions (\FIG~\ref{fig:vo_comparison}). 
 
 \SUBSECTION{Model parameter estimation requires correct combination of
 experimental data for fitting}
@@ -101,8 +98,8 @@ datasets obtained in +GreB and -Greb conditions) should not lead to plausible
 results. To test our hypothesis, we re-estimated the kinetic parameters of the
 model, now using -GreB APs \cite{hsu_initial_2006} instead of the +GreB APs
 while we kept the same $\hat T_j$ data from Revyakin et al.\ (right dataset in
-\FIG~\ref{fig:param_estimation_scheme}). The resulted distributions were
-significantly (Wilcoxon test, $p<10^{-10}$) different compared to the
+\FIG~\ref{fig:param_estimation_scheme}). The resulting distributions were
+significantly different (Wilcoxon test, $p<10^{-10}$) compared to the
 consistent +GreB case (\FIG~\ref{fig:GreB_minus_fit}), with the mean
 distributions of unscrunching and abortive RNA release ($k_u$) moved from
 1.5/s (original blue dash vertical line) to 17.3/s (gray dash line) and the
